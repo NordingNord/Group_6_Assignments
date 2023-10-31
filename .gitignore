@@ -26,3 +26,4 @@ vivado*.str
 .ubuntu_built
 .boot_packaged
 .rootfs_packaged
+*.xsa
