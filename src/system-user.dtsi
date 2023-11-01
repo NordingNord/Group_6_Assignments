@@ -3,7 +3,27 @@
     chosen { 
         bootargs = "earlycon console=ttyPS0,115200 clk_ignore_unused root=/dev/mmcblk0p2 rw rootwait cma=512M uio_pdrv_genirq.of_id=generic-uio"; 
     };
+    reserved-memory {
+    	#address-cells = <2>;
+    	#size-cells = <2>;
+    	ranges;
+    	
+    	reserved: buffer@0 {
+    		compatible = "shared-dma-pool";
+    		no-map;
+    		reg = <0x0 0x70000000 0x0 0x01000000>;
+    	};
+    };
+    
+    reserved-driver@0 {
+    	// compatible = "xlnx,reserved-memory";
+    	compatible = "generic-uio";
+    	memory-region = <&reserved>;
+    };
 };
 
 // Custom IP map to UIO
 
+&axi_dma_0 {
+	compatible = "generic-uio";
+};
