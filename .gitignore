@@ -27,3 +27,4 @@ vivado*.str
 .boot_packaged
 .rootfs_packaged
 *.xsa
+*.xsa
