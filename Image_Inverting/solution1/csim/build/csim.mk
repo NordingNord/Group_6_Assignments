@@ -16,7 +16,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../Downloads/example_hls_tb.cpp ../../../../Downloads/example_hls.cpp
+HLS_SOURCES = ../../../../../Downloads/example_hls_tb.cpp
 
 override TARGET := csim.exe
 
@@ -68,14 +68,8 @@ all: $(TARGET)
 
 
 
-$(ObjDir)/example_hls_tb.o: ../../../../Downloads/example_hls_tb.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../Downloads/example_hls_tb.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/example_hls_tb.o: ../../../../../Downloads/example_hls_tb.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../../Downloads/example_hls_tb.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/example_hls_tb.d
-
-$(ObjDir)/example_hls.o: ../../../../Downloads/example_hls.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../Downloads/example_hls.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
-
--include $(ObjDir)/example_hls.d

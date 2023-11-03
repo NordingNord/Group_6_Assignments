@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
+    <originFiles name="example_hls.cpp" path="/home/benjamin/Group_6_Assignments/example_hls.cpp"/>
     <originFiles name="example_hls.cpp" path="/home/benjamin/Downloads/example_hls.cpp"/>
   </source>
   <testbench>

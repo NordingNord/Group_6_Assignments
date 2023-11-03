@@ -5,8 +5,8 @@
 ############################################################
 open_project Image_Inverting
 set_top example
-add_files Downloads/example_hls.cpp
-add_files -tb Downloads/example_hls_tb.cpp
+add_files example_hls.cpp
+add_files -tb ../Downloads/example_hls_tb.cpp
 open_solution "solution1" -flow_target vivado
 set_part {xczu3eg-sbva484-1-e}
 create_clock -period 10 -name default
