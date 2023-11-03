@@ -1,0 +1,27 @@
+
+
+================================================================
+== Synthesis Summary Report of 'example'
+================================================================
++ General Information: 
+    * Date:           Fri Nov  3 14:47:17 2023
+    * Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)
+    * Project:        AXI_Master
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu3eg-sbva484-1-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----+-----------+-----------+-----+
+    |       Modules      |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |         |    |           |           |     |
+    |       & Loops      |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   | DSP|     FF    |    LUT    | URAM|
+    +--------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----+-----------+-----------+-----+
+    |+ example           |  Timing|   0.00|        -|          -|         -|        -|     -|        no|  3 (~0%)|   -|  960 (~0%)|  1327 (1%)|    -|
+    | o Loop 1           |       -|  -7.30|        -|          -|         3|        1|     -|       yes|        -|   -|          -|          -|    -|
+    | o VITIS_LOOP_38_1  |       -|  -7.30|      127|  1.270e+03|         2|        1|   127|       yes|        -|   -|          -|          -|    -|
+    | o Loop 3           |       -|  -7.30|      128|  1.280e+03|         3|        1|   127|       yes|        -|   -|          -|          -|    -|
+    +--------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----+-----------+-----------+-----+
+
