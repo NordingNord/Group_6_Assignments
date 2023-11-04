@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'example'" level="0">
-<item name = "Date">Fri Nov  3 14:47:17 2023
+<item name = "Date">Sat Nov  4 23:32:52 2023
 </item>
 <item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
 <item name = "Project">AXI_Master</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">4, ?, 40.000 ns, ?, 5, ?, none</column>
+<column name="">1440041, 1440041, 14.400 ms, 14.400 ms, 1440042, 1440042, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,9 +35,10 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">2, ?, 3, 1, 1, 1 ~ ?, yes</column>
-<column name="- VITIS_LOOP_38_1">0, 127, 2, 1, 1, 0 ~ 127, yes</column>
-<column name="- Loop 3">2, 128, 3, 1, 1, 1 ~ 127, yes</column>
+<column name="- VITIS_LOOP_35_1">1440040, 1440040, 720020, -, -, 2, no</column>
+<column name=" + VITIS_LOOP_35_1.1">240001, 240001, 3, 1, 1, 240000, yes</column>
+<column name=" + VITIS_LOOP_41_2">240000, 240000, 2, 1, 1, 240000, yes</column>
+<column name=" + VITIS_LOOP_35_1.3">240001, 240001, 3, 1, 1, 240000, yes</column>
 </table>
 </item>
 </section>

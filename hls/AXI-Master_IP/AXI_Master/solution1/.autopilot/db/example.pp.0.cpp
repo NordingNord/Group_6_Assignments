@@ -1431,27 +1431,34 @@ extern "C++" const char *basename (const char *__filename)
 # 499 "/usr/include/string.h" 3 4
 }
 # 23 "example.cpp" 2
-
-__attribute__((sdx_kernel("example", 0))) void example(volatile int *a, int length, int value){
+static const int length = 600*800;
+static const int segments = 2;
+static const int segmentSize = length/segments;
+__attribute__((sdx_kernel("example", 0))) void example(volatile int *a, int value){
 #pragma HLS TOP name=example
-# 24 "example.cpp"
+# 26 "example.cpp"
 
-#pragma HLS INTERFACE m_axi port=a depth=50 offset=slave
-#pragma HLS INTERFACE s_axilite port=length
+#pragma HLS INTERFACE m_axi port=a depth=segmentSize offset=slave max_widen_bitwidth=1024
+
 #pragma HLS INTERFACE s_axilite port=value
 #pragma HLS INTERFACE s_axilite port=return
 
- int i;
- int buff[100];
+ int i,seg;
+ int buff[segmentSize];
+
+ VITIS_LOOP_35_1: for(seg=0; seg < segments; seg++){
 
 
 
+  memcpy(buff,(const int*)a+seg*segmentSize,segmentSize*sizeof(int));
 
- memcpy(buff,(const int*)a,length*sizeof(int));
+  VITIS_LOOP_41_2: for(i=0; i < segmentSize; i++){
+#pragma HLS pipeline II=1
 
- VITIS_LOOP_38_1: for(i=0; i < length; i++){
-  buff[i] = buff[i] + value;
+ buff[i] = buff[i] + value;
+  }
+
+  memcpy((int *)a+seg*segmentSize,buff,segmentSize*sizeof(int));
+
  }
-
- memcpy((int *)a,buff,length*sizeof(int));
 }

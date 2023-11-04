@@ -89,8 +89,6 @@ void XExample_DisableAutoRestart(XExample *InstancePtr);
 
 void XExample_Set_a(XExample *InstancePtr, u64 Data);
 u64 XExample_Get_a(XExample *InstancePtr);
-void XExample_Set_length_r(XExample *InstancePtr, u32 Data);
-u32 XExample_Get_length_r(XExample *InstancePtr);
 void XExample_Set_value_r(XExample *InstancePtr, u32 Data);
 u32 XExample_Get_value_r(XExample *InstancePtr);
 

@@ -10,21 +10,13 @@ a {
 	offset 16
 	offset_end 27
 }
-length_r { 
+value_r { 
 	dir I
 	width 32
 	depth 1
 	mode ap_none
 	offset 28
 	offset_end 35
-}
-value_r { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 36
-	offset_end 43
 }
 ap_start { }
 ap_done { }

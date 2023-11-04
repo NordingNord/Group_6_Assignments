@@ -53,9 +53,9 @@ set Vendor      "xilinx.com"
 set Library     "hls"
 set IPName      "example"
 set Version     "1.0"
-set DisplayName "AXI-Master IP test"
-set Revision    "2113279498"
-set Description "AXI-Master IP which copies data with a length from an input, and adds a value, and then sends it to the input range again in ram."
+set DisplayName "AXI-Master add value"
+set Revision    "2113281453"
+set Description "AXI-Master IP which adds data to each value in an image area of ram"
 set Device      "zynquplus"
 set AutoFamily  ""
 set Taxonomy    "/VITIS_HLS_IP"
@@ -97,7 +97,7 @@ set Interfaces {
         param_prefix "C_S_AXI_CONTROL"
         addr_bits "6"
         port_width "AWADDR 6 WDATA 32 WSTRB 4 ARADDR 6 RDATA 32"
-        registers {{0x00 CTRL       RW   0x0 "Control signals" {{ 0 1 AP_START RW 0 "Control signal Register for 'ap_start'." } { 1 1 AP_DONE R 0 "Control signal Register for 'ap_done'." } { 2 1 AP_IDLE R 0 "Control signal Register for 'ap_idle'." } { 3 1 AP_READY R 0 "Control signal Register for 'ap_ready'." } { 4 3 RESERVED_1 R 0 "Reserved.  0s on read." } { 7 1 AUTO_RESTART RW 0 "Control signal Register for 'auto_restart'." } { 8 24 RESERVED_2 R 0 "Reserved.  0s on read." }}} {0x04 GIER       RW   0x0 "Global Interrupt Enable Register" {{ 0 1 Enable RW 0 "Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled" } { 1 31 RESERVED R 0 "Reserved.  0s on read." }} } {0x08 IP_IER     RW   0x0 "IP Interrupt Enable Register" {{ 0 1 CHAN0_INT_EN RW 0 "Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled." } { 1 1 CHAN1_INT_EN RW 0 "Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled." } { 2 30 RESERVED R 0 "Reserved.  0s on read." }}} {0x0c IP_ISR     RW   0x0 "IP Interrupt Status Register" {{ 0 1 CHAN0_INT_ST RTOW 0 "Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 input interrupt, 1 = Channel 0 input interrup" } { 1 1 CHAN1_INT_ST RTOW 0 "Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 input interrupt, 1 = Channel 1 input interrup" } { 2 30 RESERVED R 0 "Reserved.  0s on read." }}} {0x10 a_1 W 0x0 "Data signal of a" {{0 32 a W 0 "Bit 31 to 0 of a"}}} {0x14 a_2 W 0x0 "Data signal of a" {{0 32 a W 0 "Bit 63 to 32 of a"}}} {0x1c length_r W 0x0 "Data signal of length_r" {{0 32 length_r W 0 "Bit 31 to 0 of length_r"}}} {0x24 value_r W 0x0 "Data signal of value_r" {{0 32 value_r W 0 "Bit 31 to 0 of value_r"}}}}
+        registers {{0x00 CTRL       RW   0x0 "Control signals" {{ 0 1 AP_START RW 0 "Control signal Register for 'ap_start'." } { 1 1 AP_DONE R 0 "Control signal Register for 'ap_done'." } { 2 1 AP_IDLE R 0 "Control signal Register for 'ap_idle'." } { 3 1 AP_READY R 0 "Control signal Register for 'ap_ready'." } { 4 3 RESERVED_1 R 0 "Reserved.  0s on read." } { 7 1 AUTO_RESTART RW 0 "Control signal Register for 'auto_restart'." } { 8 24 RESERVED_2 R 0 "Reserved.  0s on read." }}} {0x04 GIER       RW   0x0 "Global Interrupt Enable Register" {{ 0 1 Enable RW 0 "Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled" } { 1 31 RESERVED R 0 "Reserved.  0s on read." }} } {0x08 IP_IER     RW   0x0 "IP Interrupt Enable Register" {{ 0 1 CHAN0_INT_EN RW 0 "Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled." } { 1 1 CHAN1_INT_EN RW 0 "Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled." } { 2 30 RESERVED R 0 "Reserved.  0s on read." }}} {0x0c IP_ISR     RW   0x0 "IP Interrupt Status Register" {{ 0 1 CHAN0_INT_ST RTOW 0 "Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 input interrupt, 1 = Channel 0 input interrup" } { 1 1 CHAN1_INT_ST RTOW 0 "Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 input interrupt, 1 = Channel 1 input interrup" } { 2 30 RESERVED R 0 "Reserved.  0s on read." }}} {0x10 a_1 W 0x0 "Data signal of a" {{0 32 a W 0 "Bit 31 to 0 of a"}}} {0x14 a_2 W 0x0 "Data signal of a" {{0 32 a W 0 "Bit 63 to 32 of a"}}} {0x1c value_r W 0x0 "Data signal of value_r" {{0 32 value_r W 0 "Bit 31 to 0 of value_r"}}}}
         memories ""
         ctype {
             AWVALID {
@@ -1934,7 +1934,7 @@ if {![regexp -nocase {2014\.3.*} $vivado_ver match]} {
 ipx::create_xgui_files -logo_file misc/logo.png $core
 
 ## System Info
-set user_parameters_list {clk_period 10 machine 64 combinational 0 latency 4 II x}
+set user_parameters_list {clk_period 10 machine 64 combinational 0 latency 1440041 II x}
 foreach {user_para value} $user_parameters_list {
     incr user_parameter_order
     set user_para_value [ipx::add_user_parameter $user_para $core]

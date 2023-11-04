@@ -92,23 +92,6 @@ u64 XExample_Get_a(XExample *InstancePtr) {
     return Data;
 }
 
-void XExample_Set_length_r(XExample *InstancePtr, u32 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XExample_WriteReg(InstancePtr->Control_BaseAddress, XEXAMPLE_CONTROL_ADDR_LENGTH_R_DATA, Data);
-}
-
-u32 XExample_Get_length_r(XExample *InstancePtr) {
-    u32 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XExample_ReadReg(InstancePtr->Control_BaseAddress, XEXAMPLE_CONTROL_ADDR_LENGTH_R_DATA);
-    return Data;
-}
-
 void XExample_Set_value_r(XExample *InstancePtr, u32 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);

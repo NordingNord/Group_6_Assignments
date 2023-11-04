@@ -44,21 +44,8 @@
         }
       ]
     },
-    "length": {
-      "index": "1",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "length_r",
-          "usage": "data",
-          "direction": "in"
-        }]
-    },
     "value": {
-      "index": "2",
+      "index": "1",
       "direction": "in",
       "srcType": "int",
       "srcSize": "32",
@@ -74,12 +61,13 @@
   "HlsSolution": {
     "FlowTarget": "vivado",
     "ConfigTcl": [
-      "config_export -description {AXI-Master IP which copies data with a length from an input, and adds a value, and then sends it to the input range again in ram.}",
-      "config_export -display_name {AXI-Master IP test}",
+      "config_export -description {AXI-Master IP which adds data to each value in an image area of ram}",
+      "config_export -display_name {AXI-Master add value}",
       "config_export -format=ip_catalog",
-      "config_export -output=\/home\/frank\/Downloads\/example.zip",
+      "config_export -output=\/home\/frank\/Documents\/Git\/Group_6_Assignments\/hls\/AXI-Master_IP\/example.zip",
       "config_export -rtl=vhdl"
     ],
+    "DirectiveTcl": ["set_directive_top example -name example"],
     "ProfileOption": "0",
     "ProfileType": "none",
     "KernelName": "example"
@@ -90,7 +78,7 @@
     "Uncertainty": "2.7",
     "IsCombinational": "0",
     "II": "x",
-    "Latency": "4"
+    "Latency": "1440041"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
   "Ipx": {
@@ -98,9 +86,9 @@
     "Library": "hls",
     "Name": "example",
     "Version": "1.0",
-    "DisplayName": "AXI-Master IP test",
+    "DisplayName": "AXI-Master add value",
     "Revision": "",
-    "Description": "AXI-Master IP which copies data with a length from an input, and adds a value, and then sends it to the input range again in ram.",
+    "Description": "AXI-Master IP which adds data to each value in an image area of ram",
     "Taxonomy": "\/VITIS_HLS_IP",
     "AutoFamilySupport": "",
     "ZipFile": "xilinx_com_hls_example_1_0.zip"
@@ -247,7 +235,7 @@
           "num_write_outstanding": "16",
           "max_read_burst_length": "16",
           "max_write_burst_length": "16",
-          "max_widen_bitwidth": "0",
+          "max_widen_bitwidth": "1024",
           "argName": "a"
         },
         {
@@ -481,22 +469,6 @@
         },
         {
           "offset": "0x1c",
-          "name": "length_r",
-          "access": "W",
-          "resetValue": "0x0",
-          "description": "Data signal of length_r",
-          "range": "32",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "length_r",
-              "access": "W",
-              "resetValue": "0",
-              "description": "Bit 31 to 0 of length_r"
-            }]
-        },
-        {
-          "offset": "0x24",
           "name": "value_r",
           "access": "W",
           "resetValue": "0x0",
@@ -804,12 +776,10 @@
       }},
     "Metrics": {"example": {
         "Latency": {
-          "LatencyBest": "4",
-          "LatencyAvg": "",
-          "LatencyWorst": "",
-          "PipelineIIMin": "5",
-          "PipelineIIMax": "0",
-          "PipelineII": "5 ~ 0",
+          "LatencyBest": "1440041",
+          "LatencyAvg": "1440041",
+          "LatencyWorst": "1440041",
+          "PipelineII": "1440042",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -818,43 +788,44 @@
           "Uncertainty": "2.70",
           "Estimate": "7.300"
         },
-        "Loops": [
-          {
-            "Name": "Loop 1",
-            "TripCount": "",
-            "LatencyMin": "2",
-            "LatencyMax": "?",
-            "Latency": "2 ~ ?",
-            "PipelineII": "1",
-            "PipelineDepth": "3"
-          },
-          {
-            "Name": "VITIS_LOOP_38_1",
-            "TripCount": "",
-            "LatencyMin": "0",
-            "LatencyMax": "127",
-            "Latency": "0 ~ 127",
-            "PipelineII": "1",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "Loop 3",
-            "TripCount": "",
-            "LatencyMin": "2",
-            "LatencyMax": "128",
-            "Latency": "2 ~ 128",
-            "PipelineII": "1",
-            "PipelineDepth": "3"
-          }
-        ],
+        "Loops": [{
+            "Name": "VITIS_LOOP_35_1",
+            "TripCount": "2",
+            "Latency": "1440040",
+            "PipelineII": "",
+            "PipelineDepth": "720020",
+            "Loops": [
+              {
+                "Name": "VITIS_LOOP_35_1.1",
+                "TripCount": "240000",
+                "Latency": "240001",
+                "PipelineII": "1",
+                "PipelineDepth": "3"
+              },
+              {
+                "Name": "VITIS_LOOP_41_2",
+                "TripCount": "240000",
+                "Latency": "240000",
+                "PipelineII": "1",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "VITIS_LOOP_35_1.3",
+                "TripCount": "240000",
+                "Latency": "240001",
+                "PipelineII": "1",
+                "PipelineDepth": "3"
+              }
+            ]
+          }],
         "Area": {
-          "BRAM_18K": "3",
+          "BRAM_18K": "429",
           "AVAIL_BRAM": "432",
-          "UTIL_BRAM": "~0",
-          "FF": "960",
+          "UTIL_BRAM": "99",
+          "FF": "1066",
           "AVAIL_FF": "141120",
           "UTIL_FF": "~0",
-          "LUT": "1327",
+          "LUT": "1392",
           "AVAIL_LUT": "70560",
           "UTIL_LUT": "1",
           "DSP": "0",
@@ -869,7 +840,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2023-11-03 14:58:10 CET",
+    "Time": "2023-11-04 23:33:19 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.2"
   }

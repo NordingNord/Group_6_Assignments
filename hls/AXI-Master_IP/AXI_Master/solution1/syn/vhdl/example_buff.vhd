@@ -10,8 +10,8 @@ use ieee.std_logic_unsigned.all;
 entity example_buff_ram is 
     generic(
             DWIDTH     : integer := 32; 
-            AWIDTH     : integer := 7; 
-            MEM_SIZE    : integer := 100
+            AWIDTH     : integer := 18; 
+            MEM_SIZE    : integer := 240000
     ); 
     port (
           addr0     : in std_logic_vector(AWIDTH-1 downto 0); 
@@ -78,8 +78,8 @@ use IEEE.std_logic_1164.all;
 entity example_buff is
     generic (
         DataWidth : INTEGER := 32;
-        AddressRange : INTEGER := 100;
-        AddressWidth : INTEGER := 7);
+        AddressRange : INTEGER := 240000;
+        AddressWidth : INTEGER := 18);
     port (
         reset : IN STD_LOGIC;
         clk : IN STD_LOGIC;

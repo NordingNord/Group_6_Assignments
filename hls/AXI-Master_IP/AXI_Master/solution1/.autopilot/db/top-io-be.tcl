@@ -1,1 +1,1 @@
-lappend RenamedRtlIO length length_r value value_r
+lappend RenamedRtlIO value value_r

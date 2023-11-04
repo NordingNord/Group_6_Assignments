@@ -20,26 +20,33 @@
 
 #include <stdio.h>
 #include <string.h>
-
-void example(volatile int *a, int length, int value){
-#pragma HLS INTERFACE m_axi port=a depth=50 offset=slave
-#pragma HLS INTERFACE s_axilite port=length
+static const int length = 600*800;
+static const int segments = 2;
+static const int segmentSize = length/segments;
+void example(volatile int *a, int value){
+#pragma HLS INTERFACE m_axi port=a depth=segmentSize offset=slave max_widen_bitwidth=1024
+	// Above line based on https://docs.xilinx.com/r/2020.2-English/ug1399-vitis-hls/Automatic-Port-Width-Resizing
 #pragma HLS INTERFACE s_axilite port=value
 #pragma HLS INTERFACE s_axilite port=return
 
-	int i;
-	int buff[100];
+	int i,seg;
+	int buff[segmentSize];
 
-	//memcpy creates a burst access to memory
-	//multiple calls of memcpy cannot be pipelined and will be scheduled sequentially
-	//memcpy requires a local buffer to store the results of the memory transaction
-	memcpy(buff,(const int*)a,length*sizeof(int));
+	for(seg=0; seg < segments; seg++){
+		//memcpy creates a burst access to memory
+		//multiple calls of memcpy cannot be pipelined and will be scheduled sequentially
+		//memcpy requires a local buffer to store the results of the memory transaction
+		memcpy(buff,(const int*)a+seg*segmentSize,segmentSize*sizeof(int));
 
-	for(i=0; i < length; i++){
-		buff[i] = buff[i] + value;
+		for(i=0; i < segmentSize; i++){
+#pragma HLS pipeline II=1
+			// Above line based on https://docs.xilinx.com/r/2020.2-English/ug1399-vitis-hls/pragma-HLS-pipeline
+			buff[i] = buff[i] + value;
+		}
+
+		memcpy((int *)a+seg*segmentSize,buff,segmentSize*sizeof(int));
+
 	}
-
-	memcpy((int *)a,buff,length*sizeof(int));
 }
 
 

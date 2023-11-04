@@ -33,7 +33,6 @@ port (
     RREADY                :in   STD_LOGIC;
     interrupt             :out  STD_LOGIC;
     a                     :out  STD_LOGIC_VECTOR(63 downto 0);
-    length_r              :out  STD_LOGIC_VECTOR(31 downto 0);
     value_r               :out  STD_LOGIC_VECTOR(31 downto 0);
     ap_start              :out  STD_LOGIC;
     ap_done               :in   STD_LOGIC;
@@ -66,12 +65,9 @@ end entity example_control_s_axi;
 -- 0x14 : Data signal of a
 --        bit 31~0 - a[63:32] (Read/Write)
 -- 0x18 : reserved
--- 0x1c : Data signal of length_r
---        bit 31~0 - length_r[31:0] (Read/Write)
--- 0x20 : reserved
--- 0x24 : Data signal of value_r
+-- 0x1c : Data signal of value_r
 --        bit 31~0 - value_r[31:0] (Read/Write)
--- 0x28 : reserved
+-- 0x20 : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of example_control_s_axi is
@@ -79,17 +75,15 @@ architecture behave of example_control_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL         : INTEGER := 16#00#;
-    constant ADDR_GIE             : INTEGER := 16#04#;
-    constant ADDR_IER             : INTEGER := 16#08#;
-    constant ADDR_ISR             : INTEGER := 16#0c#;
-    constant ADDR_A_DATA_0        : INTEGER := 16#10#;
-    constant ADDR_A_DATA_1        : INTEGER := 16#14#;
-    constant ADDR_A_CTRL          : INTEGER := 16#18#;
-    constant ADDR_LENGTH_R_DATA_0 : INTEGER := 16#1c#;
-    constant ADDR_LENGTH_R_CTRL   : INTEGER := 16#20#;
-    constant ADDR_VALUE_R_DATA_0  : INTEGER := 16#24#;
-    constant ADDR_VALUE_R_CTRL    : INTEGER := 16#28#;
+    constant ADDR_AP_CTRL        : INTEGER := 16#00#;
+    constant ADDR_GIE            : INTEGER := 16#04#;
+    constant ADDR_IER            : INTEGER := 16#08#;
+    constant ADDR_ISR            : INTEGER := 16#0c#;
+    constant ADDR_A_DATA_0       : INTEGER := 16#10#;
+    constant ADDR_A_DATA_1       : INTEGER := 16#14#;
+    constant ADDR_A_CTRL         : INTEGER := 16#18#;
+    constant ADDR_VALUE_R_DATA_0 : INTEGER := 16#1c#;
+    constant ADDR_VALUE_R_CTRL   : INTEGER := 16#20#;
     constant ADDR_BITS         : INTEGER := 6;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
@@ -113,7 +107,6 @@ architecture behave of example_control_s_axi is
     signal int_ier             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_a               : UNSIGNED(63 downto 0) := (others => '0');
-    signal int_length_r        : UNSIGNED(31 downto 0) := (others => '0');
     signal int_value_r         : UNSIGNED(31 downto 0) := (others => '0');
 
 
@@ -246,8 +239,6 @@ begin
                         rdata_data <= RESIZE(int_a(31 downto 0), 32);
                     when ADDR_A_DATA_1 =>
                         rdata_data <= RESIZE(int_a(63 downto 32), 32);
-                    when ADDR_LENGTH_R_DATA_0 =>
-                        rdata_data <= RESIZE(int_length_r(31 downto 0), 32);
                     when ADDR_VALUE_R_DATA_0 =>
                         rdata_data <= RESIZE(int_value_r(31 downto 0), 32);
                     when others =>
@@ -262,7 +253,6 @@ begin
     interrupt            <= int_gie and (int_isr(0) or int_isr(1));
     ap_start             <= int_ap_start;
     a                    <= STD_LOGIC_VECTOR(int_a);
-    length_r             <= STD_LOGIC_VECTOR(int_length_r);
     value_r              <= STD_LOGIC_VECTOR(int_value_r);
 
     process (ACLK)
@@ -407,17 +397,6 @@ begin
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_A_DATA_1) then
                     int_a(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_a(63 downto 32));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_LENGTH_R_DATA_0) then
-                    int_length_r(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_length_r(31 downto 0));
                 end if;
             end if;
         end if;

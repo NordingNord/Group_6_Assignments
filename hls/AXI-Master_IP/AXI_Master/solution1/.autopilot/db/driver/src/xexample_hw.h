@@ -26,22 +26,17 @@
 // 0x14 : Data signal of a
 //        bit 31~0 - a[63:32] (Read/Write)
 // 0x18 : reserved
-// 0x1c : Data signal of length_r
-//        bit 31~0 - length_r[31:0] (Read/Write)
-// 0x20 : reserved
-// 0x24 : Data signal of value_r
+// 0x1c : Data signal of value_r
 //        bit 31~0 - value_r[31:0] (Read/Write)
-// 0x28 : reserved
+// 0x20 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XEXAMPLE_CONTROL_ADDR_AP_CTRL       0x00
-#define XEXAMPLE_CONTROL_ADDR_GIE           0x04
-#define XEXAMPLE_CONTROL_ADDR_IER           0x08
-#define XEXAMPLE_CONTROL_ADDR_ISR           0x0c
-#define XEXAMPLE_CONTROL_ADDR_A_DATA        0x10
-#define XEXAMPLE_CONTROL_BITS_A_DATA        64
-#define XEXAMPLE_CONTROL_ADDR_LENGTH_R_DATA 0x1c
-#define XEXAMPLE_CONTROL_BITS_LENGTH_R_DATA 32
-#define XEXAMPLE_CONTROL_ADDR_VALUE_R_DATA  0x24
-#define XEXAMPLE_CONTROL_BITS_VALUE_R_DATA  32
+#define XEXAMPLE_CONTROL_ADDR_AP_CTRL      0x00
+#define XEXAMPLE_CONTROL_ADDR_GIE          0x04
+#define XEXAMPLE_CONTROL_ADDR_IER          0x08
+#define XEXAMPLE_CONTROL_ADDR_ISR          0x0c
+#define XEXAMPLE_CONTROL_ADDR_A_DATA       0x10
+#define XEXAMPLE_CONTROL_BITS_A_DATA       64
+#define XEXAMPLE_CONTROL_ADDR_VALUE_R_DATA 0x1c
+#define XEXAMPLE_CONTROL_BITS_VALUE_R_DATA 32
 
