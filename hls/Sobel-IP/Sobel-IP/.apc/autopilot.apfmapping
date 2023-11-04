@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="SobelTest.cpp" path="/home/frank/Documents/Git/Group_6_Assignments/hls/Sobel-IP/SobelTest.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="SobelTest_test.cpp" path="/home/frank/Documents/Git/Group_6_Assignments/hls/Sobel-IP/SobelTest_test.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

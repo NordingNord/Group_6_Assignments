@@ -41,10 +41,13 @@ void Sobel(hls::stream< ap_axiu<1024,2,5,6>> &Data_In, hls::stream<ap_axiu<1024,
 	volatile int G1_Sum = 0;
 	volatile int G2_Sum = 0;
 
+
+
 	while(1){
-		// Read 32 bits
+		// Read 1024 bits
 		tmp = Data_In.read();
 		
+
 		// The first 8 bits are R, then G, then B. But that is only 24 bits.
 
 		R = (tmp.data.to_int() & 0xff0000) >> 16;
