@@ -1,7 +1,7 @@
 <root versionMajor = "1" versionMinor = "5">
   <kernel src_name="example" language="c" hwCtrl="ap_ctrl_hs" mem_layout="fpga64-xilinx-none">
     <args>
-      <arg id="0" access_type="rw" src_name="a" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="240000">
+      <arg id="0" access_type="rw" src_name="a" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="120000">
         <hw hw_usage="data" hw_interface="MAXI" hw_name="gmem" hw_bitwidth="32" hw_size_or_depth="0">
           <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="0" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="1024"/>
           <constraint constraint_type="bitwidth" orig_bitwidth="32" final_bitwidth="32"/>

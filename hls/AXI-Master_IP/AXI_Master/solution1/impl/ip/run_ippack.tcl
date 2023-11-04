@@ -53,8 +53,8 @@ set Vendor      "xilinx.com"
 set Library     "hls"
 set IPName      "example"
 set Version     "1.0"
-set DisplayName "AXI-Master add value"
-set Revision    "2113281453"
+set DisplayName "AXI-Master add value segments 4"
+set Revision    "2113281477"
 set Description "AXI-Master IP which adds data to each value in an image area of ram"
 set Device      "zynquplus"
 set AutoFamily  ""
@@ -1934,7 +1934,7 @@ if {![regexp -nocase {2014\.3.*} $vivado_ver match]} {
 ipx::create_xgui_files -logo_file misc/logo.png $core
 
 ## System Info
-set user_parameters_list {clk_period 10 machine 64 combinational 0 latency 1440041 II x}
+set user_parameters_list {clk_period 10 machine 64 combinational 0 latency 1440081 II x}
 foreach {user_para value} $user_parameters_list {
     incr user_parameter_order
     set user_para_value [ipx::add_user_parameter $user_para $core]

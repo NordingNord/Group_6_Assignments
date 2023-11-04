@@ -9,13 +9,13 @@ declare void @llvm.memcpy.p0i8.p0i8.i64(i8* nocapture writeonly, i8* nocapture r
 ; Function Attrs: noinline
 define void @apatb_example_ir(i32* %a, i32 %value) local_unnamed_addr #1 {
 entry:
-  %malloccall = tail call i8* @malloc(i64 960000)
-  %a_copy = bitcast i8* %malloccall to [240000 x i32]*
-  %0 = bitcast i32* %a to [240000 x i32]*
-  call fastcc void @copy_in([240000 x i32]* %0, [240000 x i32]* %a_copy)
-  %1 = getelementptr inbounds [240000 x i32], [240000 x i32]* %a_copy, i32 0, i32 0
+  %malloccall = tail call i8* @malloc(i64 480000)
+  %a_copy = bitcast i8* %malloccall to [120000 x i32]*
+  %0 = bitcast i32* %a to [120000 x i32]*
+  call fastcc void @copy_in([120000 x i32]* %0, [120000 x i32]* %a_copy)
+  %1 = getelementptr inbounds [120000 x i32], [120000 x i32]* %a_copy, i32 0, i32 0
   call void @apatb_example_hw(i32* %1, i32 %value)
-  call fastcc void @copy_out([240000 x i32]* %0, [240000 x i32]* %a_copy)
+  call fastcc void @copy_out([120000 x i32]* %0, [120000 x i32]* %a_copy)
   tail call void @free(i8* %malloccall)
   ret void
 }
@@ -23,17 +23,17 @@ entry:
 declare noalias i8* @malloc(i64) local_unnamed_addr
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @copy_in([240000 x i32]* noalias readonly, [240000 x i32]* noalias) unnamed_addr #2 {
+define internal fastcc void @copy_in([120000 x i32]* noalias readonly, [120000 x i32]* noalias) unnamed_addr #2 {
 entry:
-  call fastcc void @onebyonecpy_hls.p0a240000i32([240000 x i32]* %1, [240000 x i32]* %0)
+  call fastcc void @onebyonecpy_hls.p0a120000i32([120000 x i32]* %1, [120000 x i32]* %0)
   ret void
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @onebyonecpy_hls.p0a240000i32([240000 x i32]* noalias, [240000 x i32]* noalias readonly) unnamed_addr #3 {
+define internal fastcc void @onebyonecpy_hls.p0a120000i32([120000 x i32]* noalias, [120000 x i32]* noalias readonly) unnamed_addr #3 {
 entry:
-  %2 = icmp eq [240000 x i32]* %0, null
-  %3 = icmp eq [240000 x i32]* %1, null
+  %2 = icmp eq [120000 x i32]* %0, null
+  %3 = icmp eq [120000 x i32]* %1, null
   %4 = or i1 %2, %3
   br i1 %4, label %ret, label %copy
 
@@ -42,13 +42,13 @@ copy:                                             ; preds = %entry
 
 for.loop:                                         ; preds = %for.loop, %copy
   %for.loop.idx3 = phi i64 [ 0, %copy ], [ %for.loop.idx.next, %for.loop ]
-  %dst.addr.gep1 = getelementptr [240000 x i32], [240000 x i32]* %0, i64 0, i64 %for.loop.idx3
+  %dst.addr.gep1 = getelementptr [120000 x i32], [120000 x i32]* %0, i64 0, i64 %for.loop.idx3
   %5 = bitcast i32* %dst.addr.gep1 to i8*
-  %src.addr.gep2 = getelementptr [240000 x i32], [240000 x i32]* %1, i64 0, i64 %for.loop.idx3
+  %src.addr.gep2 = getelementptr [120000 x i32], [120000 x i32]* %1, i64 0, i64 %for.loop.idx3
   %6 = bitcast i32* %src.addr.gep2 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 1 %5, i8* align 1 %6, i64 4, i1 false)
   %for.loop.idx.next = add nuw nsw i64 %for.loop.idx3, 1
-  %exitcond = icmp ne i64 %for.loop.idx.next, 240000
+  %exitcond = icmp ne i64 %for.loop.idx.next, 120000
   br i1 %exitcond, label %for.loop, label %ret
 
 ret:                                              ; preds = %for.loop, %entry
@@ -56,9 +56,9 @@ ret:                                              ; preds = %for.loop, %entry
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @copy_out([240000 x i32]* noalias, [240000 x i32]* noalias readonly) unnamed_addr #4 {
+define internal fastcc void @copy_out([120000 x i32]* noalias, [120000 x i32]* noalias readonly) unnamed_addr #4 {
 entry:
-  call fastcc void @onebyonecpy_hls.p0a240000i32([240000 x i32]* %0, [240000 x i32]* %1)
+  call fastcc void @onebyonecpy_hls.p0a120000i32([120000 x i32]* %0, [120000 x i32]* %1)
   ret void
 }
 
@@ -68,11 +68,11 @@ declare void @apatb_example_hw(i32*, i32)
 
 define void @example_hw_stub_wrapper(i32*, i32) #5 {
 entry:
-  %2 = bitcast i32* %0 to [240000 x i32]*
-  call void @copy_out([240000 x i32]* null, [240000 x i32]* %2)
-  %3 = bitcast [240000 x i32]* %2 to i32*
+  %2 = bitcast i32* %0 to [120000 x i32]*
+  call void @copy_out([120000 x i32]* null, [120000 x i32]* %2)
+  %3 = bitcast [120000 x i32]* %2 to i32*
   call void @example_hw_stub(i32* %3, i32 %1)
-  call void @copy_in([240000 x i32]* null, [240000 x i32]* %2)
+  call void @copy_in([120000 x i32]* null, [120000 x i32]* %2)
   ret void
 }
 

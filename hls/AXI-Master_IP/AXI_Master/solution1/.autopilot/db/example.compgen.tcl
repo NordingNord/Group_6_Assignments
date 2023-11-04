@@ -7,8 +7,8 @@ set MemName example_buff
 set CoreName ap_simcore_mem
 set PortList { 0 1 }
 set DataWd 32
-set AddrRange 240000
-set AddrWd 18
+set AddrRange 120000
+set AddrWd 17
 set impl_style auto
 set TrueReset 0
 set HasInitializer 0

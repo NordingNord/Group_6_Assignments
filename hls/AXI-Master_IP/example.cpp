@@ -21,7 +21,7 @@
 #include <stdio.h>
 #include <string.h>
 static const int length = 600*800;
-static const int segments = 2;
+static const int segments = 4;
 static const int segmentSize = length/segments;
 void example(volatile int *a, int value){
 #pragma HLS INTERFACE m_axi port=a depth=segmentSize offset=slave max_widen_bitwidth=1024

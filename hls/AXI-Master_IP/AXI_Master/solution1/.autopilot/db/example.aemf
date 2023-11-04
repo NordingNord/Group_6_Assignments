@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1699137173083">
-  <ports id="1" name="gmem" type="PortType" coreId="0" bitwidth="32" direction="DirInOut" iftype="IfTypeFifo">
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1699138607391">
+  <ports id="1" name="gmem" type="PortType" coreId="4294967295" bitwidth="32" direction="DirInOut" iftype="IfTypeFifo">
     <dataInputObjs>getelementptr</dataInputObjs>
     <dataOutputObjs>getelementptr</dataOutputObjs>
   </ports>
@@ -144,7 +144,7 @@
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>block_85</controlOutputObjs>
     <controlOutputObjs>.split5</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="18" name="seg" lineNumber="35" originalName="seg" fileName="example.cpp" fileDirectory=".." coreId="49" contextFuncName="example" bitwidth="2" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="18" name="seg" lineNumber="35" originalName="seg" fileName="example.cpp" fileDirectory=".." coreId="132" contextFuncName="example" bitwidth="3" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="example.cpp" linenumber="35" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
@@ -162,7 +162,7 @@
       <controlInputObjs>block_17</controlInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="20" name="add_ln35" lineNumber="35" fileName="example.cpp" fileDirectory=".." rtlName="add_ln35_fu_226_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="example" bitwidth="2" opcode="add" nodeLabel="1.0" m_display="0" m_delay="0.62" m_topoIndex="7" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="20" name="add_ln35" lineNumber="35" fileName="example.cpp" fileDirectory=".." rtlName="add_ln35_fu_226_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="example" bitwidth="3" opcode="add" nodeLabel="1.0" m_display="0" m_delay="0.74" m_topoIndex="7" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="example.cpp" linenumber="35" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>phi</dataOutputObjs>
@@ -174,7 +174,7 @@
       <dataOutputObjs>phi</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="22" name="icmp_ln35" lineNumber="35" fileName="example.cpp" fileDirectory=".." rtlName="icmp_ln35_fu_238_p2" opType="icmp" coreId="0" contextFuncName="example" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="0" m_delay="0.51" m_topoIndex="9" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="22" name="icmp_ln35" lineNumber="35" fileName="example.cpp" fileDirectory=".." rtlName="icmp_ln35_fu_238_p2" opType="icmp" coreId="0" contextFuncName="example" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="0" m_delay="0.69" m_topoIndex="9" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="example.cpp" linenumber="35" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>br</dataOutputObjs>
@@ -206,18 +206,18 @@
       <dataInputObjs>read</dataInputObjs>
       <dataOutputObjs>partselect</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="29" name="trunc_ln" lineNumber="39" fileName="example.cpp" fileDirectory=".." rtlName="trunc_ln_fu_253_p4" coreId="2550136960" contextFuncName="example" bitwidth="62" opcode="partselect" nodeLabel="1.0" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="29" name="trunc_ln" lineNumber="39" fileName="example.cpp" fileDirectory=".." rtlName="trunc_ln_fu_253_p4" coreId="8" contextFuncName="example" bitwidth="62" opcode="partselect" nodeLabel="1.0" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="example.cpp" linenumber="39" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>sext</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="sext_ln39" lineNumber="39" fileName="example.cpp" fileDirectory=".." rtlName="sext_ln39_fu_263_p1" coreId="49" contextFuncName="example" bitwidth="64" opcode="sext" nodeLabel="1.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="sext_ln39" lineNumber="39" fileName="example.cpp" fileDirectory=".." rtlName="sext_ln39_fu_263_p1" coreId="241" contextFuncName="example" bitwidth="64" opcode="sext" nodeLabel="1.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="example.cpp" linenumber="39" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
       <dataInputObjs>partselect</dataInputObjs>
       <dataOutputObjs>getelementptr</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="gmem_addr" lineNumber="39" fileName="example.cpp" fileDirectory=".." coreId="1553667680" contextFuncName="example" bitwidth="32" opcode="getelementptr" nodeLabel="1.0" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="gmem_addr" lineNumber="39" fileName="example.cpp" fileDirectory=".." coreId="1754891721" contextFuncName="example" bitwidth="32" opcode="getelementptr" nodeLabel="1.0" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="example.cpp" linenumber="39" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
       <dataInputObjs>gmem</dataInputObjs>
       <dataInputObjs>sext</dataInputObjs>
@@ -233,7 +233,7 @@
       <dataInputObjs>getelementptr</dataInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="33" name="br_ln39" lineNumber="39" fileName="example.cpp" fileDirectory=".." coreId="0" contextFuncName="example" opcode="br" nodeLabel="8.0" m_display="0" m_delay="0.48" m_topoIndex="18" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="33" name="br_ln39" lineNumber="39" fileName="example.cpp" fileDirectory=".." coreId="5265" contextFuncName="example" opcode="br" nodeLabel="8.0" m_display="0" m_delay="0.48" m_topoIndex="18" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="example.cpp" linenumber="39" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
       <controlInputObjs>load-store-loop4</controlInputObjs>
     </node_objs>
@@ -246,7 +246,7 @@
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>phi</controlOutputObjs>
     <controlOutputObjs>memcpy-split3</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="br_ln41" lineNumber="41" fileName="example.cpp" fileDirectory=".." coreId="3" contextFuncName="example" opcode="br" nodeLabel="12.0" m_display="0" m_delay="0.48" m_topoIndex="28" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="br_ln41" lineNumber="41" fileName="example.cpp" fileDirectory=".." coreId="0" contextFuncName="example" opcode="br" nodeLabel="12.0" m_display="0" m_delay="0.48" m_topoIndex="28" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="example.cpp" linenumber="41" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
       <controlInputObjs>memcpy-split3</controlInputObjs>
     </node_objs>
@@ -264,7 +264,7 @@
       <dataInputObjs>getelementptr</dataInputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="66" name="br_ln47" lineNumber="47" fileName="example.cpp" fileDirectory=".." coreId="9" contextFuncName="example" opcode="br" nodeLabel="15.0" m_display="0" m_delay="0.48" m_topoIndex="40" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="66" name="br_ln47" lineNumber="47" fileName="example.cpp" fileDirectory=".." coreId="132" contextFuncName="example" opcode="br" nodeLabel="15.0" m_display="0" m_delay="0.48" m_topoIndex="40" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="example.cpp" linenumber="47" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
       <controlInputObjs>load-store-loop</controlInputObjs>
     </node_objs>
@@ -282,7 +282,7 @@
       <inlineStackInfo fileName="example.cpp" linenumber="35" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
       <dataInputObjs>getelementptr</dataInputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="82" name="br_ln0" coreId="0" opcode="br" nodeLabel="23.0" m_display="0" m_topoIndex="51" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="82" name="br_ln0" coreId="808591443" opcode="br" nodeLabel="23.0" m_display="0" m_topoIndex="51" m_clusterGroupNumber="-1">
       <controlInputObjs>block_25</controlInputObjs>
     </node_objs>
     <fileValidLineNumbers fileName="example.cpp">
@@ -292,7 +292,7 @@
   <blocks id="85" name="block_85" type="BlockType">
     <controlInputObjs>block_25</controlInputObjs>
     <controlOutputObjs>br</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="84" name="_ln50" lineNumber="50" fileName="example.cpp" fileDirectory=".." coreId="0" contextFuncName="example" opcode="ret" nodeLabel="1.0" m_display="0" m_topoIndex="16" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="84" name="_ln50" lineNumber="50" fileName="example.cpp" fileDirectory=".." coreId="1734439795" contextFuncName="example" opcode="ret" nodeLabel="1.0" m_display="0" m_topoIndex="16" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="example.cpp" linenumber="50" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
     </node_objs>
     <fileValidLineNumbers fileName="example.cpp">
@@ -307,7 +307,7 @@
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>memcpy-split3.preheader</controlOutputObjs>
       <controlOutputObjs>load-store-loop4.split</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="35" name="loop_index5" coreId="0" bitwidth="18" opcode="phi" nodeLabel="9.0" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="35" name="loop_index5" coreId="1754893112" bitwidth="17" opcode="phi" nodeLabel="9.0" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
         <dataInputObjs>add</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
         <dataOutputObjs>icmp</dataOutputObjs>
@@ -316,17 +316,17 @@
         <controlInputObjs>load-store-loop4.split</controlInputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="36" name="empty_18" rtlName="empty_18_fu_273_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" bitwidth="18" opcode="add" nodeLabel="9.0" m_display="0" m_delay="1.03" m_topoIndex="20" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="36" name="empty_18" rtlName="empty_18_fu_273_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" bitwidth="17" opcode="add" nodeLabel="9.0" m_display="0" m_delay="1.02" m_topoIndex="20" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="38" name="exitcond2" rtlName="exitcond2_fu_279_p2" opType="icmp" coreId="1553673464" bitwidth="1" opcode="icmp" nodeLabel="9.0" m_display="0" m_delay="0.89" m_topoIndex="21" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="38" name="exitcond2" rtlName="exitcond2_fu_279_p2" opType="icmp" coreId="0" bitwidth="1" opcode="icmp" nodeLabel="9.0" m_display="0" m_delay="0.88" m_topoIndex="21" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>br</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="40" name="br_ln0" coreId="3684148" opcode="br" nodeLabel="9.0" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="40" name="br_ln0" coreId="132" opcode="br" nodeLabel="9.0" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
         <dataInputObjs>icmp</dataInputObjs>
         <controlInputObjs>load-store-loop4.split</controlInputObjs>
         <controlInputObjs>memcpy-split3.preheader</controlInputObjs>
@@ -337,7 +337,7 @@
       <controlOutputObjs>phi</controlOutputObjs>
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>load-store-loop4</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="42" name="loop_index5_cast" rtlName="loop_index5_cast_fu_285_p1" coreId="0" bitwidth="64" opcode="zext" nodeLabel="11.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="42" name="loop_index5_cast" rtlName="loop_index5_cast_fu_285_p1" coreId="241" bitwidth="64" opcode="zext" nodeLabel="11.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>getelementptr</dataOutputObjs>
       </node_objs>
@@ -346,7 +346,7 @@
         <dataInputObjs>getelementptr</dataInputObjs>
         <dataOutputObjs>store</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="44" name="buff_addr" coreId="0" bitwidth="18" opcode="getelementptr" nodeLabel="11.0" m_display="0" m_topoIndex="25" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="44" name="buff_addr" coreId="49" bitwidth="17" opcode="getelementptr" nodeLabel="11.0" m_display="0" m_topoIndex="25" m_clusterGroupNumber="-1">
         <dataInputObjs>alloca</dataInputObjs>
         <dataInputObjs>zext</dataInputObjs>
         <dataOutputObjs>store</dataOutputObjs>
@@ -373,7 +373,7 @@
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>block_67</controlOutputObjs>
       <controlOutputObjs>.split</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="50" name="i" lineNumber="41" originalName="i" fileName="example.cpp" fileDirectory=".." coreId="1553681552" contextFuncName="example" bitwidth="18" opcode="phi" nodeLabel="13.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="50" name="i" lineNumber="41" originalName="i" fileName="example.cpp" fileDirectory=".." coreId="0" contextFuncName="example" bitwidth="17" opcode="phi" nodeLabel="13.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="example.cpp" linenumber="41" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
         <dataInputObjs>add</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
@@ -383,19 +383,19 @@
         <controlInputObjs>memcpy-split3.preheader</controlInputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="51" name="add_ln41" lineNumber="41" fileName="example.cpp" fileDirectory=".." rtlName="add_ln41_fu_290_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="example" bitwidth="18" opcode="add" nodeLabel="13.0" m_display="0" m_delay="1.03" m_topoIndex="30" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="51" name="add_ln41" lineNumber="41" fileName="example.cpp" fileDirectory=".." rtlName="add_ln41_fu_290_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="example" bitwidth="17" opcode="add" nodeLabel="13.0" m_display="0" m_delay="1.02" m_topoIndex="30" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="example.cpp" linenumber="41" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="52" name="icmp_ln41" lineNumber="41" fileName="example.cpp" fileDirectory=".." rtlName="icmp_ln41_fu_296_p2" opType="icmp" coreId="0" contextFuncName="example" bitwidth="1" opcode="icmp" nodeLabel="13.0" m_display="0" m_delay="0.89" m_topoIndex="31" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="52" name="icmp_ln41" lineNumber="41" fileName="example.cpp" fileDirectory=".." rtlName="icmp_ln41_fu_296_p2" opType="icmp" coreId="11" contextFuncName="example" bitwidth="1" opcode="icmp" nodeLabel="13.0" m_display="0" m_delay="0.88" m_topoIndex="31" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="example.cpp" linenumber="41" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>br</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="54" name="br_ln41" lineNumber="41" fileName="example.cpp" fileDirectory=".." coreId="5617" contextFuncName="example" opcode="br" nodeLabel="13.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="54" name="br_ln41" lineNumber="41" fileName="example.cpp" fileDirectory=".." coreId="0" contextFuncName="example" opcode="br" nodeLabel="13.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="example.cpp" linenumber="41" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
         <dataInputObjs>icmp</dataInputObjs>
         <controlInputObjs>.split</controlInputObjs>
@@ -410,12 +410,12 @@
       <controlOutputObjs>phi</controlOutputObjs>
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>memcpy-split3</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="56" name="zext_ln41" lineNumber="41" fileName="example.cpp" fileDirectory=".." rtlName="zext_ln41_fu_302_p1" coreId="1553682320" contextFuncName="example" bitwidth="64" opcode="zext" nodeLabel="13.0" m_display="0" m_topoIndex="33" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="56" name="zext_ln41" lineNumber="41" fileName="example.cpp" fileDirectory=".." rtlName="zext_ln41_fu_302_p1" coreId="12753" contextFuncName="example" bitwidth="64" opcode="zext" nodeLabel="13.0" m_display="0" m_topoIndex="33" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="example.cpp" linenumber="41" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>getelementptr</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="59" name="buff_addr_1" lineNumber="44" fileName="example.cpp" fileDirectory=".." coreId="0" contextFuncName="example" bitwidth="18" opcode="getelementptr" nodeLabel="13.0" m_display="0" m_topoIndex="34" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="59" name="buff_addr_1" lineNumber="44" fileName="example.cpp" fileDirectory=".." coreId="0" contextFuncName="example" bitwidth="17" opcode="getelementptr" nodeLabel="13.0" m_display="0" m_topoIndex="34" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="example.cpp" linenumber="44" fileDirectory="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP" functionName="example"/>
         <dataInputObjs>alloca</dataInputObjs>
         <dataInputObjs>zext</dataInputObjs>
@@ -439,7 +439,7 @@
         <dataInputObjs>add</dataInputObjs>
         <dataInputObjs>getelementptr</dataInputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="63" name="br_ln0" coreId="132" opcode="br" nodeLabel="14.0" m_display="0" m_topoIndex="38" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="63" name="br_ln0" coreId="0" opcode="br" nodeLabel="14.0" m_display="0" m_topoIndex="38" m_clusterGroupNumber="-1">
         <controlInputObjs>memcpy-split3</controlInputObjs>
       </node_objs>
       <fileValidLineNumbers fileName="example.cpp">
@@ -456,7 +456,7 @@
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>memcpy-split</controlOutputObjs>
       <controlOutputObjs>load-store-loop.split</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="68" name="loop_index" coreId="2550137104" bitwidth="18" opcode="phi" nodeLabel="16.0" m_display="0" m_topoIndex="41" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="68" name="loop_index" coreId="4353" bitwidth="17" opcode="phi" nodeLabel="16.0" m_display="0" m_topoIndex="41" m_clusterGroupNumber="-1">
         <dataInputObjs>add</dataInputObjs>
         <dataOutputObjs>add</dataOutputObjs>
         <dataOutputObjs>icmp</dataOutputObjs>
@@ -465,17 +465,17 @@
         <controlInputObjs>load-store-loop.split</controlInputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="69" name="empty_22" rtlName="empty_22_fu_313_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" bitwidth="18" opcode="add" nodeLabel="16.0" m_display="0" m_delay="1.03" m_topoIndex="42" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="69" name="empty_22" rtlName="empty_22_fu_313_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" bitwidth="17" opcode="add" nodeLabel="16.0" m_display="0" m_delay="1.02" m_topoIndex="42" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="71" name="exitcond74" rtlName="exitcond74_fu_319_p2" opType="icmp" coreId="997420912" bitwidth="1" opcode="icmp" nodeLabel="16.0" m_display="0" m_delay="0.89" m_topoIndex="43" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="71" name="exitcond74" rtlName="exitcond74_fu_319_p2" opType="icmp" coreId="0" bitwidth="1" opcode="icmp" nodeLabel="16.0" m_display="0" m_delay="0.88" m_topoIndex="43" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>br</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="73" name="br_ln0" coreId="1159736947" opcode="br" nodeLabel="16.0" m_display="0" m_topoIndex="44" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="73" name="br_ln0" coreId="0" opcode="br" nodeLabel="16.0" m_display="0" m_topoIndex="44" m_clusterGroupNumber="-1">
         <dataInputObjs>icmp</dataInputObjs>
         <controlInputObjs>load-store-loop.split</controlInputObjs>
         <controlInputObjs>memcpy-split</controlInputObjs>
@@ -486,11 +486,11 @@
       <controlOutputObjs>phi</controlOutputObjs>
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>load-store-loop</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="75" name="loop_index_cast" rtlName="loop_index_cast_fu_325_p1" coreId="539110978" bitwidth="64" opcode="zext" nodeLabel="16.0" m_display="0" m_topoIndex="45" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="75" name="loop_index_cast" rtlName="loop_index_cast_fu_325_p1" coreId="0" bitwidth="64" opcode="zext" nodeLabel="16.0" m_display="0" m_topoIndex="45" m_clusterGroupNumber="-1">
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>getelementptr</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="76" name="buff_addr_2" coreId="543452769" bitwidth="18" opcode="getelementptr" nodeLabel="16.0" m_display="0" m_topoIndex="46" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="76" name="buff_addr_2" coreId="132" bitwidth="17" opcode="getelementptr" nodeLabel="16.0" m_display="0" m_topoIndex="46" m_clusterGroupNumber="-1">
         <dataInputObjs>alloca</dataInputObjs>
         <dataInputObjs>zext</dataInputObjs>
         <dataOutputObjs>load</dataOutputObjs>
@@ -506,7 +506,7 @@
         <dataInputObjs>load</dataInputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="79" name="br_ln0" coreId="151666223" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="49" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="79" name="br_ln0" coreId="1145391171" opcode="br" nodeLabel="18.0" m_display="0" m_topoIndex="49" m_clusterGroupNumber="-1">
         <controlInputObjs>load-store-loop</controlInputObjs>
       </node_objs>
       <fileValidLineNumbers fileName="example.cpp">
@@ -928,7 +928,7 @@
     </transitions>
   </fsm>
   <CFGRegionsRoot>
-    <cfgRegions mId="1" mTag="example" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="1440041" mMaxLatency="1440041">
+    <cfgRegions mId="1" mTag="example" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="1440081" mMaxLatency="1440081">
       <subRegions>2</subRegions>
       <subRegions>3</subRegions>
       <subRegions>11</subRegions>
@@ -938,7 +938,7 @@
       <basicBlocks>17</basicBlocks>
       <mDfPipe/>
     </cfgRegions>
-    <cfgRegions mId="3" mTag="VITIS_LOOP_35_1" mII="-1" mDepth="-1" mMinTripCount="2" mMaxTripCount="2" mMinLatency="1440040" mMaxLatency="1440040" mType="1">
+    <cfgRegions mId="3" mTag="VITIS_LOOP_35_1" mII="-1" mDepth="-1" mMinTripCount="4" mMaxTripCount="4" mMinLatency="1440080" mMaxLatency="1440080" mType="1">
       <subRegions>4</subRegions>
       <subRegions>5</subRegions>
       <subRegions>6</subRegions>
@@ -953,7 +953,7 @@
       <basicBlocks>34</basicBlocks>
       <mDfPipe/>
     </cfgRegions>
-    <cfgRegions mId="5" mTag="VITIS_LOOP_35_1_1" mII="1" mDepth="3" mMinTripCount="240000" mMaxTripCount="240000" mMinLatency="240001" mMaxLatency="240001" mType="1">
+    <cfgRegions mId="5" mTag="VITIS_LOOP_35_1_1" mII="1" mDepth="3" mMinTripCount="120000" mMaxTripCount="120000" mMinLatency="120001" mMaxLatency="120001" mType="1">
       <basicBlocks>41</basicBlocks>
       <basicBlocks>47</basicBlocks>
       <mDfPipe/>
@@ -962,7 +962,7 @@
       <basicBlocks>49</basicBlocks>
       <mDfPipe/>
     </cfgRegions>
-    <cfgRegions mId="7" mTag="VITIS_LOOP_41_2" mII="1" mDepth="2" mMinTripCount="240000" mMaxTripCount="240000" mMinLatency="240000" mMaxLatency="240000" mType="1">
+    <cfgRegions mId="7" mTag="VITIS_LOOP_41_2" mII="1" mDepth="2" mMinTripCount="120000" mMaxTripCount="120000" mMinLatency="120000" mMaxLatency="120000" mType="1">
       <basicBlocks>55</basicBlocks>
       <basicBlocks>64</basicBlocks>
       <mDfPipe/>
@@ -971,7 +971,7 @@
       <basicBlocks>67</basicBlocks>
       <mDfPipe/>
     </cfgRegions>
-    <cfgRegions mId="9" mTag="VITIS_LOOP_35_1_3" mII="1" mDepth="3" mMinTripCount="240000" mMaxTripCount="240000" mMinLatency="240001" mMaxLatency="240001" mType="1">
+    <cfgRegions mId="9" mTag="VITIS_LOOP_35_1_3" mII="1" mDepth="3" mMinTripCount="120000" mMaxTripCount="120000" mMinLatency="120001" mMaxLatency="120001" mType="1">
       <basicBlocks>74</basicBlocks>
       <basicBlocks>80</basicBlocks>
       <mDfPipe/>

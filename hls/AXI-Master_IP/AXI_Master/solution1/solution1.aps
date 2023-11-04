@@ -6,7 +6,7 @@
         <DownStreamTool name="vivado"/>
     </downStreamTool>
     <config>
-        <config_export description="AXI-Master IP which adds data to each value in an image area of ram" display_name="AXI-Master add value" format="ip_catalog" output="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP/example.zip" rtl="vhdl"/>
+        <config_export description="AXI-Master IP which adds data to each value in an image area of ram" display_name="AXI-Master add value segments 4" format="ip_catalog" output="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP/example.zip" rtl="vhdl"/>
     </config>
     <UIConfigurations>
         <UIAutosynConf boardInfo="Ultra96v2 Evaluation Platform (xczu3eg-sbva484-1-e) " hideTrivialOp="true" isBasedOnBoard="true" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">
@@ -41,7 +41,7 @@
         </UIAutoSimConf>
     </UIConfigurations>
     <ExportDesign askAgain="true" evaluate="false" flow="false" flowChoice="syn" formatName="ip_catalog" output="/home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP/example.zip" rtl="verilog" rtlButton="true" rtlCombo="vhdl">
-        <Format description="AXI-Master IP which adds data to each value in an image area of ram" display_name="AXI-Master add value" formatName="ip_catalog" vendor="" library="" ipname="example" version="" taxonomy=""/>
+        <Format description="AXI-Master IP which adds data to each value in an image area of ram" display_name="AXI-Master add value segments 4" formatName="ip_catalog"/>
         <Format formatName="sysgen"/>
         <Format formatName="sysgen_ise"/>
         <Format formatName="syn_dcp"/>

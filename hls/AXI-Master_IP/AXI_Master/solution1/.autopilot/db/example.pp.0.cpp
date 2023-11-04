@@ -1432,7 +1432,7 @@ extern "C++" const char *basename (const char *__filename)
 }
 # 23 "example.cpp" 2
 static const int length = 600*800;
-static const int segments = 2;
+static const int segments = 4;
 static const int segmentSize = length/segments;
 __attribute__((sdx_kernel("example", 0))) void example(volatile int *a, int value){
 #pragma HLS TOP name=example

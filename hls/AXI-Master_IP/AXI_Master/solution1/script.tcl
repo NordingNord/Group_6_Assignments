@@ -10,9 +10,9 @@ add_files -tb example_test.cpp -cflags "-Wno-unknown-pragmas"
 open_solution "solution1" -flow_target vivado
 set_part {xczu3eg-sbva484-1-e}
 create_clock -period 10 -name default
-config_export -description {AXI-Master IP which adds data to each value in an image area of ram} -display_name {AXI-Master add value} -format ip_catalog -output /home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP/example.zip -rtl vhdl
+config_export -description {AXI-Master IP which adds data to each value in an image area of ram} -display_name {AXI-Master add value segments 4} -format ip_catalog -output /home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP/example.zip -rtl vhdl
 source "./AXI_Master/solution1/directives.tcl"
 csim_design
 csynth_design
 cosim_design
-export_design -rtl vhdl -format ip_catalog -description "AXI-Master IP which adds data to each value in an image area of ram" -display_name "AXI-Master add value" -output /home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP/example.zip
+export_design -rtl vhdl -format ip_catalog -description "AXI-Master IP which adds data to each value in an image area of ram" -display_name "AXI-Master add value segments 4" -output /home/frank/Documents/Git/Group_6_Assignments/hls/AXI-Master_IP/example.zip
