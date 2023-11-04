@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="Image_Test.cpp" path="/home/benjamin/Image_Test.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="Image_Test_tb.cpp" path="/home/benjamin/Image_Test_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

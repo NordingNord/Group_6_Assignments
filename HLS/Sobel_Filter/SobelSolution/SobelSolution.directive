@@ -1,0 +1,15 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="Invert" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="Invert"/>
+            </pragma>
+        </directive>
+        <directive functionName="Invert" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="Invert"/>
+            </pragma>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+

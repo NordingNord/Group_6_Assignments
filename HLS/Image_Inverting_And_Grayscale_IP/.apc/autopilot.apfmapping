@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="example_hls.cpp" path="/home/benjamin/Downloads/example_hls.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="example_hls_tb.cpp" path="/home/benjamin/Downloads/example_hls_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished File checks and directory preparation: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 93.110 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;SobelTest.cpp&apos; ..." resolution=""/>
+	<Message severity="WARNING" prefix="[HLS 207-5524]" key="HLS 207-5524" tag="" content="Ignore interface attribute or pragma which is not used in top function: SobelTest.cpp:16:9" resolution=""/>
+	<Message severity="WARNING" prefix="[HLS 207-5524]" key="HLS 207-5524" tag="" content="Ignore interface attribute or pragma which is not used in top function: SobelTest.cpp:17:9" resolution=""/>
+	<Message severity="WARNING" prefix="[HLS 207-5524]" key="HLS 207-5524" tag="" content="Ignore interface attribute or pragma which is not used in top function: SobelTest.cpp:17:9" resolution=""/>
+	<Message severity="WARNING" prefix="[HLS 207-5524]" key="HLS 207-5524" tag="" content="Ignore interface attribute or pragma which is not used in top function: SobelTest.cpp:16:9" resolution=""/>
+	<Message severity="WARNING" prefix="[HLS 207-5524]" key="HLS 207-5524" tag="" content="Ignore interface attribute or pragma which is not used in top function: SobelTest.cpp:18:9" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Source Code Analysis and Preprocessing: CPU user time: 9.07 seconds. CPU system time: 0.65 seconds. Elapsed time: 8.51 seconds; current allocated memory: 94.377 MB." resolution=""/>
+	<Message severity="ERROR" prefix="[HLS 214-157]" key="HLS 214-157" tag="" content="Top function not found: there is no function named &apos;Invert&apos;" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Command csynth_design CPU user time: 14.63 seconds. CPU system time: 0.99 seconds. Elapsed time: 14.47 seconds; current allocated memory: 94.447 MB." resolution=""/>
+</Messages>

@@ -1,0 +1,1268 @@
+
+
+================================================================
+== Vitis HLS Report for 'Sobel'
+================================================================
+* Date:           Sat Nov  4 18:29:39 2023
+
+* Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)
+* Project:        Grayscale_Soble
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu3eg-sbva484-1-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.098 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|     none|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |              Loop Name              |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_48_1                    |        ?|        ?|         4|          4|          1|     ?|       yes|
+        |- VITIS_LOOP_97_3_VITIS_LOOP_98_4    |    10020|    10020|        23|          2|          1|  5000|       yes|
+        |- VITIS_LOOP_111_5_VITIS_LOOP_112_6  |     5046|     5046|        48|          1|          1|  5000|       yes|
+        +-------------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 4, depth = 4
+  * Pipeline-1: initiation interval (II) = 2, depth = 23
+  * Pipeline-2: initiation interval (II) = 1, depth = 48
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 79
+* Pipeline : 3
+  Pipeline-0 : II = 4, D = 4, States = { 2 3 4 5 }
+  Pipeline-1 : II = 2, D = 23, States = { 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 }
+  Pipeline-2 : II = 1, D = 48, States = { 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 2 
+6 --> 7 
+7 --> 30 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 7 
+30 --> 31 
+31 --> 79 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 44 
+44 --> 45 
+45 --> 46 
+46 --> 47 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 56 
+56 --> 57 
+57 --> 58 
+58 --> 59 
+59 --> 60 
+60 --> 61 
+61 --> 62 
+62 --> 63 
+63 --> 64 
+64 --> 65 
+65 --> 66 
+66 --> 67 
+67 --> 68 
+68 --> 69 
+69 --> 70 
+70 --> 71 
+71 --> 72 
+72 --> 73 
+73 --> 74 
+74 --> 75 
+75 --> 76 
+76 --> 77 
+77 --> 78 
+78 --> 31 
+79 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.83>
+ST_1 : Operation 80 [1/1] (0.00ns)   --->   "%spectopmodule_ln0 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_4"   --->   Operation 80 'spectopmodule' 'spectopmodule_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 81 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %Data_In_V_data_V, i4 %Data_In_V_keep_V, i4 %Data_In_V_strb_V, i2 %Data_In_V_user_V, i1 %Data_In_V_last_V, i5 %Data_In_V_id_V, i6 %Data_In_V_dest_V, void @empty, i32 1, i32 1, void @empty_0, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1"   --->   Operation 81 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 82 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %Data_In_V_data_V"   --->   Operation 82 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 83 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %Data_In_V_keep_V"   --->   Operation 83 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 84 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %Data_In_V_strb_V"   --->   Operation 84 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 85 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i2 %Data_In_V_user_V"   --->   Operation 85 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 86 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %Data_In_V_last_V"   --->   Operation 86 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 87 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i5 %Data_In_V_id_V"   --->   Operation 87 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 88 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i6 %Data_In_V_dest_V"   --->   Operation 88 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 89 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %Data_Out_V_data_V, i4 %Data_Out_V_keep_V, i4 %Data_Out_V_strb_V, i2 %Data_Out_V_user_V, i1 %Data_Out_V_last_V, i5 %Data_Out_V_id_V, i6 %Data_Out_V_dest_V, void @empty, i32 1, i32 1, void @empty_0, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1"   --->   Operation 89 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 90 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %Data_Out_V_data_V"   --->   Operation 90 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 91 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %Data_Out_V_keep_V"   --->   Operation 91 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 92 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %Data_Out_V_strb_V"   --->   Operation 92 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 93 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i2 %Data_Out_V_user_V"   --->   Operation 93 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 94 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %Data_Out_V_last_V"   --->   Operation 94 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 95 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i5 %Data_Out_V_id_V"   --->   Operation 95 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 96 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i6 %Data_Out_V_dest_V"   --->   Operation 96 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 97 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_3, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1"   --->   Operation 97 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 98 [1/1] (0.00ns)   --->   "%R = alloca i64 1"   --->   Operation 98 'alloca' 'R' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 99 [1/1] (0.00ns)   --->   "%G = alloca i64 1"   --->   Operation 99 'alloca' 'G' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 100 [1/1] (0.00ns)   --->   "%B = alloca i64 1"   --->   Operation 100 'alloca' 'B' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 101 [1/1] (0.00ns)   --->   "%Vertical_Sobel = alloca i64 1"   --->   Operation 101 'alloca' 'Vertical_Sobel' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 102 [1/1] (0.00ns)   --->   "%Vertical_Sobel_1 = alloca i64 1"   --->   Operation 102 'alloca' 'Vertical_Sobel_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 103 [1/1] (0.00ns)   --->   "%Vertical_Sobel_2 = alloca i64 1"   --->   Operation 103 'alloca' 'Vertical_Sobel_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 104 [1/1] (0.00ns)   --->   "%Vertical_Sobel_3 = alloca i64 1"   --->   Operation 104 'alloca' 'Vertical_Sobel_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 105 [1/1] (0.00ns)   --->   "%Vertical_Sobel_4 = alloca i64 1"   --->   Operation 105 'alloca' 'Vertical_Sobel_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 106 [1/1] (0.00ns)   --->   "%Vertical_Sobel_5 = alloca i64 1"   --->   Operation 106 'alloca' 'Vertical_Sobel_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 107 [1/1] (0.00ns)   --->   "%Horizontal_Sobel = alloca i64 1"   --->   Operation 107 'alloca' 'Horizontal_Sobel' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 108 [1/1] (0.00ns)   --->   "%Horizontal_Sobel_1 = alloca i64 1"   --->   Operation 108 'alloca' 'Horizontal_Sobel_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 109 [1/1] (0.00ns)   --->   "%Horizontal_Sobel_2 = alloca i64 1"   --->   Operation 109 'alloca' 'Horizontal_Sobel_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 110 [1/1] (0.00ns)   --->   "%Horizontal_Sobel_3 = alloca i64 1"   --->   Operation 110 'alloca' 'Horizontal_Sobel_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 111 [1/1] (0.00ns)   --->   "%Horizontal_Sobel_4 = alloca i64 1"   --->   Operation 111 'alloca' 'Horizontal_Sobel_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 112 [1/1] (0.00ns)   --->   "%Horizontal_Sobel_5 = alloca i64 1"   --->   Operation 112 'alloca' 'Horizontal_Sobel_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 113 [1/1] (0.00ns)   --->   "%Image = alloca i64 1" [SobelTest.cpp:31]   --->   Operation 113 'alloca' 'Image' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_1 : Operation 114 [1/1] (0.00ns)   --->   "%Sobel_1 = alloca i64 1" [SobelTest.cpp:32]   --->   Operation 114 'alloca' 'Sobel_1' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_1 : Operation 115 [1/1] (0.00ns)   --->   "%G1_Sum = alloca i64 1"   --->   Operation 115 'alloca' 'G1_Sum' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 116 [1/1] (0.00ns)   --->   "%G2_Sum = alloca i64 1"   --->   Operation 116 'alloca' 'G2_Sum' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 117 [1/1] (0.00ns)   --->   "%Array_Image = alloca i64 1" [SobelTest.cpp:44]   --->   Operation 117 'alloca' 'Array_Image' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 15000> <RAM>
+ST_1 : Operation 118 [1/1] (0.00ns)   --->   "%indx = alloca i64 1"   --->   Operation 118 'alloca' 'indx' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 119 [1/1] (0.48ns)   --->   "%store_ln24 = store i32 0, i32 %R" [SobelTest.cpp:24]   --->   Operation 119 'store' 'store_ln24' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 120 [1/1] (0.48ns)   --->   "%store_ln25 = store i32 0, i32 %G" [SobelTest.cpp:25]   --->   Operation 120 'store' 'store_ln25' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 121 [1/1] (0.48ns)   --->   "%store_ln26 = store i32 0, i32 %B" [SobelTest.cpp:26]   --->   Operation 121 'store' 'store_ln26' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 122 [1/1] (0.48ns)   --->   "%store_ln29 = store i2 0, i2 %Vertical_Sobel" [SobelTest.cpp:29]   --->   Operation 122 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 123 [1/1] (0.48ns)   --->   "%store_ln29 = store i2 0, i2 %Vertical_Sobel_1" [SobelTest.cpp:29]   --->   Operation 123 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 124 [1/1] (0.48ns)   --->   "%store_ln29 = store i2 0, i2 %Vertical_Sobel_2" [SobelTest.cpp:29]   --->   Operation 124 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 125 [1/1] (0.48ns)   --->   "%store_ln29 = store i1 0, i1 %Vertical_Sobel_3" [SobelTest.cpp:29]   --->   Operation 125 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 126 [1/1] (0.48ns)   --->   "%store_ln29 = store i2 0, i2 %Vertical_Sobel_4" [SobelTest.cpp:29]   --->   Operation 126 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 127 [1/1] (0.48ns)   --->   "%store_ln29 = store i1 0, i1 %Vertical_Sobel_5" [SobelTest.cpp:29]   --->   Operation 127 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 128 [1/1] (0.48ns)   --->   "%store_ln29 = store i2 3, i2 %Vertical_Sobel" [SobelTest.cpp:29]   --->   Operation 128 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 129 [1/1] (0.48ns)   --->   "%store_ln29 = store i2 2, i2 %Vertical_Sobel_1" [SobelTest.cpp:29]   --->   Operation 129 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 130 [1/1] (0.48ns)   --->   "%store_ln29 = store i2 3, i2 %Vertical_Sobel_2" [SobelTest.cpp:29]   --->   Operation 130 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 131 [1/1] (0.48ns)   --->   "%store_ln29 = store i1 1, i1 %Vertical_Sobel_3" [SobelTest.cpp:29]   --->   Operation 131 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 132 [1/1] (0.48ns)   --->   "%store_ln29 = store i2 2, i2 %Vertical_Sobel_4" [SobelTest.cpp:29]   --->   Operation 132 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 133 [1/1] (0.48ns)   --->   "%store_ln29 = store i1 1, i1 %Vertical_Sobel_5" [SobelTest.cpp:29]   --->   Operation 133 'store' 'store_ln29' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 134 [1/1] (0.48ns)   --->   "%store_ln30 = store i2 0, i2 %Horizontal_Sobel" [SobelTest.cpp:30]   --->   Operation 134 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 135 [1/1] (0.48ns)   --->   "%store_ln30 = store i1 0, i1 %Horizontal_Sobel_1" [SobelTest.cpp:30]   --->   Operation 135 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 136 [1/1] (0.48ns)   --->   "%store_ln30 = store i2 0, i2 %Horizontal_Sobel_2" [SobelTest.cpp:30]   --->   Operation 136 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 137 [1/1] (0.48ns)   --->   "%store_ln30 = store i2 0, i2 %Horizontal_Sobel_3" [SobelTest.cpp:30]   --->   Operation 137 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 138 [1/1] (0.48ns)   --->   "%store_ln30 = store i2 0, i2 %Horizontal_Sobel_4" [SobelTest.cpp:30]   --->   Operation 138 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 139 [1/1] (0.48ns)   --->   "%store_ln30 = store i1 0, i1 %Horizontal_Sobel_5" [SobelTest.cpp:30]   --->   Operation 139 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 140 [1/1] (0.48ns)   --->   "%store_ln30 = store i2 3, i2 %Horizontal_Sobel" [SobelTest.cpp:30]   --->   Operation 140 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 141 [1/1] (0.48ns)   --->   "%store_ln30 = store i1 1, i1 %Horizontal_Sobel_1" [SobelTest.cpp:30]   --->   Operation 141 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 142 [1/1] (0.48ns)   --->   "%store_ln30 = store i2 2, i2 %Horizontal_Sobel_2" [SobelTest.cpp:30]   --->   Operation 142 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 143 [1/1] (0.48ns)   --->   "%store_ln30 = store i2 2, i2 %Horizontal_Sobel_3" [SobelTest.cpp:30]   --->   Operation 143 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 144 [1/1] (0.48ns)   --->   "%store_ln30 = store i2 3, i2 %Horizontal_Sobel_4" [SobelTest.cpp:30]   --->   Operation 144 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 145 [1/1] (0.48ns)   --->   "%store_ln30 = store i1 1, i1 %Horizontal_Sobel_5" [SobelTest.cpp:30]   --->   Operation 145 'store' 'store_ln30' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 146 [1/1] (0.48ns)   --->   "%store_ln41 = store i32 0, i32 %G1_Sum" [SobelTest.cpp:41]   --->   Operation 146 'store' 'store_ln41' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 147 [1/1] (0.48ns)   --->   "%store_ln42 = store i32 0, i32 %G2_Sum" [SobelTest.cpp:42]   --->   Operation 147 'store' 'store_ln42' <Predicate = true> <Delay = 0.48>
+ST_1 : Operation 148 [1/1] (0.83ns)   --->   "%store_ln46 = store i32 0, i32 %indx" [SobelTest.cpp:46]   --->   Operation 148 'store' 'store_ln46' <Predicate = true> <Delay = 0.83>
+ST_1 : Operation 149 [1/1] (0.00ns)   --->   "%br_ln48 = br void %.split28.0" [SobelTest.cpp:48]   --->   Operation 149 'br' 'br_ln48' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 2.04>
+ST_2 : Operation 150 [1/1] (0.00ns)   --->   "%Mask = alloca i64 1"   --->   Operation 150 'alloca' 'Mask' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 151 [1/1] (0.00ns)   --->   "%empty = read i54 @_ssdm_op_Read.axis.volatile.i32P0A.i4P0A.i4P0A.i2P0A.i1P0A.i5P0A.i6P0A, i32 %Data_In_V_data_V, i4 %Data_In_V_keep_V, i4 %Data_In_V_strb_V, i2 %Data_In_V_user_V, i1 %Data_In_V_last_V, i5 %Data_In_V_id_V, i6 %Data_In_V_dest_V"   --->   Operation 151 'read' 'empty' <Predicate = true> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 152 [1/1] (0.00ns)   --->   "%tmp_data_V = extractvalue i54 %empty"   --->   Operation 152 'extractvalue' 'tmp_data_V' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 153 [1/1] (0.00ns)   --->   "%ref_tmp_keep = extractvalue i54 %empty"   --->   Operation 153 'extractvalue' 'ref_tmp_keep' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 154 [1/1] (0.00ns)   --->   "%ref_tmp_strb = extractvalue i54 %empty"   --->   Operation 154 'extractvalue' 'ref_tmp_strb' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 155 [1/1] (0.00ns)   --->   "%ref_tmp_user = extractvalue i54 %empty"   --->   Operation 155 'extractvalue' 'ref_tmp_user' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 156 [1/1] (0.00ns)   --->   "%tmp_last_V = extractvalue i54 %empty"   --->   Operation 156 'extractvalue' 'tmp_last_V' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 157 [1/1] (0.00ns)   --->   "%ref_tmp_id = extractvalue i54 %empty"   --->   Operation 157 'extractvalue' 'ref_tmp_id' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 158 [1/1] (0.00ns)   --->   "%ref_tmp_dest = extractvalue i54 %empty"   --->   Operation 158 'extractvalue' 'ref_tmp_dest' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 159 [1/1] (0.66ns)   --->   "%store_ln51 = store i32 255, i32 %Mask" [SobelTest.cpp:51]   --->   Operation 159 'store' 'store_ln51' <Predicate = true> <Delay = 0.66>
+ST_2 : Operation 160 [1/1] (0.00ns)   --->   "%Mask_load = load i32 %Mask" [SobelTest.cpp:54]   --->   Operation 160 'load' 'Mask_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 161 [1/1] (0.40ns)   --->   "%and_ln54 = and i32 %Mask_load, i32 %tmp_data_V" [SobelTest.cpp:54]   --->   Operation 161 'and' 'and_ln54' <Predicate = true> <Delay = 0.40> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.40> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 162 [1/1] (0.00ns)   --->   "%indx_load = load i32 %indx" [SobelTest.cpp:54]   --->   Operation 162 'load' 'indx_load' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 163 [1/1] (0.00ns)   --->   "%zext_ln54 = zext i32 %indx_load" [SobelTest.cpp:54]   --->   Operation 163 'zext' 'zext_ln54' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 164 [1/1] (0.00ns)   --->   "%Array_Image_addr = getelementptr i32 %Array_Image, i64 0, i64 %zext_ln54" [SobelTest.cpp:54]   --->   Operation 164 'getelementptr' 'Array_Image_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 165 [1/1] (1.35ns)   --->   "%store_ln54 = store i32 %and_ln54, i14 %Array_Image_addr" [SobelTest.cpp:54]   --->   Operation 165 'store' 'store_ln54' <Predicate = true> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 15000> <RAM>
+ST_2 : Operation 166 [1/1] (0.00ns)   --->   "%Mask_load_1 = load i32 %Mask" [SobelTest.cpp:55]   --->   Operation 166 'load' 'Mask_load_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 167 [1/1] (0.00ns)   --->   "%shl_ln55 = shl i32 %Mask_load_1, i32 8" [SobelTest.cpp:55]   --->   Operation 167 'shl' 'shl_ln55' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 168 [1/1] (0.66ns)   --->   "%store_ln55 = store i32 %shl_ln55, i32 %Mask" [SobelTest.cpp:55]   --->   Operation 168 'store' 'store_ln55' <Predicate = true> <Delay = 0.66>
+ST_2 : Operation 169 [1/1] (0.00ns)   --->   "%indx_load_1 = load i32 %indx" [SobelTest.cpp:56]   --->   Operation 169 'load' 'indx_load_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 170 [1/1] (1.20ns)   --->   "%add_ln56 = add i32 %indx_load_1, i32 1" [SobelTest.cpp:56]   --->   Operation 170 'add' 'add_ln56' <Predicate = true> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 171 [1/1] (0.83ns)   --->   "%store_ln56 = store i32 %add_ln56, i32 %indx" [SobelTest.cpp:56]   --->   Operation 171 'store' 'store_ln56' <Predicate = true> <Delay = 0.83>
+
+State 3 <SV = 2> <Delay = 2.04>
+ST_3 : Operation 172 [1/1] (0.00ns)   --->   "%Mask_load_4 = load i32 %Mask" [SobelTest.cpp:54]   --->   Operation 172 'load' 'Mask_load_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 173 [1/1] (0.40ns)   --->   "%and_ln54_1 = and i32 %Mask_load_4, i32 %tmp_data_V" [SobelTest.cpp:54]   --->   Operation 173 'and' 'and_ln54_1' <Predicate = true> <Delay = 0.40> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.40> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 174 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i24 @_ssdm_op_PartSelect.i24.i32.i32.i32, i32 %and_ln54_1, i32 8, i32 31" [SobelTest.cpp:54]   --->   Operation 174 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 175 [1/1] (0.00ns)   --->   "%sext_ln54 = sext i24 %trunc_ln" [SobelTest.cpp:54]   --->   Operation 175 'sext' 'sext_ln54' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 176 [1/1] (0.00ns)   --->   "%indx_load_8 = load i32 %indx" [SobelTest.cpp:54]   --->   Operation 176 'load' 'indx_load_8' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 177 [1/1] (0.00ns)   --->   "%zext_ln54_1 = zext i32 %indx_load_8" [SobelTest.cpp:54]   --->   Operation 177 'zext' 'zext_ln54_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 178 [1/1] (0.00ns)   --->   "%Array_Image_addr_4 = getelementptr i32 %Array_Image, i64 0, i64 %zext_ln54_1" [SobelTest.cpp:54]   --->   Operation 178 'getelementptr' 'Array_Image_addr_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 179 [1/1] (1.35ns)   --->   "%store_ln54 = store i32 %sext_ln54, i14 %Array_Image_addr_4" [SobelTest.cpp:54]   --->   Operation 179 'store' 'store_ln54' <Predicate = true> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 15000> <RAM>
+ST_3 : Operation 180 [1/1] (0.00ns)   --->   "%Mask_load_5 = load i32 %Mask" [SobelTest.cpp:55]   --->   Operation 180 'load' 'Mask_load_5' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 181 [1/1] (0.00ns)   --->   "%shl_ln55_1 = shl i32 %Mask_load_5, i32 8" [SobelTest.cpp:55]   --->   Operation 181 'shl' 'shl_ln55_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 182 [1/1] (0.66ns)   --->   "%store_ln55 = store i32 %shl_ln55_1, i32 %Mask" [SobelTest.cpp:55]   --->   Operation 182 'store' 'store_ln55' <Predicate = true> <Delay = 0.66>
+ST_3 : Operation 183 [1/1] (0.00ns)   --->   "%indx_load_9 = load i32 %indx" [SobelTest.cpp:56]   --->   Operation 183 'load' 'indx_load_9' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 184 [1/1] (1.20ns)   --->   "%add_ln56_1 = add i32 %indx_load_9, i32 1" [SobelTest.cpp:56]   --->   Operation 184 'add' 'add_ln56_1' <Predicate = true> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 185 [1/1] (0.83ns)   --->   "%store_ln56 = store i32 %add_ln56_1, i32 %indx" [SobelTest.cpp:56]   --->   Operation 185 'store' 'store_ln56' <Predicate = true> <Delay = 0.83>
+ST_3 : Operation 186 [1/1] (0.00ns)   --->   "%Mask_load_2 = load i32 %Mask" [SobelTest.cpp:54]   --->   Operation 186 'load' 'Mask_load_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 187 [1/1] (0.40ns)   --->   "%and_ln54_2 = and i32 %Mask_load_2, i32 %tmp_data_V" [SobelTest.cpp:54]   --->   Operation 187 'and' 'and_ln54_2' <Predicate = true> <Delay = 0.40> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.40> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 188 [1/1] (0.00ns)   --->   "%trunc_ln54_1 = partselect i16 @_ssdm_op_PartSelect.i16.i32.i32.i32, i32 %and_ln54_2, i32 16, i32 31" [SobelTest.cpp:54]   --->   Operation 188 'partselect' 'trunc_ln54_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 189 [1/1] (0.00ns)   --->   "%Mask_load_6 = load i32 %Mask" [SobelTest.cpp:55]   --->   Operation 189 'load' 'Mask_load_6' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 190 [1/1] (0.00ns)   --->   "%shl_ln55_2 = shl i32 %Mask_load_6, i32 8" [SobelTest.cpp:55]   --->   Operation 190 'shl' 'shl_ln55_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 191 [1/1] (0.66ns)   --->   "%store_ln55 = store i32 %shl_ln55_2, i32 %Mask" [SobelTest.cpp:55]   --->   Operation 191 'store' 'store_ln55' <Predicate = true> <Delay = 0.66>
+ST_3 : Operation 192 [1/1] (0.00ns)   --->   "%Mask_load_3 = load i32 %Mask" [SobelTest.cpp:54]   --->   Operation 192 'load' 'Mask_load_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 193 [1/1] (0.40ns)   --->   "%and_ln54_3 = and i32 %Mask_load_3, i32 %tmp_data_V" [SobelTest.cpp:54]   --->   Operation 193 'and' 'and_ln54_3' <Predicate = true> <Delay = 0.40> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.40> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 194 [1/1] (0.00ns)   --->   "%trunc_ln54_2 = partselect i8 @_ssdm_op_PartSelect.i8.i32.i32.i32, i32 %and_ln54_3, i32 24, i32 31" [SobelTest.cpp:54]   --->   Operation 194 'partselect' 'trunc_ln54_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 195 [1/1] (0.00ns)   --->   "%Mask_load_7 = load i32 %Mask" [SobelTest.cpp:55]   --->   Operation 195 'load' 'Mask_load_7' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 196 [1/1] (0.00ns)   --->   "%shl_ln55_3 = shl i32 %Mask_load_7, i32 8" [SobelTest.cpp:55]   --->   Operation 196 'shl' 'shl_ln55_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 197 [1/1] (0.66ns)   --->   "%store_ln55 = store i32 %shl_ln55_3, i32 %Mask" [SobelTest.cpp:55]   --->   Operation 197 'store' 'store_ln55' <Predicate = true> <Delay = 0.66>
+
+State 4 <SV = 3> <Delay = 2.04>
+ST_4 : Operation 198 [1/1] (0.00ns)   --->   "%sext_ln54_1 = sext i16 %trunc_ln54_1" [SobelTest.cpp:54]   --->   Operation 198 'sext' 'sext_ln54_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 199 [1/1] (0.00ns)   --->   "%indx_load_10 = load i32 %indx" [SobelTest.cpp:54]   --->   Operation 199 'load' 'indx_load_10' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 200 [1/1] (0.00ns)   --->   "%zext_ln54_2 = zext i32 %indx_load_10" [SobelTest.cpp:54]   --->   Operation 200 'zext' 'zext_ln54_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 201 [1/1] (0.00ns)   --->   "%Array_Image_addr_5 = getelementptr i32 %Array_Image, i64 0, i64 %zext_ln54_2" [SobelTest.cpp:54]   --->   Operation 201 'getelementptr' 'Array_Image_addr_5' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 202 [1/1] (1.35ns)   --->   "%store_ln54 = store i32 %sext_ln54_1, i14 %Array_Image_addr_5" [SobelTest.cpp:54]   --->   Operation 202 'store' 'store_ln54' <Predicate = true> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 15000> <RAM>
+ST_4 : Operation 203 [1/1] (0.00ns)   --->   "%indx_load_11 = load i32 %indx" [SobelTest.cpp:56]   --->   Operation 203 'load' 'indx_load_11' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 204 [1/1] (1.20ns)   --->   "%add_ln56_2 = add i32 %indx_load_11, i32 1" [SobelTest.cpp:56]   --->   Operation 204 'add' 'add_ln56_2' <Predicate = true> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 205 [1/1] (0.83ns)   --->   "%store_ln56 = store i32 %add_ln56_2, i32 %indx" [SobelTest.cpp:56]   --->   Operation 205 'store' 'store_ln56' <Predicate = true> <Delay = 0.83>
+
+State 5 <SV = 4> <Delay = 2.04>
+ST_5 : Operation 206 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 206 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 207 [1/1] (0.00ns)   --->   "%specloopname_ln0 = specloopname void @_ssdm_op_SpecLoopName, void @empty_7"   --->   Operation 207 'specloopname' 'specloopname_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 208 [1/1] (0.00ns)   --->   "%sext_ln54_2 = sext i8 %trunc_ln54_2" [SobelTest.cpp:54]   --->   Operation 208 'sext' 'sext_ln54_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 209 [1/1] (0.00ns)   --->   "%indx_load_12 = load i32 %indx" [SobelTest.cpp:54]   --->   Operation 209 'load' 'indx_load_12' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 210 [1/1] (0.00ns)   --->   "%zext_ln54_3 = zext i32 %indx_load_12" [SobelTest.cpp:54]   --->   Operation 210 'zext' 'zext_ln54_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 211 [1/1] (0.00ns)   --->   "%Array_Image_addr_6 = getelementptr i32 %Array_Image, i64 0, i64 %zext_ln54_3" [SobelTest.cpp:54]   --->   Operation 211 'getelementptr' 'Array_Image_addr_6' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 212 [1/1] (1.35ns)   --->   "%store_ln54 = store i32 %sext_ln54_2, i14 %Array_Image_addr_6" [SobelTest.cpp:54]   --->   Operation 212 'store' 'store_ln54' <Predicate = true> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 15000> <RAM>
+ST_5 : Operation 213 [1/1] (0.00ns)   --->   "%indx_load_13 = load i32 %indx" [SobelTest.cpp:56]   --->   Operation 213 'load' 'indx_load_13' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 214 [1/1] (1.20ns)   --->   "%add_ln56_3 = add i32 %indx_load_13, i32 1" [SobelTest.cpp:56]   --->   Operation 214 'add' 'add_ln56_3' <Predicate = true> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 215 [1/1] (0.83ns)   --->   "%store_ln56 = store i32 %add_ln56_3, i32 %indx" [SobelTest.cpp:56]   --->   Operation 215 'store' 'store_ln56' <Predicate = true> <Delay = 0.83>
+ST_5 : Operation 216 [1/1] (0.00ns)   --->   "%br_ln89 = br i1 %tmp_last_V, void, void" [SobelTest.cpp:89]   --->   Operation 216 'br' 'br_ln89' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 217 [1/1] (0.00ns)   --->   "%br_ln48 = br void %.split28.0" [SobelTest.cpp:48]   --->   Operation 217 'br' 'br_ln48' <Predicate = (!tmp_last_V)> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 0.83>
+ST_6 : Operation 218 [1/1] (0.83ns)   --->   "%store_ln96 = store i32 0, i32 %indx" [SobelTest.cpp:96]   --->   Operation 218 'store' 'store_ln96' <Predicate = true> <Delay = 0.83>
+ST_6 : Operation 219 [1/1] (0.48ns)   --->   "%br_ln97 = br void" [SobelTest.cpp:97]   --->   Operation 219 'br' 'br_ln97' <Predicate = true> <Delay = 0.48>
+
+State 7 <SV = 6> <Delay = 2.04>
+ST_7 : Operation 220 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i13 0, void, i13 %add_ln97_1, void %.split26" [SobelTest.cpp:97]   --->   Operation 220 'phi' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 221 [1/1] (0.00ns)   --->   "%j = phi i6 0, void, i6 %select_ln97_1, void %.split26" [SobelTest.cpp:97]   --->   Operation 221 'phi' 'j' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 222 [1/1] (0.00ns)   --->   "%i_1 = phi i7 0, void, i7 %add_ln98, void %.split26" [SobelTest.cpp:98]   --->   Operation 222 'phi' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 223 [1/1] (0.97ns)   --->   "%add_ln97_1 = add i13 %indvar_flatten, i13 1" [SobelTest.cpp:97]   --->   Operation 223 'add' 'add_ln97_1' <Predicate = true> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 224 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 224 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 225 [1/1] (0.86ns)   --->   "%icmp_ln97 = icmp_eq  i13 %indvar_flatten, i13 5000" [SobelTest.cpp:97]   --->   Operation 225 'icmp' 'icmp_ln97' <Predicate = true> <Delay = 0.86> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 226 [1/1] (0.00ns)   --->   "%br_ln97 = br i1 %icmp_ln97, void %.split26, void %.preheader.preheader.preheader" [SobelTest.cpp:97]   --->   Operation 226 'br' 'br_ln97' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 227 [1/1] (0.88ns)   --->   "%add_ln97 = add i6 %j, i6 1" [SobelTest.cpp:97]   --->   Operation 227 'add' 'add_ln97' <Predicate = (!icmp_ln97)> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 228 [1/1] (0.86ns)   --->   "%icmp_ln98 = icmp_eq  i7 %i_1, i7 100" [SobelTest.cpp:98]   --->   Operation 228 'icmp' 'icmp_ln98' <Predicate = (!icmp_ln97)> <Delay = 0.86> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 229 [1/1] (0.42ns)   --->   "%select_ln97 = select i1 %icmp_ln98, i7 0, i7 %i_1" [SobelTest.cpp:97]   --->   Operation 229 'select' 'select_ln97' <Predicate = (!icmp_ln97)> <Delay = 0.42> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 230 [1/1] (0.44ns)   --->   "%select_ln97_1 = select i1 %icmp_ln98, i6 %add_ln97, i6 %j" [SobelTest.cpp:97]   --->   Operation 230 'select' 'select_ln97_1' <Predicate = (!icmp_ln97)> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 231 [1/1] (0.00ns)   --->   "%indx_load_2 = load i32 %indx" [SobelTest.cpp:99]   --->   Operation 231 'load' 'indx_load_2' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_7 : Operation 232 [1/1] (0.00ns)   --->   "%zext_ln99 = zext i32 %indx_load_2" [SobelTest.cpp:99]   --->   Operation 232 'zext' 'zext_ln99' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_7 : Operation 233 [1/1] (0.00ns)   --->   "%Array_Image_addr_1 = getelementptr i32 %Array_Image, i64 0, i64 %zext_ln99" [SobelTest.cpp:99]   --->   Operation 233 'getelementptr' 'Array_Image_addr_1' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_7 : Operation 234 [2/2] (1.35ns)   --->   "%R_1 = load i14 %Array_Image_addr_1" [SobelTest.cpp:99]   --->   Operation 234 'load' 'R_1' <Predicate = (!icmp_ln97)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 15000> <RAM>
+ST_7 : Operation 235 [1/1] (0.00ns)   --->   "%indx_load_3 = load i32 %indx" [SobelTest.cpp:100]   --->   Operation 235 'load' 'indx_load_3' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_7 : Operation 236 [1/1] (1.20ns)   --->   "%indx_1 = add i32 %indx_load_3, i32 1" [SobelTest.cpp:100]   --->   Operation 236 'add' 'indx_1' <Predicate = (!icmp_ln97)> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 237 [1/1] (0.83ns)   --->   "%store_ln100 = store i32 %indx_1, i32 %indx" [SobelTest.cpp:100]   --->   Operation 237 'store' 'store_ln100' <Predicate = (!icmp_ln97)> <Delay = 0.83>
+ST_7 : Operation 238 [1/1] (0.00ns)   --->   "%indx_load_4 = load i32 %indx" [SobelTest.cpp:101]   --->   Operation 238 'load' 'indx_load_4' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_7 : Operation 239 [1/1] (0.00ns)   --->   "%zext_ln101 = zext i32 %indx_load_4" [SobelTest.cpp:101]   --->   Operation 239 'zext' 'zext_ln101' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_7 : Operation 240 [1/1] (0.00ns)   --->   "%Array_Image_addr_2 = getelementptr i32 %Array_Image, i64 0, i64 %zext_ln101" [SobelTest.cpp:101]   --->   Operation 240 'getelementptr' 'Array_Image_addr_2' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_7 : Operation 241 [2/2] (1.35ns)   --->   "%G_1 = load i14 %Array_Image_addr_2" [SobelTest.cpp:101]   --->   Operation 241 'load' 'G_1' <Predicate = (!icmp_ln97)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 15000> <RAM>
+ST_7 : Operation 242 [1/1] (0.00ns)   --->   "%indx_load_5 = load i32 %indx" [SobelTest.cpp:102]   --->   Operation 242 'load' 'indx_load_5' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_7 : Operation 243 [1/1] (1.20ns)   --->   "%indx_2 = add i32 %indx_load_5, i32 1" [SobelTest.cpp:102]   --->   Operation 243 'add' 'indx_2' <Predicate = (!icmp_ln97)> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 244 [1/1] (0.83ns)   --->   "%store_ln102 = store i32 %indx_2, i32 %indx" [SobelTest.cpp:102]   --->   Operation 244 'store' 'store_ln102' <Predicate = (!icmp_ln97)> <Delay = 0.83>
+
+State 8 <SV = 7> <Delay = 2.04>
+ST_8 : Operation 245 [1/2] (1.35ns)   --->   "%R_1 = load i14 %Array_Image_addr_1" [SobelTest.cpp:99]   --->   Operation 245 'load' 'R_1' <Predicate = (!icmp_ln97)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 15000> <RAM>
+ST_8 : Operation 246 [1/1] (0.48ns)   --->   "%store_ln99 = store i32 %R_1, i32 %R" [SobelTest.cpp:99]   --->   Operation 246 'store' 'store_ln99' <Predicate = (!icmp_ln97)> <Delay = 0.48>
+ST_8 : Operation 247 [1/2] (1.35ns)   --->   "%G_1 = load i14 %Array_Image_addr_2" [SobelTest.cpp:101]   --->   Operation 247 'load' 'G_1' <Predicate = (!icmp_ln97)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 15000> <RAM>
+ST_8 : Operation 248 [1/1] (0.48ns)   --->   "%store_ln101 = store i32 %G_1, i32 %G" [SobelTest.cpp:101]   --->   Operation 248 'store' 'store_ln101' <Predicate = (!icmp_ln97)> <Delay = 0.48>
+ST_8 : Operation 249 [1/1] (0.00ns)   --->   "%indx_load_6 = load i32 %indx" [SobelTest.cpp:103]   --->   Operation 249 'load' 'indx_load_6' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_8 : Operation 250 [1/1] (0.00ns)   --->   "%zext_ln103 = zext i32 %indx_load_6" [SobelTest.cpp:103]   --->   Operation 250 'zext' 'zext_ln103' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_8 : Operation 251 [1/1] (0.00ns)   --->   "%Array_Image_addr_3 = getelementptr i32 %Array_Image, i64 0, i64 %zext_ln103" [SobelTest.cpp:103]   --->   Operation 251 'getelementptr' 'Array_Image_addr_3' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_8 : Operation 252 [2/2] (1.35ns)   --->   "%B_1 = load i14 %Array_Image_addr_3" [SobelTest.cpp:103]   --->   Operation 252 'load' 'B_1' <Predicate = (!icmp_ln97)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 15000> <RAM>
+ST_8 : Operation 253 [1/1] (0.00ns)   --->   "%indx_load_7 = load i32 %indx" [SobelTest.cpp:104]   --->   Operation 253 'load' 'indx_load_7' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_8 : Operation 254 [1/1] (1.20ns)   --->   "%indx_3 = add i32 %indx_load_7, i32 1" [SobelTest.cpp:104]   --->   Operation 254 'add' 'indx_3' <Predicate = (!icmp_ln97)> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 255 [1/1] (0.83ns)   --->   "%store_ln104 = store i32 %indx_3, i32 %indx" [SobelTest.cpp:104]   --->   Operation 255 'store' 'store_ln104' <Predicate = (!icmp_ln97)> <Delay = 0.83>
+ST_8 : Operation 256 [1/1] (0.89ns)   --->   "%add_ln98 = add i7 %select_ln97, i7 1" [SobelTest.cpp:98]   --->   Operation 256 'add' 'add_ln98' <Predicate = (!icmp_ln97)> <Delay = 0.89> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 7.09>
+ST_9 : Operation 257 [1/2] (1.35ns)   --->   "%B_1 = load i14 %Array_Image_addr_3" [SobelTest.cpp:103]   --->   Operation 257 'load' 'B_1' <Predicate = (!icmp_ln97)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 15000> <RAM>
+ST_9 : Operation 258 [1/1] (0.48ns)   --->   "%store_ln103 = store i32 %B_1, i32 %B" [SobelTest.cpp:103]   --->   Operation 258 'store' 'store_ln103' <Predicate = (!icmp_ln97)> <Delay = 0.48>
+ST_9 : Operation 259 [1/1] (0.00ns)   --->   "%R_load = load i32 %R" [SobelTest.cpp:106]   --->   Operation 259 'load' 'R_load' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_9 : Operation 260 [4/4] (7.09ns)   --->   "%conv = sitodp i32 %R_load" [SobelTest.cpp:106]   --->   Operation 260 'sitodp' 'conv' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+ST_9 : Operation 261 [1/1] (0.00ns)   --->   "%G_load = load i32 %G" [SobelTest.cpp:106]   --->   Operation 261 'load' 'G_load' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_9 : Operation 262 [4/4] (7.09ns)   --->   "%conv1 = sitodp i32 %G_load" [SobelTest.cpp:106]   --->   Operation 262 'sitodp' 'conv1' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 7.09>
+ST_10 : Operation 263 [3/4] (7.09ns)   --->   "%conv = sitodp i32 %R_load" [SobelTest.cpp:106]   --->   Operation 263 'sitodp' 'conv' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+ST_10 : Operation 264 [3/4] (7.09ns)   --->   "%conv1 = sitodp i32 %G_load" [SobelTest.cpp:106]   --->   Operation 264 'sitodp' 'conv1' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+ST_10 : Operation 265 [1/1] (0.00ns)   --->   "%B_load = load i32 %B" [SobelTest.cpp:106]   --->   Operation 265 'load' 'B_load' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_10 : Operation 266 [4/4] (7.09ns)   --->   "%conv2 = sitodp i32 %B_load" [SobelTest.cpp:106]   --->   Operation 266 'sitodp' 'conv2' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 7.09>
+ST_11 : Operation 267 [2/4] (7.09ns)   --->   "%conv = sitodp i32 %R_load" [SobelTest.cpp:106]   --->   Operation 267 'sitodp' 'conv' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+ST_11 : Operation 268 [2/4] (7.09ns)   --->   "%conv1 = sitodp i32 %G_load" [SobelTest.cpp:106]   --->   Operation 268 'sitodp' 'conv1' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+ST_11 : Operation 269 [3/4] (7.09ns)   --->   "%conv2 = sitodp i32 %B_load" [SobelTest.cpp:106]   --->   Operation 269 'sitodp' 'conv2' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 7.09>
+ST_12 : Operation 270 [1/4] (7.09ns)   --->   "%conv = sitodp i32 %R_load" [SobelTest.cpp:106]   --->   Operation 270 'sitodp' 'conv' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+ST_12 : Operation 271 [1/4] (7.09ns)   --->   "%conv1 = sitodp i32 %G_load" [SobelTest.cpp:106]   --->   Operation 271 'sitodp' 'conv1' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+ST_12 : Operation 272 [2/4] (7.09ns)   --->   "%conv2 = sitodp i32 %B_load" [SobelTest.cpp:106]   --->   Operation 272 'sitodp' 'conv2' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 7.09>
+ST_13 : Operation 273 [6/6] (6.60ns)   --->   "%mul = dmul i64 %conv, i64 0.299" [SobelTest.cpp:106]   --->   Operation 273 'dmul' 'mul' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 274 [6/6] (6.60ns)   --->   "%mul1 = dmul i64 %conv1, i64 0.587" [SobelTest.cpp:106]   --->   Operation 274 'dmul' 'mul1' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 275 [1/4] (7.09ns)   --->   "%conv2 = sitodp i32 %B_load" [SobelTest.cpp:106]   --->   Operation 275 'sitodp' 'conv2' <Predicate = (!icmp_ln97)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 6.60>
+ST_14 : Operation 276 [5/6] (6.60ns)   --->   "%mul = dmul i64 %conv, i64 0.299" [SobelTest.cpp:106]   --->   Operation 276 'dmul' 'mul' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 277 [5/6] (6.60ns)   --->   "%mul1 = dmul i64 %conv1, i64 0.587" [SobelTest.cpp:106]   --->   Operation 277 'dmul' 'mul1' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 278 [6/6] (6.60ns)   --->   "%mul2 = dmul i64 %conv2, i64 0.114" [SobelTest.cpp:106]   --->   Operation 278 'dmul' 'mul2' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 6.60>
+ST_15 : Operation 279 [4/6] (6.60ns)   --->   "%mul = dmul i64 %conv, i64 0.299" [SobelTest.cpp:106]   --->   Operation 279 'dmul' 'mul' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 280 [4/6] (6.60ns)   --->   "%mul1 = dmul i64 %conv1, i64 0.587" [SobelTest.cpp:106]   --->   Operation 280 'dmul' 'mul1' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 281 [5/6] (6.60ns)   --->   "%mul2 = dmul i64 %conv2, i64 0.114" [SobelTest.cpp:106]   --->   Operation 281 'dmul' 'mul2' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 6.60>
+ST_16 : Operation 282 [3/6] (6.60ns)   --->   "%mul = dmul i64 %conv, i64 0.299" [SobelTest.cpp:106]   --->   Operation 282 'dmul' 'mul' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 283 [3/6] (6.60ns)   --->   "%mul1 = dmul i64 %conv1, i64 0.587" [SobelTest.cpp:106]   --->   Operation 283 'dmul' 'mul1' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 284 [4/6] (6.60ns)   --->   "%mul2 = dmul i64 %conv2, i64 0.114" [SobelTest.cpp:106]   --->   Operation 284 'dmul' 'mul2' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 6.60>
+ST_17 : Operation 285 [2/6] (6.60ns)   --->   "%mul = dmul i64 %conv, i64 0.299" [SobelTest.cpp:106]   --->   Operation 285 'dmul' 'mul' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 286 [2/6] (6.60ns)   --->   "%mul1 = dmul i64 %conv1, i64 0.587" [SobelTest.cpp:106]   --->   Operation 286 'dmul' 'mul1' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 287 [3/6] (6.60ns)   --->   "%mul2 = dmul i64 %conv2, i64 0.114" [SobelTest.cpp:106]   --->   Operation 287 'dmul' 'mul2' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 17> <Delay = 6.60>
+ST_18 : Operation 288 [1/6] (6.60ns)   --->   "%mul = dmul i64 %conv, i64 0.299" [SobelTest.cpp:106]   --->   Operation 288 'dmul' 'mul' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 289 [1/6] (6.60ns)   --->   "%mul1 = dmul i64 %conv1, i64 0.587" [SobelTest.cpp:106]   --->   Operation 289 'dmul' 'mul1' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 290 [2/6] (6.60ns)   --->   "%mul2 = dmul i64 %conv2, i64 0.114" [SobelTest.cpp:106]   --->   Operation 290 'dmul' 'mul2' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 6.91>
+ST_19 : Operation 291 [5/5] (6.91ns)   --->   "%add = dadd i64 %mul, i64 %mul1" [SobelTest.cpp:106]   --->   Operation 291 'dadd' 'add' <Predicate = (!icmp_ln97)> <Delay = 6.91> <CoreInst = "DAddSub_fulldsp">   --->   Core 37 'DAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 292 [1/6] (6.60ns)   --->   "%mul2 = dmul i64 %conv2, i64 0.114" [SobelTest.cpp:106]   --->   Operation 292 'dmul' 'mul2' <Predicate = (!icmp_ln97)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 6.91>
+ST_20 : Operation 293 [4/5] (6.91ns)   --->   "%add = dadd i64 %mul, i64 %mul1" [SobelTest.cpp:106]   --->   Operation 293 'dadd' 'add' <Predicate = (!icmp_ln97)> <Delay = 6.91> <CoreInst = "DAddSub_fulldsp">   --->   Core 37 'DAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 21 <SV = 20> <Delay = 6.91>
+ST_21 : Operation 294 [3/5] (6.91ns)   --->   "%add = dadd i64 %mul, i64 %mul1" [SobelTest.cpp:106]   --->   Operation 294 'dadd' 'add' <Predicate = (!icmp_ln97)> <Delay = 6.91> <CoreInst = "DAddSub_fulldsp">   --->   Core 37 'DAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 21> <Delay = 6.91>
+ST_22 : Operation 295 [2/5] (6.91ns)   --->   "%add = dadd i64 %mul, i64 %mul1" [SobelTest.cpp:106]   --->   Operation 295 'dadd' 'add' <Predicate = (!icmp_ln97)> <Delay = 6.91> <CoreInst = "DAddSub_fulldsp">   --->   Core 37 'DAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 22> <Delay = 6.91>
+ST_23 : Operation 296 [1/5] (6.91ns)   --->   "%add = dadd i64 %mul, i64 %mul1" [SobelTest.cpp:106]   --->   Operation 296 'dadd' 'add' <Predicate = (!icmp_ln97)> <Delay = 6.91> <CoreInst = "DAddSub_fulldsp">   --->   Core 37 'DAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 23> <Delay = 6.91>
+ST_24 : Operation 297 [5/5] (6.91ns)   --->   "%dc = dadd i64 %add, i64 %mul2" [SobelTest.cpp:106]   --->   Operation 297 'dadd' 'dc' <Predicate = (!icmp_ln97)> <Delay = 6.91> <CoreInst = "DAddSub_fulldsp">   --->   Core 37 'DAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 24> <Delay = 6.91>
+ST_25 : Operation 298 [4/5] (6.91ns)   --->   "%dc = dadd i64 %add, i64 %mul2" [SobelTest.cpp:106]   --->   Operation 298 'dadd' 'dc' <Predicate = (!icmp_ln97)> <Delay = 6.91> <CoreInst = "DAddSub_fulldsp">   --->   Core 37 'DAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 26 <SV = 25> <Delay = 6.91>
+ST_26 : Operation 299 [1/1] (0.00ns)   --->   "%zext_ln106 = zext i6 %select_ln97_1" [SobelTest.cpp:106]   --->   Operation 299 'zext' 'zext_ln106' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_26 : Operation 300 [3/3] (1.08ns) (grouped into DSP with root node add_ln106)   --->   "%mul_ln106 = mul i13 %zext_ln106, i13 100" [SobelTest.cpp:106]   --->   Operation 300 'mul' 'mul_ln106' <Predicate = (!icmp_ln97)> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_26 : Operation 301 [3/5] (6.91ns)   --->   "%dc = dadd i64 %add, i64 %mul2" [SobelTest.cpp:106]   --->   Operation 301 'dadd' 'dc' <Predicate = (!icmp_ln97)> <Delay = 6.91> <CoreInst = "DAddSub_fulldsp">   --->   Core 37 'DAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 27 <SV = 26> <Delay = 6.91>
+ST_27 : Operation 302 [2/3] (1.08ns) (grouped into DSP with root node add_ln106)   --->   "%mul_ln106 = mul i13 %zext_ln106, i13 100" [SobelTest.cpp:106]   --->   Operation 302 'mul' 'mul_ln106' <Predicate = (!icmp_ln97)> <Delay = 1.08> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_27 : Operation 303 [2/5] (6.91ns)   --->   "%dc = dadd i64 %add, i64 %mul2" [SobelTest.cpp:106]   --->   Operation 303 'dadd' 'dc' <Predicate = (!icmp_ln97)> <Delay = 6.91> <CoreInst = "DAddSub_fulldsp">   --->   Core 37 'DAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 28 <SV = 27> <Delay = 6.91>
+ST_28 : Operation 304 [1/3] (0.00ns) (grouped into DSP with root node add_ln106)   --->   "%mul_ln106 = mul i13 %zext_ln106, i13 100" [SobelTest.cpp:106]   --->   Operation 304 'mul' 'mul_ln106' <Predicate = (!icmp_ln97)> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_28 : Operation 305 [1/1] (0.00ns)   --->   "%zext_ln106_1 = zext i7 %select_ln97" [SobelTest.cpp:106]   --->   Operation 305 'zext' 'zext_ln106_1' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_28 : Operation 306 [2/2] (0.83ns) (root node of the DSP)   --->   "%add_ln106 = add i13 %mul_ln106, i13 %zext_ln106_1" [SobelTest.cpp:106]   --->   Operation 306 'add' 'add_ln106' <Predicate = (!icmp_ln97)> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_28 : Operation 307 [1/5] (6.91ns)   --->   "%dc = dadd i64 %add, i64 %mul2" [SobelTest.cpp:106]   --->   Operation 307 'dadd' 'dc' <Predicate = (!icmp_ln97)> <Delay = 6.91> <CoreInst = "DAddSub_fulldsp">   --->   Core 37 'DAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 6.91> <FuncUnit> <Opcode : 'dadd' 'dsub'> <InPorts = 2> <OutPorts = 1>
+
+State 29 <SV = 28> <Delay = 6.15>
+ST_29 : Operation 308 [1/1] (0.00ns)   --->   "%specloopname_ln0 = specloopname void @_ssdm_op_SpecLoopName, void @VITIS_LOOP_97_3_VITIS_LOOP_98_4_str"   --->   Operation 308 'specloopname' 'specloopname_ln0' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 309 [1/1] (0.00ns)   --->   "%empty_44 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 5000, i64 5000, i64 5000"   --->   Operation 309 'speclooptripcount' 'empty_44' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 310 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 310 'specpipeline' 'specpipeline_ln0' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 311 [1/2] (0.83ns) (root node of the DSP)   --->   "%add_ln106 = add i13 %mul_ln106, i13 %zext_ln106_1" [SobelTest.cpp:106]   --->   Operation 311 'add' 'add_ln106' <Predicate = (!icmp_ln97)> <Delay = 0.83> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.69> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_29 : Operation 312 [1/1] (0.00ns)   --->   "%zext_ln106_2 = zext i13 %add_ln106" [SobelTest.cpp:106]   --->   Operation 312 'zext' 'zext_ln106_2' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 313 [1/1] (0.00ns)   --->   "%Image_addr = getelementptr i32 %Image, i64 0, i64 %zext_ln106_2" [SobelTest.cpp:106]   --->   Operation 313 'getelementptr' 'Image_addr' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 314 [1/1] (0.00ns)   --->   "%specloopname_ln13 = specloopname void @_ssdm_op_SpecLoopName, void @empty_6" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:13]   --->   Operation 314 'specloopname' 'specloopname_ln13' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 315 [1/1] (0.00ns)   --->   "%data_V = bitcast i64 %dc" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:483]   --->   Operation 315 'bitcast' 'data_V' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 316 [1/1] (0.00ns)   --->   "%p_Result_s = bitselect i1 @_ssdm_op_BitSelect.i1.i64.i32, i64 %data_V, i32 63"   --->   Operation 316 'bitselect' 'p_Result_s' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 317 [1/1] (0.00ns)   --->   "%tmp_12 = partselect i11 @_ssdm_op_PartSelect.i11.i64.i32.i32, i64 %data_V, i32 52, i32 62"   --->   Operation 317 'partselect' 'tmp_12' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 318 [1/1] (0.00ns)   --->   "%tmp_13 = trunc i64 %data_V"   --->   Operation 318 'trunc' 'tmp_13' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 319 [1/1] (0.00ns)   --->   "%mantissa = bitconcatenate i54 @_ssdm_op_BitConcatenate.i54.i1.i52.i1, i1 1, i52 %tmp_13, i1 0"   --->   Operation 319 'bitconcatenate' 'mantissa' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 320 [1/1] (0.00ns)   --->   "%zext_ln15 = zext i54 %mantissa" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:15]   --->   Operation 320 'zext' 'zext_ln15' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 321 [1/1] (0.00ns)   --->   "%zext_ln510 = zext i11 %tmp_12" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:510]   --->   Operation 321 'zext' 'zext_ln510' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 322 [1/1] (0.94ns)   --->   "%add_ln510 = add i12 %zext_ln510, i12 3073" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:510]   --->   Operation 322 'add' 'add_ln510' <Predicate = (!icmp_ln97)> <Delay = 0.94> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 323 [1/1] (0.00ns)   --->   "%isNeg = bitselect i1 @_ssdm_op_BitSelect.i1.i12.i32, i12 %add_ln510, i32 11"   --->   Operation 323 'bitselect' 'isNeg' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 324 [1/1] (0.94ns)   --->   "%sub_ln1311 = sub i11 1023, i11 %tmp_12"   --->   Operation 324 'sub' 'sub_ln1311' <Predicate = (!icmp_ln97)> <Delay = 0.94> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 325 [1/1] (0.00ns)   --->   "%sext_ln1311 = sext i11 %sub_ln1311"   --->   Operation 325 'sext' 'sext_ln1311' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 326 [1/1] (0.43ns)   --->   "%ush = select i1 %isNeg, i12 %sext_ln1311, i12 %add_ln510"   --->   Operation 326 'select' 'ush' <Predicate = (!icmp_ln97)> <Delay = 0.43> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_29 : Operation 327 [1/1] (0.00ns)   --->   "%sh_prom_i_i_i_i_i_cast_cast_cast = sext i12 %ush"   --->   Operation 327 'sext' 'sh_prom_i_i_i_i_i_cast_cast_cast' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 328 [1/1] (0.00ns)   --->   "%sh_prom_i_i_i_i_i_cast_cast_cast_cast = zext i32 %sh_prom_i_i_i_i_i_cast_cast_cast"   --->   Operation 328 'zext' 'sh_prom_i_i_i_i_i_cast_cast_cast_cast' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 329 [1/1] (0.00ns) (grouped into LUT with out node val)   --->   "%r_V = lshr i137 %zext_ln15, i137 %sh_prom_i_i_i_i_i_cast_cast_cast_cast"   --->   Operation 329 'lshr' 'r_V' <Predicate = (!icmp_ln97)> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.69> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 330 [1/1] (0.00ns) (grouped into LUT with out node val)   --->   "%r_V_1 = shl i137 %zext_ln15, i137 %sh_prom_i_i_i_i_i_cast_cast_cast_cast"   --->   Operation 330 'shl' 'r_V_1' <Predicate = (!icmp_ln97)> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.69> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 331 [1/1] (0.00ns) (grouped into LUT with out node val)   --->   "%tmp_6 = bitselect i1 @_ssdm_op_BitSelect.i1.i137.i32, i137 %r_V, i32 53"   --->   Operation 331 'bitselect' 'tmp_6' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 332 [1/1] (0.00ns) (grouped into LUT with out node val)   --->   "%zext_ln662 = zext i1 %tmp_6"   --->   Operation 332 'zext' 'zext_ln662' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 333 [1/1] (0.00ns) (grouped into LUT with out node val)   --->   "%tmp_s = partselect i32 @_ssdm_op_PartSelect.i32.i137.i32.i32, i137 %r_V_1, i32 53, i32 84"   --->   Operation 333 'partselect' 'tmp_s' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+ST_29 : Operation 334 [1/1] (1.69ns) (out node of the LUT)   --->   "%val = select i1 %isNeg, i32 %zext_ln662, i32 %tmp_s"   --->   Operation 334 'select' 'val' <Predicate = (!icmp_ln97)> <Delay = 1.69> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_29 : Operation 335 [1/1] (1.20ns)   --->   "%result_V_2 = sub i32 0, i32 %val"   --->   Operation 335 'sub' 'result_V_2' <Predicate = (!icmp_ln97)> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 336 [1/1] (0.52ns)   --->   "%result_V = select i1 %p_Result_s, i32 %result_V_2, i32 %val" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:59]   --->   Operation 336 'select' 'result_V' <Predicate = (!icmp_ln97)> <Delay = 0.52> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_29 : Operation 337 [1/1] (1.35ns)   --->   "%store_ln106 = store i32 %result_V, i13 %Image_addr" [SobelTest.cpp:106]   --->   Operation 337 'store' 'store_ln106' <Predicate = (!icmp_ln97)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_29 : Operation 338 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 338 'br' 'br_ln0' <Predicate = (!icmp_ln97)> <Delay = 0.00>
+
+State 30 <SV = 7> <Delay = 0.48>
+ST_30 : Operation 339 [1/1] (0.48ns)   --->   "%br_ln0 = br void %.preheader.preheader"   --->   Operation 339 'br' 'br_ln0' <Predicate = true> <Delay = 0.48>
+
+State 31 <SV = 8> <Delay = 5.82>
+ST_31 : Operation 340 [1/1] (0.00ns)   --->   "%indvar_flatten7 = phi i13 %add_ln111, void, i13 0, void %.preheader.preheader.preheader" [SobelTest.cpp:111]   --->   Operation 340 'phi' 'indvar_flatten7' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 341 [1/1] (0.00ns)   --->   "%i = phi i6 %select_ln111_1, void, i6 0, void %.preheader.preheader.preheader" [SobelTest.cpp:111]   --->   Operation 341 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 342 [1/1] (0.00ns)   --->   "%j_1 = phi i7 %add_ln112, void, i7 0, void %.preheader.preheader.preheader" [SobelTest.cpp:113]   --->   Operation 342 'phi' 'j_1' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 343 [1/1] (0.97ns)   --->   "%add_ln111 = add i13 %indvar_flatten7, i13 1" [SobelTest.cpp:111]   --->   Operation 343 'add' 'add_ln111' <Predicate = true> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 344 [1/1] (0.00ns)   --->   "%G2_3 = alloca i64 1"   --->   Operation 344 'alloca' 'G2_3' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 345 [1/1] (0.00ns)   --->   "%G2_2 = alloca i64 1"   --->   Operation 345 'alloca' 'G2_2' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 346 [1/1] (0.00ns)   --->   "%G1_3 = alloca i64 1"   --->   Operation 346 'alloca' 'G1_3' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 347 [1/1] (0.00ns)   --->   "%G1_2 = alloca i64 1"   --->   Operation 347 'alloca' 'G1_2' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 348 [1/1] (0.88ns)   --->   "%empty_45 = add i6 %i, i6 63" [SobelTest.cpp:111]   --->   Operation 348 'add' 'empty_45' <Predicate = true> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 349 [1/1] (0.88ns)   --->   "%indvars_iv_next155 = add i6 %i, i6 1" [SobelTest.cpp:111]   --->   Operation 349 'add' 'indvars_iv_next155' <Predicate = true> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 350 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 350 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 351 [1/1] (0.86ns)   --->   "%icmp_ln111 = icmp_eq  i13 %indvar_flatten7, i13 5000" [SobelTest.cpp:111]   --->   Operation 351 'icmp' 'icmp_ln111' <Predicate = true> <Delay = 0.86> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 352 [1/1] (0.00ns)   --->   "%br_ln111 = br i1 %icmp_ln111, void %.preheader, void" [SobelTest.cpp:111]   --->   Operation 352 'br' 'br_ln111' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 353 [1/1] (0.00ns)   --->   "%specloopname_ln0 = specloopname void @_ssdm_op_SpecLoopName, void @VITIS_LOOP_111_5_VITIS_LOOP_112_6_str"   --->   Operation 353 'specloopname' 'specloopname_ln0' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 354 [1/1] (0.00ns)   --->   "%empty_51 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 5000, i64 5000, i64 5000"   --->   Operation 354 'speclooptripcount' 'empty_51' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 355 [1/1] (0.86ns)   --->   "%icmp_ln112 = icmp_eq  i7 %j_1, i7 100" [SobelTest.cpp:112]   --->   Operation 355 'icmp' 'icmp_ln112' <Predicate = (!icmp_ln111)> <Delay = 0.86> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 356 [1/1] (0.42ns)   --->   "%select_ln111 = select i1 %icmp_ln112, i7 0, i7 %j_1" [SobelTest.cpp:111]   --->   Operation 356 'select' 'select_ln111' <Predicate = (!icmp_ln111)> <Delay = 0.42> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_31 : Operation 357 [1/1] (0.44ns)   --->   "%select_ln111_1 = select i1 %icmp_ln112, i6 %indvars_iv_next155, i6 %i" [SobelTest.cpp:111]   --->   Operation 357 'select' 'select_ln111_1' <Predicate = (!icmp_ln111)> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_31 : Operation 358 [1/1] (0.00ns)   --->   "%zext_ln123 = zext i6 %select_ln111_1" [SobelTest.cpp:123]   --->   Operation 358 'zext' 'zext_ln123' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 359 [1/1] (2.17ns)   --->   "%mul_ln123 = mul i13 %zext_ln123, i13 100" [SobelTest.cpp:123]   --->   Operation 359 'mul' 'mul_ln123' <Predicate = (!icmp_ln111)> <Delay = 2.17> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 360 [1/1] (0.44ns)   --->   "%select_ln111_2 = select i1 %icmp_ln112, i6 %i, i6 %empty_45" [SobelTest.cpp:111]   --->   Operation 360 'select' 'select_ln111_2' <Predicate = (!icmp_ln111)> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_31 : Operation 361 [1/1] (0.00ns)   --->   "%zext_ln118 = zext i6 %select_ln111_2" [SobelTest.cpp:118]   --->   Operation 361 'zext' 'zext_ln118' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 362 [1/1] (2.17ns)   --->   "%mul_ln118_3 = mul i13 %zext_ln118, i13 100" [SobelTest.cpp:118]   --->   Operation 362 'mul' 'mul_ln118_3' <Predicate = (!icmp_ln111)> <Delay = 2.17> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 363 [1/1] (0.88ns)   --->   "%indvars_iv_next155_mid1 = add i6 %i, i6 2" [SobelTest.cpp:111]   --->   Operation 363 'add' 'indvars_iv_next155_mid1' <Predicate = (!icmp_ln111)> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 364 [1/1] (0.44ns)   --->   "%select_ln111_3 = select i1 %icmp_ln112, i6 %indvars_iv_next155_mid1, i6 %indvars_iv_next155" [SobelTest.cpp:111]   --->   Operation 364 'select' 'select_ln111_3' <Predicate = (!icmp_ln111)> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_31 : Operation 365 [1/1] (0.00ns)   --->   "%zext_ln119_1 = zext i6 %select_ln111_3" [SobelTest.cpp:119]   --->   Operation 365 'zext' 'zext_ln119_1' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 366 [1/1] (2.17ns)   --->   "%mul_ln119_1 = mul i13 %zext_ln119_1, i13 100" [SobelTest.cpp:119]   --->   Operation 366 'mul' 'mul_ln119_1' <Predicate = (!icmp_ln111)> <Delay = 2.17> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 367 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 367 'specpipeline' 'specpipeline_ln0' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 368 [1/1] (0.00ns)   --->   "%zext_ln118_1 = zext i7 %select_ln111" [SobelTest.cpp:118]   --->   Operation 368 'zext' 'zext_ln118_1' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 369 [1/1] (0.97ns)   --->   "%add_ln118_3 = add i13 %mul_ln118_3, i13 %zext_ln118_1" [SobelTest.cpp:118]   --->   Operation 369 'add' 'add_ln118_3' <Predicate = (!icmp_ln111)> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 370 [1/1] (0.00ns)   --->   "%zext_ln118_2 = zext i13 %add_ln118_3" [SobelTest.cpp:118]   --->   Operation 370 'zext' 'zext_ln118_2' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 371 [1/1] (0.00ns)   --->   "%Image_addr_2 = getelementptr i32 %Image, i64 0, i64 %zext_ln118_2" [SobelTest.cpp:118]   --->   Operation 371 'getelementptr' 'Image_addr_2' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 372 [1/1] (0.97ns)   --->   "%add_ln119_1 = add i13 %mul_ln119_1, i13 %zext_ln118_1" [SobelTest.cpp:119]   --->   Operation 372 'add' 'add_ln119_1' <Predicate = (!icmp_ln111)> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 373 [1/1] (0.00ns)   --->   "%zext_ln119_2 = zext i13 %add_ln119_1" [SobelTest.cpp:119]   --->   Operation 373 'zext' 'zext_ln119_2' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 374 [1/1] (0.00ns)   --->   "%Image_addr_5 = getelementptr i32 %Image, i64 0, i64 %zext_ln119_2" [SobelTest.cpp:119]   --->   Operation 374 'getelementptr' 'Image_addr_5' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 375 [1/1] (0.97ns)   --->   "%add_ln114 = add i13 %mul_ln123, i13 %zext_ln118_1" [SobelTest.cpp:114]   --->   Operation 375 'add' 'add_ln114' <Predicate = (!icmp_ln111)> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 376 [1/1] (0.00ns)   --->   "%zext_ln114 = zext i13 %add_ln114" [SobelTest.cpp:114]   --->   Operation 376 'zext' 'zext_ln114' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 377 [1/1] (0.00ns)   --->   "%Sobel_addr = getelementptr i32 %Sobel_1, i64 0, i64 %zext_ln114" [SobelTest.cpp:114]   --->   Operation 377 'getelementptr' 'Sobel_addr' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 378 [1/1] (0.00ns)   --->   "%trunc_ln113_cast = zext i7 %select_ln111" [SobelTest.cpp:111]   --->   Operation 378 'zext' 'trunc_ln113_cast' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 379 [1/1] (0.00ns)   --->   "%specloopname_ln13 = specloopname void @_ssdm_op_SpecLoopName, void @empty_5" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:13]   --->   Operation 379 'specloopname' 'specloopname_ln13' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 380 [1/1] (0.87ns)   --->   "%empty_52 = icmp_eq  i6 %select_ln111_1, i6 49" [SobelTest.cpp:111]   --->   Operation 380 'icmp' 'empty_52' <Predicate = (!icmp_ln111)> <Delay = 0.87> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 381 [1/1] (0.87ns)   --->   "%empty_53 = icmp_eq  i6 %select_ln111_1, i6 0" [SobelTest.cpp:111]   --->   Operation 381 'icmp' 'empty_53' <Predicate = (!icmp_ln111)> <Delay = 0.87> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 382 [1/1] (0.33ns)   --->   "%empty_54 = or i1 %empty_53, i1 %empty_52" [SobelTest.cpp:111]   --->   Operation 382 'or' 'empty_54' <Predicate = (!icmp_ln111)> <Delay = 0.33> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.40> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 383 [1/1] (0.00ns)   --->   "%br_ln111 = br i1 %empty_54, void, void %.split._crit_edge18" [SobelTest.cpp:111]   --->   Operation 383 'br' 'br_ln111' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_31 : Operation 384 [1/1] (0.86ns)   --->   "%empty_46 = icmp_eq  i7 %select_ln111, i7 99" [SobelTest.cpp:111]   --->   Operation 384 'icmp' 'empty_46' <Predicate = (!icmp_ln111 & !empty_54)> <Delay = 0.86> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 385 [1/1] (0.86ns)   --->   "%empty_47 = icmp_eq  i7 %select_ln111, i7 0" [SobelTest.cpp:111]   --->   Operation 385 'icmp' 'empty_47' <Predicate = (!icmp_ln111 & !empty_54)> <Delay = 0.86> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 386 [1/1] (0.33ns)   --->   "%empty_48 = or i1 %empty_47, i1 %empty_46" [SobelTest.cpp:111]   --->   Operation 386 'or' 'empty_48' <Predicate = (!icmp_ln111 & !empty_54)> <Delay = 0.33> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.40> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 387 [1/1] (0.00ns)   --->   "%br_ln111 = br i1 %empty_48, void, void %.split._crit_edge18" [SobelTest.cpp:111]   --->   Operation 387 'br' 'br_ln111' <Predicate = (!icmp_ln111 & !empty_54)> <Delay = 0.00>
+ST_31 : Operation 388 [1/1] (0.89ns)   --->   "%add_ln118 = add i8 %trunc_ln113_cast, i8 255" [SobelTest.cpp:118]   --->   Operation 388 'add' 'add_ln118' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.89> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 389 [1/1] (0.00ns)   --->   "%sext_ln118_1 = sext i8 %add_ln118" [SobelTest.cpp:118]   --->   Operation 389 'sext' 'sext_ln118_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 390 [1/1] (0.97ns)   --->   "%add_ln118_4 = add i13 %mul_ln118_3, i13 %sext_ln118_1" [SobelTest.cpp:118]   --->   Operation 390 'add' 'add_ln118_4' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 391 [1/1] (0.00ns)   --->   "%zext_ln118_3 = zext i13 %add_ln118_4" [SobelTest.cpp:118]   --->   Operation 391 'zext' 'zext_ln118_3' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 392 [1/1] (0.00ns)   --->   "%Image_addr_1 = getelementptr i32 %Image, i64 0, i64 %zext_ln118_3" [SobelTest.cpp:118]   --->   Operation 392 'getelementptr' 'Image_addr_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 393 [1/1] (0.97ns)   --->   "%add_ln119_2 = add i13 %mul_ln119_1, i13 %sext_ln118_1" [SobelTest.cpp:119]   --->   Operation 393 'add' 'add_ln119_2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 394 [1/1] (0.00ns)   --->   "%zext_ln119_3 = zext i13 %add_ln119_2" [SobelTest.cpp:119]   --->   Operation 394 'zext' 'zext_ln119_3' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 395 [1/1] (0.00ns)   --->   "%Image_addr_4 = getelementptr i32 %Image, i64 0, i64 %zext_ln119_3" [SobelTest.cpp:119]   --->   Operation 395 'getelementptr' 'Image_addr_4' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 396 [1/1] (0.97ns)   --->   "%add_ln123 = add i13 %mul_ln123, i13 %sext_ln118_1" [SobelTest.cpp:123]   --->   Operation 396 'add' 'add_ln123' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 397 [1/1] (0.00ns)   --->   "%zext_ln123_1 = zext i13 %add_ln123" [SobelTest.cpp:123]   --->   Operation 397 'zext' 'zext_ln123_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 398 [1/1] (0.00ns)   --->   "%Image_addr_7 = getelementptr i32 %Image, i64 0, i64 %zext_ln123_1" [SobelTest.cpp:123]   --->   Operation 398 'getelementptr' 'Image_addr_7' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 399 [2/2] (1.35ns)   --->   "%Image_load = load i13 %Image_addr_1" [SobelTest.cpp:118]   --->   Operation 399 'load' 'Image_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 400 [2/2] (1.35ns)   --->   "%Image_load_1 = load i13 %Image_addr_2" [SobelTest.cpp:118]   --->   Operation 400 'load' 'Image_load_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 401 [1/1] (0.89ns)   --->   "%add_ln118_1 = add i7 %select_ln111, i7 1" [SobelTest.cpp:118]   --->   Operation 401 'add' 'add_ln118_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.89> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 402 [1/1] (0.00ns)   --->   "%zext_ln118_4 = zext i7 %add_ln118_1" [SobelTest.cpp:118]   --->   Operation 402 'zext' 'zext_ln118_4' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 403 [1/1] (0.97ns)   --->   "%add_ln118_5 = add i13 %mul_ln118_3, i13 %zext_ln118_4" [SobelTest.cpp:118]   --->   Operation 403 'add' 'add_ln118_5' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 404 [1/1] (0.00ns)   --->   "%zext_ln118_5 = zext i13 %add_ln118_5" [SobelTest.cpp:118]   --->   Operation 404 'zext' 'zext_ln118_5' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 405 [1/1] (0.00ns)   --->   "%Image_addr_3 = getelementptr i32 %Image, i64 0, i64 %zext_ln118_5" [SobelTest.cpp:118]   --->   Operation 405 'getelementptr' 'Image_addr_3' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 406 [1/1] (0.97ns)   --->   "%add_ln119_3 = add i13 %mul_ln119_1, i13 %zext_ln118_4" [SobelTest.cpp:119]   --->   Operation 406 'add' 'add_ln119_3' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 407 [1/1] (0.00ns)   --->   "%zext_ln119_4 = zext i13 %add_ln119_3" [SobelTest.cpp:119]   --->   Operation 407 'zext' 'zext_ln119_4' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 408 [1/1] (0.00ns)   --->   "%Image_addr_6 = getelementptr i32 %Image, i64 0, i64 %zext_ln119_4" [SobelTest.cpp:119]   --->   Operation 408 'getelementptr' 'Image_addr_6' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 409 [1/1] (0.97ns)   --->   "%add_ln123_1 = add i13 %mul_ln123, i13 %zext_ln118_4" [SobelTest.cpp:123]   --->   Operation 409 'add' 'add_ln123_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.97> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 410 [1/1] (0.00ns)   --->   "%zext_ln123_2 = zext i13 %add_ln123_1" [SobelTest.cpp:123]   --->   Operation 410 'zext' 'zext_ln123_2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 411 [1/1] (0.00ns)   --->   "%Image_addr_8 = getelementptr i32 %Image, i64 0, i64 %zext_ln123_2" [SobelTest.cpp:123]   --->   Operation 411 'getelementptr' 'Image_addr_8' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_31 : Operation 412 [2/2] (1.35ns)   --->   "%Image_load_2 = load i13 %Image_addr_3" [SobelTest.cpp:118]   --->   Operation 412 'load' 'Image_load_2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 413 [2/2] (1.35ns)   --->   "%Image_load_3 = load i13 %Image_addr_4" [SobelTest.cpp:119]   --->   Operation 413 'load' 'Image_load_3' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 414 [2/2] (1.35ns)   --->   "%Image_load_4 = load i13 %Image_addr_5" [SobelTest.cpp:119]   --->   Operation 414 'load' 'Image_load_4' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 415 [2/2] (1.35ns)   --->   "%Image_load_5 = load i13 %Image_addr_6" [SobelTest.cpp:119]   --->   Operation 415 'load' 'Image_load_5' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 416 [2/2] (1.35ns)   --->   "%Image_load_6 = load i13 %Image_addr_1" [SobelTest.cpp:122]   --->   Operation 416 'load' 'Image_load_6' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 417 [2/2] (1.35ns)   --->   "%Image_load_7 = load i13 %Image_addr_3" [SobelTest.cpp:122]   --->   Operation 417 'load' 'Image_load_7' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 418 [2/2] (1.35ns)   --->   "%empty_49 = load i13 %Image_addr_7" [SobelTest.cpp:123]   --->   Operation 418 'load' 'empty_49' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 419 [2/2] (1.35ns)   --->   "%empty_50 = load i13 %Image_addr_8" [SobelTest.cpp:123]   --->   Operation 419 'load' 'empty_50' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 420 [2/2] (1.35ns)   --->   "%Image_load_8 = load i13 %Image_addr_4" [SobelTest.cpp:124]   --->   Operation 420 'load' 'Image_load_8' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 421 [2/2] (1.35ns)   --->   "%Image_load_9 = load i13 %Image_addr_6" [SobelTest.cpp:124]   --->   Operation 421 'load' 'Image_load_9' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_31 : Operation 422 [1/1] (0.89ns)   --->   "%add_ln112 = add i7 %select_ln111, i7 1" [SobelTest.cpp:112]   --->   Operation 422 'add' 'add_ln112' <Predicate = (!icmp_ln111)> <Delay = 0.89> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 9> <Delay = 6.43>
+ST_32 : Operation 423 [1/1] (0.00ns)   --->   "%Vertical_Sobel_load = load i2 %Vertical_Sobel" [SobelTest.cpp:118]   --->   Operation 423 'load' 'Vertical_Sobel_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 424 [1/1] (0.00ns)   --->   "%sext_ln118 = sext i2 %Vertical_Sobel_load" [SobelTest.cpp:118]   --->   Operation 424 'sext' 'sext_ln118' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 425 [1/2] (1.35ns)   --->   "%Image_load = load i13 %Image_addr_1" [SobelTest.cpp:118]   --->   Operation 425 'load' 'Image_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 426 [1/1] (3.88ns)   --->   "%mul_ln118 = mul i32 %Image_load, i32 %sext_ln118" [SobelTest.cpp:118]   --->   Operation 426 'mul' 'mul_ln118' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 3.88> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 427 [1/1] (0.00ns)   --->   "%Vertical_Sobel_1_load = load i2 %Vertical_Sobel_1" [SobelTest.cpp:118]   --->   Operation 427 'load' 'Vertical_Sobel_1_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 428 [1/1] (0.00ns)   --->   "%sext_ln118_2 = sext i2 %Vertical_Sobel_1_load" [SobelTest.cpp:118]   --->   Operation 428 'sext' 'sext_ln118_2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 429 [1/2] (1.35ns)   --->   "%Image_load_1 = load i13 %Image_addr_2" [SobelTest.cpp:118]   --->   Operation 429 'load' 'Image_load_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 430 [1/1] (3.88ns)   --->   "%mul_ln118_1 = mul i32 %Image_load_1, i32 %sext_ln118_2" [SobelTest.cpp:118]   --->   Operation 430 'mul' 'mul_ln118_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 3.88> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 431 [1/1] (0.00ns)   --->   "%Vertical_Sobel_2_load = load i2 %Vertical_Sobel_2" [SobelTest.cpp:118]   --->   Operation 431 'load' 'Vertical_Sobel_2_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 432 [1/1] (0.00ns)   --->   "%sext_ln118_3 = sext i2 %Vertical_Sobel_2_load" [SobelTest.cpp:118]   --->   Operation 432 'sext' 'sext_ln118_3' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 433 [1/2] (1.35ns)   --->   "%Image_load_2 = load i13 %Image_addr_3" [SobelTest.cpp:118]   --->   Operation 433 'load' 'Image_load_2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 434 [1/1] (3.88ns)   --->   "%mul_ln118_2 = mul i32 %Image_load_2, i32 %sext_ln118_3" [SobelTest.cpp:118]   --->   Operation 434 'mul' 'mul_ln118_2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 3.88> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 435 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln118_2 = add i32 %mul_ln118, i32 %mul_ln118_2" [SobelTest.cpp:118]   --->   Operation 435 'add' 'add_ln118_2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.44> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync>
+ST_32 : Operation 436 [1/1] (0.88ns) (root node of TernaryAdder)   --->   "%G1 = add i32 %add_ln118_2, i32 %mul_ln118_1" [SobelTest.cpp:118]   --->   Operation 436 'add' 'G1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.88> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.44> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync>
+ST_32 : Operation 437 [1/1] (0.00ns)   --->   "%store_ln118 = store i32 %G1, i32 %G1_2" [SobelTest.cpp:118]   --->   Operation 437 'store' 'store_ln118' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 438 [1/1] (0.00ns)   --->   "%Vertical_Sobel_3_load = load i1 %Vertical_Sobel_3" [SobelTest.cpp:119]   --->   Operation 438 'load' 'Vertical_Sobel_3_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 439 [1/2] (1.35ns)   --->   "%Image_load_3 = load i13 %Image_addr_4" [SobelTest.cpp:119]   --->   Operation 439 'load' 'Image_load_3' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 440 [1/1] (0.00ns) (grouped into LUT with out node and_ln119)   --->   "%select_ln119 = select i1 %Vertical_Sobel_3_load, i32 4294967295, i32 0" [SobelTest.cpp:119]   --->   Operation 440 'select' 'select_ln119' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_32 : Operation 441 [1/1] (0.40ns) (out node of the LUT)   --->   "%and_ln119 = and i32 %Image_load_3, i32 %select_ln119" [SobelTest.cpp:119]   --->   Operation 441 'and' 'and_ln119' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.40> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.40> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 442 [1/1] (0.00ns)   --->   "%Vertical_Sobel_4_load = load i2 %Vertical_Sobel_4" [SobelTest.cpp:119]   --->   Operation 442 'load' 'Vertical_Sobel_4_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 443 [1/1] (0.00ns)   --->   "%zext_ln119 = zext i2 %Vertical_Sobel_4_load" [SobelTest.cpp:119]   --->   Operation 443 'zext' 'zext_ln119' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 444 [1/2] (1.35ns)   --->   "%Image_load_4 = load i13 %Image_addr_5" [SobelTest.cpp:119]   --->   Operation 444 'load' 'Image_load_4' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 445 [1/1] (3.88ns)   --->   "%mul_ln119 = mul i32 %Image_load_4, i32 %zext_ln119" [SobelTest.cpp:119]   --->   Operation 445 'mul' 'mul_ln119' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 3.88> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 446 [1/1] (0.00ns)   --->   "%Vertical_Sobel_5_load = load i1 %Vertical_Sobel_5" [SobelTest.cpp:119]   --->   Operation 446 'load' 'Vertical_Sobel_5_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 447 [1/2] (1.35ns)   --->   "%Image_load_5 = load i13 %Image_addr_6" [SobelTest.cpp:119]   --->   Operation 447 'load' 'Image_load_5' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 448 [1/1] (0.00ns) (grouped into LUT with out node and_ln119_1)   --->   "%select_ln119_1 = select i1 %Vertical_Sobel_5_load, i32 4294967295, i32 0" [SobelTest.cpp:119]   --->   Operation 448 'select' 'select_ln119_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_32 : Operation 449 [1/1] (0.40ns) (out node of the LUT)   --->   "%and_ln119_1 = and i32 %Image_load_5, i32 %select_ln119_1" [SobelTest.cpp:119]   --->   Operation 449 'and' 'and_ln119_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.40> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.40> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 450 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%add_ln119 = add i32 %and_ln119, i32 %and_ln119_1" [SobelTest.cpp:119]   --->   Operation 450 'add' 'add_ln119' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.44> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync>
+ST_32 : Operation 451 [1/1] (0.88ns) (root node of TernaryAdder)   --->   "%G1_1 = add i32 %add_ln119, i32 %mul_ln119" [SobelTest.cpp:119]   --->   Operation 451 'add' 'G1_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.88> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.44> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync>
+ST_32 : Operation 452 [1/1] (0.00ns)   --->   "%store_ln119 = store i32 %G1_1, i32 %G1_3" [SobelTest.cpp:119]   --->   Operation 452 'store' 'store_ln119' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 453 [1/1] (0.00ns)   --->   "%Horizontal_Sobel_load = load i2 %Horizontal_Sobel" [SobelTest.cpp:122]   --->   Operation 453 'load' 'Horizontal_Sobel_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 454 [1/1] (0.00ns)   --->   "%sext_ln122 = sext i2 %Horizontal_Sobel_load" [SobelTest.cpp:122]   --->   Operation 454 'sext' 'sext_ln122' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 455 [1/2] (1.35ns)   --->   "%Image_load_6 = load i13 %Image_addr_1" [SobelTest.cpp:122]   --->   Operation 455 'load' 'Image_load_6' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 456 [1/1] (3.88ns)   --->   "%mul_ln122 = mul i32 %Image_load_6, i32 %sext_ln122" [SobelTest.cpp:122]   --->   Operation 456 'mul' 'mul_ln122' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 3.88> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 457 [1/1] (0.00ns)   --->   "%Horizontal_Sobel_1_load = load i1 %Horizontal_Sobel_1" [SobelTest.cpp:122]   --->   Operation 457 'load' 'Horizontal_Sobel_1_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 458 [1/2] (1.35ns)   --->   "%Image_load_7 = load i13 %Image_addr_3" [SobelTest.cpp:122]   --->   Operation 458 'load' 'Image_load_7' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 459 [1/1] (0.00ns) (grouped into LUT with out node G2)   --->   "%select_ln122 = select i1 %Horizontal_Sobel_1_load, i32 4294967295, i32 0" [SobelTest.cpp:122]   --->   Operation 459 'select' 'select_ln122' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_32 : Operation 460 [1/1] (0.00ns) (grouped into LUT with out node G2)   --->   "%and_ln122 = and i32 %Image_load_7, i32 %select_ln122" [SobelTest.cpp:122]   --->   Operation 460 'and' 'and_ln122' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.40> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 461 [1/1] (1.20ns) (out node of the LUT)   --->   "%G2 = add i32 %and_ln122, i32 %mul_ln122" [SobelTest.cpp:122]   --->   Operation 461 'add' 'G2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 462 [1/1] (0.00ns)   --->   "%store_ln122 = store i32 %G2, i32 %G2_2" [SobelTest.cpp:122]   --->   Operation 462 'store' 'store_ln122' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 463 [1/2] (1.35ns)   --->   "%empty_49 = load i13 %Image_addr_7" [SobelTest.cpp:123]   --->   Operation 463 'load' 'empty_49' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 464 [1/2] (1.35ns)   --->   "%empty_50 = load i13 %Image_addr_8" [SobelTest.cpp:123]   --->   Operation 464 'load' 'empty_50' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 465 [1/1] (0.00ns)   --->   "%Horizontal_Sobel_4_load = load i2 %Horizontal_Sobel_4" [SobelTest.cpp:124]   --->   Operation 465 'load' 'Horizontal_Sobel_4_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 466 [1/1] (0.00ns)   --->   "%sext_ln124 = sext i2 %Horizontal_Sobel_4_load" [SobelTest.cpp:124]   --->   Operation 466 'sext' 'sext_ln124' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 467 [1/2] (1.35ns)   --->   "%Image_load_8 = load i13 %Image_addr_4" [SobelTest.cpp:124]   --->   Operation 467 'load' 'Image_load_8' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 468 [1/1] (3.88ns)   --->   "%mul_ln124 = mul i32 %Image_load_8, i32 %sext_ln124" [SobelTest.cpp:124]   --->   Operation 468 'mul' 'mul_ln124' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 3.88> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 469 [1/1] (0.00ns)   --->   "%Horizontal_Sobel_5_load = load i1 %Horizontal_Sobel_5" [SobelTest.cpp:124]   --->   Operation 469 'load' 'Horizontal_Sobel_5_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_32 : Operation 470 [1/2] (1.35ns)   --->   "%Image_load_9 = load i13 %Image_addr_6" [SobelTest.cpp:124]   --->   Operation 470 'load' 'Image_load_9' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 5000> <RAM>
+ST_32 : Operation 471 [1/1] (0.00ns) (grouped into LUT with out node G2_1)   --->   "%select_ln124 = select i1 %Horizontal_Sobel_5_load, i32 4294967295, i32 0" [SobelTest.cpp:124]   --->   Operation 471 'select' 'select_ln124' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_32 : Operation 472 [1/1] (0.00ns) (grouped into LUT with out node G2_1)   --->   "%and_ln124 = and i32 %Image_load_9, i32 %select_ln124" [SobelTest.cpp:124]   --->   Operation 472 'and' 'and_ln124' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.40> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 473 [1/1] (1.20ns) (out node of the LUT)   --->   "%G2_1 = add i32 %and_ln124, i32 %mul_ln124" [SobelTest.cpp:124]   --->   Operation 473 'add' 'G2_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 474 [1/1] (0.00ns)   --->   "%store_ln124 = store i32 %G2_1, i32 %G2_3" [SobelTest.cpp:124]   --->   Operation 474 'store' 'store_ln124' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+
+State 33 <SV = 10> <Delay = 1.69>
+ST_33 : Operation 475 [1/1] (0.00ns)   --->   "%G1_2_load = load i32 %G1_2" [SobelTest.cpp:120]   --->   Operation 475 'load' 'G1_2_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_33 : Operation 476 [1/1] (0.00ns)   --->   "%G1_3_load = load i32 %G1_3" [SobelTest.cpp:120]   --->   Operation 476 'load' 'G1_3_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_33 : Operation 477 [1/1] (1.20ns)   --->   "%G1_Sum_1 = add i32 %G1_3_load, i32 %G1_2_load" [SobelTest.cpp:120]   --->   Operation 477 'add' 'G1_Sum_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 478 [1/1] (0.48ns)   --->   "%store_ln120 = store i32 %G1_Sum_1, i32 %G1_Sum" [SobelTest.cpp:120]   --->   Operation 478 'store' 'store_ln120' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.48>
+ST_33 : Operation 479 [1/1] (0.00ns)   --->   "%G2_2_load = load i32 %G2_2" [SobelTest.cpp:125]   --->   Operation 479 'load' 'G2_2_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_33 : Operation 480 [1/1] (0.00ns)   --->   "%G2_3_load = load i32 %G2_3" [SobelTest.cpp:125]   --->   Operation 480 'load' 'G2_3_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_33 : Operation 481 [1/1] (1.20ns)   --->   "%G2_Sum_1 = add i32 %G2_3_load, i32 %G2_2_load" [SobelTest.cpp:125]   --->   Operation 481 'add' 'G2_Sum_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 482 [1/1] (0.48ns)   --->   "%store_ln125 = store i32 %G2_Sum_1, i32 %G2_Sum" [SobelTest.cpp:125]   --->   Operation 482 'store' 'store_ln125' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.48>
+
+State 34 <SV = 11> <Delay = 5.08>
+ST_34 : Operation 483 [1/1] (0.00ns)   --->   "%G1_Sum_load = load i32 %G1_Sum" [SobelTest.cpp:127]   --->   Operation 483 'load' 'G1_Sum_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_34 : Operation 484 [1/1] (0.00ns)   --->   "%G1_Sum_load_1 = load i32 %G1_Sum" [SobelTest.cpp:127]   --->   Operation 484 'load' 'G1_Sum_load_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_34 : Operation 485 [1/1] (3.88ns)   --->   "%mul_ln127 = mul i32 %G1_Sum_load_1, i32 %G1_Sum_load" [SobelTest.cpp:127]   --->   Operation 485 'mul' 'mul_ln127' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 3.88> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 486 [1/1] (0.00ns)   --->   "%G2_Sum_load = load i32 %G2_Sum" [SobelTest.cpp:127]   --->   Operation 486 'load' 'G2_Sum_load' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_34 : Operation 487 [1/1] (0.00ns)   --->   "%G2_Sum_load_1 = load i32 %G2_Sum" [SobelTest.cpp:127]   --->   Operation 487 'load' 'G2_Sum_load_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_34 : Operation 488 [1/1] (3.88ns)   --->   "%mul_ln127_1 = mul i32 %G2_Sum_load_1, i32 %G2_Sum_load" [SobelTest.cpp:127]   --->   Operation 488 'mul' 'mul_ln127_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 3.88> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 3.88> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 489 [1/1] (1.20ns)   --->   "%add_ln127 = add i32 %mul_ln127_1, i32 %mul_ln127" [SobelTest.cpp:127]   --->   Operation 489 'add' 'add_ln127' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 35 <SV = 12> <Delay = 7.09>
+ST_35 : Operation 490 [4/4] (7.09ns)   --->   "%conv_i = sitodp i32 %add_ln127" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 490 'sitodp' 'conv_i' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 36 <SV = 13> <Delay = 7.09>
+ST_36 : Operation 491 [3/4] (7.09ns)   --->   "%conv_i = sitodp i32 %add_ln127" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 491 'sitodp' 'conv_i' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 37 <SV = 14> <Delay = 7.09>
+ST_37 : Operation 492 [2/4] (7.09ns)   --->   "%conv_i = sitodp i32 %add_ln127" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 492 'sitodp' 'conv_i' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 38 <SV = 15> <Delay = 7.09>
+ST_38 : Operation 493 [1/4] (7.09ns)   --->   "%conv_i = sitodp i32 %add_ln127" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 493 'sitodp' 'conv_i' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 7.09> <CoreInst = "Int2Double">   --->   Core 66 'Int2Double' <Latency = 3> <II = 1> <Delay = 7.09> <FuncUnit> <Opcode : 'sitodp' 'uitodp'> <InPorts = 1> <OutPorts = 1>
+
+State 39 <SV = 16> <Delay = 5.53>
+ST_39 : Operation 494 [30/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 494 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 40 <SV = 17> <Delay = 5.53>
+ST_40 : Operation 495 [29/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 495 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 41 <SV = 18> <Delay = 5.53>
+ST_41 : Operation 496 [28/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 496 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 42 <SV = 19> <Delay = 5.53>
+ST_42 : Operation 497 [27/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 497 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 43 <SV = 20> <Delay = 5.53>
+ST_43 : Operation 498 [26/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 498 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 44 <SV = 21> <Delay = 5.53>
+ST_44 : Operation 499 [25/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 499 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 45 <SV = 22> <Delay = 5.53>
+ST_45 : Operation 500 [24/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 500 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 46 <SV = 23> <Delay = 5.53>
+ST_46 : Operation 501 [23/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 501 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 47 <SV = 24> <Delay = 5.53>
+ST_47 : Operation 502 [22/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 502 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 48 <SV = 25> <Delay = 5.53>
+ST_48 : Operation 503 [21/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 503 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 49 <SV = 26> <Delay = 5.53>
+ST_49 : Operation 504 [20/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 504 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 50 <SV = 27> <Delay = 5.53>
+ST_50 : Operation 505 [19/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 505 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 51 <SV = 28> <Delay = 5.53>
+ST_51 : Operation 506 [18/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 506 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 52 <SV = 29> <Delay = 5.53>
+ST_52 : Operation 507 [17/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 507 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 53 <SV = 30> <Delay = 5.53>
+ST_53 : Operation 508 [16/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 508 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 54 <SV = 31> <Delay = 5.53>
+ST_54 : Operation 509 [15/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 509 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 55 <SV = 32> <Delay = 5.53>
+ST_55 : Operation 510 [14/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 510 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 56 <SV = 33> <Delay = 5.53>
+ST_56 : Operation 511 [13/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 511 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 57 <SV = 34> <Delay = 5.53>
+ST_57 : Operation 512 [12/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 512 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 58 <SV = 35> <Delay = 5.53>
+ST_58 : Operation 513 [11/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 513 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 59 <SV = 36> <Delay = 5.53>
+ST_59 : Operation 514 [10/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 514 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 60 <SV = 37> <Delay = 5.53>
+ST_60 : Operation 515 [9/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 515 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 61 <SV = 38> <Delay = 5.53>
+ST_61 : Operation 516 [8/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 516 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 62 <SV = 39> <Delay = 5.53>
+ST_62 : Operation 517 [7/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 517 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 63 <SV = 40> <Delay = 5.53>
+ST_63 : Operation 518 [6/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 518 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 64 <SV = 41> <Delay = 5.53>
+ST_64 : Operation 519 [5/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 519 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 65 <SV = 42> <Delay = 5.53>
+ST_65 : Operation 520 [4/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 520 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 66 <SV = 43> <Delay = 5.53>
+ST_66 : Operation 521 [3/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 521 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 67 <SV = 44> <Delay = 5.53>
+ST_67 : Operation 522 [2/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 522 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 68 <SV = 45> <Delay = 5.53>
+ST_68 : Operation 523 [1/30] (5.53ns)   --->   "%tmp = dsqrt i64 @llvm.sqrt.f64, i64 %conv_i" [/tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499]   --->   Operation 523 'dsqrt' 'tmp' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 5.53> <CoreInst = "DSqrt">   --->   Core 52 'DSqrt' <Latency = 29> <II = 1> <Delay = 5.53> <FuncUnit> <Opcode : 'dsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 69 <SV = 46> <Delay = 6.60>
+ST_69 : Operation 524 [6/6] (6.60ns)   --->   "%dc_1 = dmul i64 %tmp, i64 0.25" [SobelTest.cpp:127]   --->   Operation 524 'dmul' 'dc_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 70 <SV = 47> <Delay = 6.60>
+ST_70 : Operation 525 [5/6] (6.60ns)   --->   "%dc_1 = dmul i64 %tmp, i64 0.25" [SobelTest.cpp:127]   --->   Operation 525 'dmul' 'dc_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 71 <SV = 48> <Delay = 6.60>
+ST_71 : Operation 526 [4/6] (6.60ns)   --->   "%dc_1 = dmul i64 %tmp, i64 0.25" [SobelTest.cpp:127]   --->   Operation 526 'dmul' 'dc_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 72 <SV = 49> <Delay = 6.60>
+ST_72 : Operation 527 [3/6] (6.60ns)   --->   "%dc_1 = dmul i64 %tmp, i64 0.25" [SobelTest.cpp:127]   --->   Operation 527 'dmul' 'dc_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 73 <SV = 50> <Delay = 6.60>
+ST_73 : Operation 528 [2/6] (6.60ns)   --->   "%dc_1 = dmul i64 %tmp, i64 0.25" [SobelTest.cpp:127]   --->   Operation 528 'dmul' 'dc_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 74 <SV = 51> <Delay = 6.60>
+ST_74 : Operation 529 [1/6] (6.60ns)   --->   "%dc_1 = dmul i64 %tmp, i64 0.25" [SobelTest.cpp:127]   --->   Operation 529 'dmul' 'dc_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 6.60> <CoreInst = "DMul_maxdsp">   --->   Core 49 'DMul_maxdsp' <Latency = 5> <II = 1> <Delay = 6.60> <FuncUnit> <Opcode : 'dmul'> <InPorts = 2> <OutPorts = 1>
+
+State 75 <SV = 52> <Delay = 6.15>
+ST_75 : Operation 530 [1/1] (0.00ns)   --->   "%data_V_1 = bitcast i64 %dc_1" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:483]   --->   Operation 530 'bitcast' 'data_V_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 531 [1/1] (0.00ns)   --->   "%p_Result_1 = bitselect i1 @_ssdm_op_BitSelect.i1.i64.i32, i64 %data_V_1, i32 63"   --->   Operation 531 'bitselect' 'p_Result_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 532 [1/1] (0.00ns)   --->   "%tmp_14 = partselect i11 @_ssdm_op_PartSelect.i11.i64.i32.i32, i64 %data_V_1, i32 52, i32 62"   --->   Operation 532 'partselect' 'tmp_14' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 533 [1/1] (0.00ns)   --->   "%tmp_15 = trunc i64 %data_V_1"   --->   Operation 533 'trunc' 'tmp_15' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 534 [1/1] (0.00ns)   --->   "%mantissa_1 = bitconcatenate i54 @_ssdm_op_BitConcatenate.i54.i1.i52.i1, i1 1, i52 %tmp_15, i1 0"   --->   Operation 534 'bitconcatenate' 'mantissa_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 535 [1/1] (0.00ns)   --->   "%zext_ln15_1 = zext i54 %mantissa_1" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:15]   --->   Operation 535 'zext' 'zext_ln15_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 536 [1/1] (0.00ns)   --->   "%zext_ln510_1 = zext i11 %tmp_14" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:510]   --->   Operation 536 'zext' 'zext_ln510_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 537 [1/1] (0.94ns)   --->   "%add_ln510_1 = add i12 %zext_ln510_1, i12 3073" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:510]   --->   Operation 537 'add' 'add_ln510_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.94> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_75 : Operation 538 [1/1] (0.00ns)   --->   "%isNeg_1 = bitselect i1 @_ssdm_op_BitSelect.i1.i12.i32, i12 %add_ln510_1, i32 11"   --->   Operation 538 'bitselect' 'isNeg_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 539 [1/1] (0.94ns)   --->   "%sub_ln1311_1 = sub i11 1023, i11 %tmp_14"   --->   Operation 539 'sub' 'sub_ln1311_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.94> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_75 : Operation 540 [1/1] (0.00ns)   --->   "%sext_ln1311_1 = sext i11 %sub_ln1311_1"   --->   Operation 540 'sext' 'sext_ln1311_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 541 [1/1] (0.43ns)   --->   "%ush_1 = select i1 %isNeg_1, i12 %sext_ln1311_1, i12 %add_ln510_1"   --->   Operation 541 'select' 'ush_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.43> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_75 : Operation 542 [1/1] (0.00ns)   --->   "%sh_prom_i_i_i_i_i139_cast_cast_cast = sext i12 %ush_1"   --->   Operation 542 'sext' 'sh_prom_i_i_i_i_i139_cast_cast_cast' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 543 [1/1] (0.00ns)   --->   "%sh_prom_i_i_i_i_i139_cast_cast_cast_cast = zext i32 %sh_prom_i_i_i_i_i139_cast_cast_cast"   --->   Operation 543 'zext' 'sh_prom_i_i_i_i_i139_cast_cast_cast_cast' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 544 [1/1] (0.00ns) (grouped into LUT with out node val_1)   --->   "%r_V_2 = lshr i137 %zext_ln15_1, i137 %sh_prom_i_i_i_i_i139_cast_cast_cast_cast"   --->   Operation 544 'lshr' 'r_V_2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.69> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_75 : Operation 545 [1/1] (0.00ns) (grouped into LUT with out node val_1)   --->   "%r_V_3 = shl i137 %zext_ln15_1, i137 %sh_prom_i_i_i_i_i139_cast_cast_cast_cast"   --->   Operation 545 'shl' 'r_V_3' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.69> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_75 : Operation 546 [1/1] (0.00ns) (grouped into LUT with out node val_1)   --->   "%tmp_11 = bitselect i1 @_ssdm_op_BitSelect.i1.i137.i32, i137 %r_V_2, i32 53"   --->   Operation 546 'bitselect' 'tmp_11' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 547 [1/1] (0.00ns) (grouped into LUT with out node val_1)   --->   "%zext_ln662_1 = zext i1 %tmp_11"   --->   Operation 547 'zext' 'zext_ln662_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 548 [1/1] (0.00ns) (grouped into LUT with out node val_1)   --->   "%tmp_2 = partselect i32 @_ssdm_op_PartSelect.i32.i137.i32.i32, i137 %r_V_3, i32 53, i32 84"   --->   Operation 548 'partselect' 'tmp_2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_75 : Operation 549 [1/1] (1.69ns) (out node of the LUT)   --->   "%val_1 = select i1 %isNeg_1, i32 %zext_ln662_1, i32 %tmp_2"   --->   Operation 549 'select' 'val_1' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.69> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_75 : Operation 550 [1/1] (1.20ns)   --->   "%result_V_6 = sub i32 0, i32 %val_1"   --->   Operation 550 'sub' 'result_V_6' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.20> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.89> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_75 : Operation 551 [1/1] (0.52ns)   --->   "%result_V_7 = select i1 %p_Result_1, i32 %result_V_6, i32 %val_1" [/wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:59]   --->   Operation 551 'select' 'result_V_7' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.52> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_75 : Operation 552 [1/1] (1.35ns)   --->   "%store_ln127 = store i32 %result_V_7, i13 %Sobel_addr" [SobelTest.cpp:127]   --->   Operation 552 'store' 'store_ln127' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_75 : Operation 553 [1/1] (1.35ns)   --->   "%store_ln114 = store i32 0, i13 %Sobel_addr" [SobelTest.cpp:114]   --->   Operation 553 'store' 'store_ln114' <Predicate = (!icmp_ln111 & empty_48) | (!icmp_ln111 & empty_54)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+
+State 76 <SV = 53> <Delay = 1.35>
+ST_76 : Operation 554 [2/2] (1.35ns)   --->   "%tmp_data_V_2 = load i13 %Sobel_addr" [SobelTest.cpp:129]   --->   Operation 554 'load' 'tmp_data_V_2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_76 : Operation 555 [2/2] (1.35ns)   --->   "%tmp_data_V_1 = load i13 %Sobel_addr" [SobelTest.cpp:115]   --->   Operation 555 'load' 'tmp_data_V_1' <Predicate = (!icmp_ln111 & empty_48) | (!icmp_ln111 & empty_54)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+
+State 77 <SV = 54> <Delay = 1.84>
+ST_77 : Operation 556 [1/1] (0.00ns)   --->   "%Horizontal_Sobel_sroa_5_12_s = load i2 %Horizontal_Sobel_2" [SobelTest.cpp:123]   --->   Operation 556 'load' 'Horizontal_Sobel_sroa_5_12_s' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_77 : Operation 557 [1/1] (0.00ns)   --->   "%Horizontal_Sobel_sroa_7101_20_s = load i2 %Horizontal_Sobel_3" [SobelTest.cpp:123]   --->   Operation 557 'load' 'Horizontal_Sobel_sroa_7101_20_s' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.00>
+ST_77 : Operation 558 [1/2] (1.35ns)   --->   "%tmp_data_V_2 = load i13 %Sobel_addr" [SobelTest.cpp:129]   --->   Operation 558 'load' 'tmp_data_V_2' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_77 : Operation 559 [1/1] (0.48ns)   --->   "%br_ln0 = br void"   --->   Operation 559 'br' 'br_ln0' <Predicate = (!icmp_ln111 & !empty_54 & !empty_48)> <Delay = 0.48>
+ST_77 : Operation 560 [1/2] (1.35ns)   --->   "%tmp_data_V_1 = load i13 %Sobel_addr" [SobelTest.cpp:115]   --->   Operation 560 'load' 'tmp_data_V_1' <Predicate = (!icmp_ln111 & empty_48) | (!icmp_ln111 & empty_54)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_77 : Operation 561 [1/1] (0.48ns)   --->   "%br_ln116 = br void" [SobelTest.cpp:116]   --->   Operation 561 'br' 'br_ln116' <Predicate = (!icmp_ln111 & empty_48) | (!icmp_ln111 & empty_54)> <Delay = 0.48>
+ST_77 : Operation 562 [1/1] (0.00ns)   --->   "%tmp_data_V_3 = phi i32 %tmp_data_V_2, void, i32 %tmp_data_V_1, void %.split._crit_edge18"   --->   Operation 562 'phi' 'tmp_data_V_3' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+ST_77 : Operation 563 [2/2] (0.00ns)   --->   "%write_ln304 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i2P0A.i1P0A.i5P0A.i6P0A, i32 %Data_Out_V_data_V, i4 %Data_Out_V_keep_V, i4 %Data_Out_V_strb_V, i2 %Data_Out_V_user_V, i1 %Data_Out_V_last_V, i5 %Data_Out_V_id_V, i6 %Data_Out_V_dest_V, i32 %tmp_data_V_3, i4 %ref_tmp_keep, i4 %ref_tmp_strb, i2 %ref_tmp_user, i1 1, i5 %ref_tmp_id, i6 %ref_tmp_dest"   --->   Operation 563 'write' 'write_ln304' <Predicate = (!icmp_ln111)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+
+State 78 <SV = 55> <Delay = 0.00>
+ST_78 : Operation 564 [1/2] (0.00ns)   --->   "%write_ln304 = write void @_ssdm_op_Write.axis.volatile.i32P0A.i4P0A.i4P0A.i2P0A.i1P0A.i5P0A.i6P0A, i32 %Data_Out_V_data_V, i4 %Data_Out_V_keep_V, i4 %Data_Out_V_strb_V, i2 %Data_Out_V_user_V, i1 %Data_Out_V_last_V, i5 %Data_Out_V_id_V, i6 %Data_Out_V_dest_V, i32 %tmp_data_V_3, i4 %ref_tmp_keep, i4 %ref_tmp_strb, i2 %ref_tmp_user, i1 1, i5 %ref_tmp_id, i6 %ref_tmp_dest"   --->   Operation 564 'write' 'write_ln304' <Predicate = (!icmp_ln111)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_78 : Operation 565 [1/1] (0.00ns)   --->   "%br_ln0 = br void %.preheader.preheader"   --->   Operation 565 'br' 'br_ln0' <Predicate = (!icmp_ln111)> <Delay = 0.00>
+
+State 79 <SV = 9> <Delay = 0.00>
+ST_79 : Operation 566 [1/1] (0.00ns)   --->   "%ret_ln134 = ret" [SobelTest.cpp:134]   --->   Operation 566 'ret' 'ret_ln134' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 0.837ns
+The critical path consists of the following:
+	'alloca' operation ('indx') [53]  (0 ns)
+	'store' operation ('store_ln46', SobelTest.cpp:46) of constant 0 on local variable 'indx' [83]  (0.837 ns)
+
+ <State 2>: 2.04ns
+The critical path consists of the following:
+	'load' operation ('indx_load_1', SobelTest.cpp:56) on local variable 'indx' [107]  (0 ns)
+	'add' operation ('add_ln56', SobelTest.cpp:56) [108]  (1.2 ns)
+	'store' operation ('store_ln56', SobelTest.cpp:56) of variable 'add_ln56', SobelTest.cpp:56 on local variable 'indx' [109]  (0.837 ns)
+
+ <State 3>: 2.04ns
+The critical path consists of the following:
+	'load' operation ('indx_load_9', SobelTest.cpp:56) on local variable 'indx' [121]  (0 ns)
+	'add' operation ('add_ln56_1', SobelTest.cpp:56) [122]  (1.2 ns)
+	'store' operation ('store_ln56', SobelTest.cpp:56) of variable 'add_ln56_1', SobelTest.cpp:56 on local variable 'indx' [123]  (0.837 ns)
+
+ <State 4>: 2.04ns
+The critical path consists of the following:
+	'load' operation ('indx_load_11', SobelTest.cpp:56) on local variable 'indx' [135]  (0 ns)
+	'add' operation ('add_ln56_2', SobelTest.cpp:56) [136]  (1.2 ns)
+	'store' operation ('store_ln56', SobelTest.cpp:56) of variable 'add_ln56_2', SobelTest.cpp:56 on local variable 'indx' [137]  (0.837 ns)
+
+ <State 5>: 2.04ns
+The critical path consists of the following:
+	'load' operation ('indx_load_13', SobelTest.cpp:56) on local variable 'indx' [149]  (0 ns)
+	'add' operation ('add_ln56_3', SobelTest.cpp:56) [150]  (1.2 ns)
+	'store' operation ('store_ln56', SobelTest.cpp:56) of variable 'add_ln56_3', SobelTest.cpp:56 on local variable 'indx' [151]  (0.837 ns)
+
+ <State 6>: 0.837ns
+The critical path consists of the following:
+	'store' operation ('store_ln96', SobelTest.cpp:96) of constant 0 on local variable 'indx' [156]  (0.837 ns)
+
+ <State 7>: 2.04ns
+The critical path consists of the following:
+	'load' operation ('indx_load_3', SobelTest.cpp:100) on local variable 'indx' [186]  (0 ns)
+	'add' operation ('indx', SobelTest.cpp:100) [187]  (1.2 ns)
+	'store' operation ('store_ln100', SobelTest.cpp:100) of variable 'indx', SobelTest.cpp:100 on local variable 'indx' [188]  (0.837 ns)
+
+ <State 8>: 2.04ns
+The critical path consists of the following:
+	'load' operation ('indx_load_7', SobelTest.cpp:104) on local variable 'indx' [202]  (0 ns)
+	'add' operation ('indx', SobelTest.cpp:104) [203]  (1.2 ns)
+	'store' operation ('store_ln104', SobelTest.cpp:104) of variable 'indx', SobelTest.cpp:104 on local variable 'indx' [204]  (0.837 ns)
+
+ <State 9>: 7.1ns
+The critical path consists of the following:
+	'load' operation ('R_load', SobelTest.cpp:106) on local variable 'R' [205]  (0 ns)
+	'sitodp' operation ('conv', SobelTest.cpp:106) [206]  (7.1 ns)
+
+ <State 10>: 7.1ns
+The critical path consists of the following:
+	'sitodp' operation ('conv', SobelTest.cpp:106) [206]  (7.1 ns)
+
+ <State 11>: 7.1ns
+The critical path consists of the following:
+	'sitodp' operation ('conv', SobelTest.cpp:106) [206]  (7.1 ns)
+
+ <State 12>: 7.1ns
+The critical path consists of the following:
+	'sitodp' operation ('conv', SobelTest.cpp:106) [206]  (7.1 ns)
+
+ <State 13>: 7.1ns
+The critical path consists of the following:
+	'sitodp' operation ('conv2', SobelTest.cpp:106) [213]  (7.1 ns)
+
+ <State 14>: 6.6ns
+The critical path consists of the following:
+	'dmul' operation ('mul', SobelTest.cpp:106) [207]  (6.6 ns)
+
+ <State 15>: 6.6ns
+The critical path consists of the following:
+	'dmul' operation ('mul', SobelTest.cpp:106) [207]  (6.6 ns)
+
+ <State 16>: 6.6ns
+The critical path consists of the following:
+	'dmul' operation ('mul', SobelTest.cpp:106) [207]  (6.6 ns)
+
+ <State 17>: 6.6ns
+The critical path consists of the following:
+	'dmul' operation ('mul', SobelTest.cpp:106) [207]  (6.6 ns)
+
+ <State 18>: 6.6ns
+The critical path consists of the following:
+	'dmul' operation ('mul', SobelTest.cpp:106) [207]  (6.6 ns)
+
+ <State 19>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('add', SobelTest.cpp:106) [211]  (6.92 ns)
+
+ <State 20>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('add', SobelTest.cpp:106) [211]  (6.92 ns)
+
+ <State 21>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('add', SobelTest.cpp:106) [211]  (6.92 ns)
+
+ <State 22>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('add', SobelTest.cpp:106) [211]  (6.92 ns)
+
+ <State 23>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('add', SobelTest.cpp:106) [211]  (6.92 ns)
+
+ <State 24>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('x', SobelTest.cpp:106) [215]  (6.92 ns)
+
+ <State 25>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('x', SobelTest.cpp:106) [215]  (6.92 ns)
+
+ <State 26>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('x', SobelTest.cpp:106) [215]  (6.92 ns)
+
+ <State 27>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('x', SobelTest.cpp:106) [215]  (6.92 ns)
+
+ <State 28>: 6.92ns
+The critical path consists of the following:
+	'dadd' operation ('x', SobelTest.cpp:106) [215]  (6.92 ns)
+
+ <State 29>: 6.16ns
+The critical path consists of the following:
+	'add' operation ('sh', /wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:510) [223]  (0.948 ns)
+	'select' operation ('ush') [227]  (0.431 ns)
+	'lshr' operation ('r.V') [230]  (0 ns)
+	'select' operation ('val') [235]  (1.7 ns)
+	'sub' operation ('result.V') [236]  (1.2 ns)
+	'select' operation ('result.V', /wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:59) [237]  (0.525 ns)
+	'store' operation ('store_ln106', SobelTest.cpp:106) of variable 'result.V', /wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:59 on array 'Image', SobelTest.cpp:31 [238]  (1.35 ns)
+
+ <State 30>: 0.489ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('indvar_flatten7', SobelTest.cpp:111) with incoming values : ('add_ln111', SobelTest.cpp:111) [244]  (0.489 ns)
+
+ <State 31>: 5.82ns
+The critical path consists of the following:
+	'phi' operation ('i', SobelTest.cpp:111) with incoming values : ('select_ln111_1', SobelTest.cpp:111) [245]  (0 ns)
+	'add' operation ('empty_45', SobelTest.cpp:111) [252]  (0.887 ns)
+	'select' operation ('select_ln111_2', SobelTest.cpp:111) [265]  (0.44 ns)
+	'mul' operation ('mul_ln118_3', SobelTest.cpp:118) [267]  (2.17 ns)
+	'add' operation ('add_ln118_4', SobelTest.cpp:118) [299]  (0.975 ns)
+	'getelementptr' operation ('Image_addr_1', SobelTest.cpp:118) [301]  (0 ns)
+	'load' operation ('Image_load', SobelTest.cpp:118) on array 'Image', SobelTest.cpp:31 [308]  (1.35 ns)
+
+ <State 32>: 6.44ns
+The critical path consists of the following:
+	'load' operation ('Image_load_6', SobelTest.cpp:122) on array 'Image', SobelTest.cpp:31 [353]  (1.35 ns)
+	'mul' operation ('mul_ln122', SobelTest.cpp:122) [354]  (3.88 ns)
+	'add' operation ('G2', SobelTest.cpp:122) [359]  (1.2 ns)
+
+ <State 33>: 1.69ns
+The critical path consists of the following:
+	'load' operation ('G1_2_load', SobelTest.cpp:120) on local variable 'G1_2' [347]  (0 ns)
+	'add' operation ('G1_Sum', SobelTest.cpp:120) [349]  (1.2 ns)
+	'store' operation ('store_ln120', SobelTest.cpp:120) of variable 'G1_Sum', SobelTest.cpp:120 on local variable 'G1_Sum' [350]  (0.489 ns)
+
+ <State 34>: 5.08ns
+The critical path consists of the following:
+	'load' operation ('G1_Sum_load', SobelTest.cpp:127) on local variable 'G1_Sum' [379]  (0 ns)
+	'mul' operation ('mul_ln127', SobelTest.cpp:127) [381]  (3.88 ns)
+	'add' operation ('__x', SobelTest.cpp:127) [385]  (1.2 ns)
+
+ <State 35>: 7.1ns
+The critical path consists of the following:
+	'sitodp' operation ('conv_i', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [386]  (7.1 ns)
+
+ <State 36>: 7.1ns
+The critical path consists of the following:
+	'sitodp' operation ('conv_i', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [386]  (7.1 ns)
+
+ <State 37>: 7.1ns
+The critical path consists of the following:
+	'sitodp' operation ('conv_i', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [386]  (7.1 ns)
+
+ <State 38>: 7.1ns
+The critical path consists of the following:
+	'sitodp' operation ('conv_i', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [386]  (7.1 ns)
+
+ <State 39>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 40>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 41>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 42>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 43>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 44>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 45>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 46>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 47>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 48>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 49>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 50>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 51>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 52>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 53>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 54>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 55>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 56>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 57>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 58>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 59>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 60>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 61>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 62>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 63>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 64>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 65>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 66>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 67>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 68>: 5.53ns
+The critical path consists of the following:
+	'dsqrt' operation ('tmp', /tools/Xilinx/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/cmath:499) [387]  (5.53 ns)
+
+ <State 69>: 6.6ns
+The critical path consists of the following:
+	'dmul' operation ('x', SobelTest.cpp:127) [388]  (6.6 ns)
+
+ <State 70>: 6.6ns
+The critical path consists of the following:
+	'dmul' operation ('x', SobelTest.cpp:127) [388]  (6.6 ns)
+
+ <State 71>: 6.6ns
+The critical path consists of the following:
+	'dmul' operation ('x', SobelTest.cpp:127) [388]  (6.6 ns)
+
+ <State 72>: 6.6ns
+The critical path consists of the following:
+	'dmul' operation ('x', SobelTest.cpp:127) [388]  (6.6 ns)
+
+ <State 73>: 6.6ns
+The critical path consists of the following:
+	'dmul' operation ('x', SobelTest.cpp:127) [388]  (6.6 ns)
+
+ <State 74>: 6.6ns
+The critical path consists of the following:
+	'dmul' operation ('x', SobelTest.cpp:127) [388]  (6.6 ns)
+
+ <State 75>: 6.16ns
+The critical path consists of the following:
+	'add' operation ('sh', /wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/src/hls/utils/x_hls_utils.h:510) [396]  (0.948 ns)
+	'select' operation ('ush') [400]  (0.431 ns)
+	'lshr' operation ('r.V') [403]  (0 ns)
+	'select' operation ('val') [408]  (1.7 ns)
+	'sub' operation ('result.V') [409]  (1.2 ns)
+	'select' operation ('result.V', /wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:59) [410]  (0.525 ns)
+	'store' operation ('store_ln127', SobelTest.cpp:127) of variable 'result.V', /wrk/ci/prod/2020.2/rdi_builds/continuous/2020_11_18_3064766/src/shared/hls/clib/hlsmath/include/FloatingPoint/hls_case_IEEE754.h:59 on array 'Sobel', SobelTest.cpp:32 [411]  (1.35 ns)
+
+ <State 76>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('tmp.data.V', SobelTest.cpp:115) on array 'Sobel', SobelTest.cpp:32 [416]  (1.35 ns)
+
+ <State 77>: 1.84ns
+The critical path consists of the following:
+	'load' operation ('tmp.data.V', SobelTest.cpp:129) on array 'Sobel', SobelTest.cpp:32 [412]  (1.35 ns)
+	multiplexor before 'phi' operation ('tmp.data.V') with incoming values : ('tmp.data.V', SobelTest.cpp:129) ('tmp.data.V', SobelTest.cpp:115) [419]  (0.489 ns)
+	'phi' operation ('tmp.data.V') with incoming values : ('tmp.data.V', SobelTest.cpp:129) ('tmp.data.V', SobelTest.cpp:115) [419]  (0 ns)
+
+ <State 78>: 0ns
+The critical path consists of the following:
+
+ <State 79>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
