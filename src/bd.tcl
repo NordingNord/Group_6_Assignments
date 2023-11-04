@@ -125,8 +125,8 @@ set bCheckIPs 1
 if { $bCheckIPs == 1 } {
    set list_check_ips "\ 
 xilinx.com:ip:axi_intc:4.1\
-xilinx.com:ip:smartconnect:1.0\
 xilinx.com:hls:example:1.0\
+xilinx.com:ip:smartconnect:1.0\
 xilinx.com:ip:proc_sys_reset:5.0\
 xilinx.com:ip:xlconcat:2.1\
 xilinx.com:ip:xlconstant:1.1\
@@ -203,15 +203,15 @@ proc create_root_design { parentCell } {
    CONFIG.C_IRQ_CONNECTION {1} \
  ] $axi_intc_0
 
+  # Create instance: axi_master_add_value, and set properties
+  set axi_master_add_value [ create_bd_cell -type ip -vlnv xilinx.com:hls:example:1.0 axi_master_add_value ]
+
   # Create instance: axi_smc, and set properties
   set axi_smc [ create_bd_cell -type ip -vlnv xilinx.com:ip:smartconnect:1.0 axi_smc ]
   set_property -dict [ list \
    CONFIG.NUM_MI {3} \
    CONFIG.NUM_SI {2} \
  ] $axi_smc
-
-  # Create instance: example_0, and set properties
-  set example_0 [ create_bd_cell -type ip -vlnv xilinx.com:hls:example:1.0 example_0 ]
 
   # Create instance: rst_ps8_0_100M, and set properties
   set rst_ps8_0_100M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps8_0_100M ]
@@ -956,32 +956,31 @@ proc create_root_design { parentCell } {
  ] $zynq_ultra_ps_e_0
 
   # Create interface connections
-  connect_bd_intf_net -intf_net axi_smc_M00_AXI [get_bd_intf_pins axi_smc/M00_AXI] [get_bd_intf_pins example_0/s_axi_control]
+  connect_bd_intf_net -intf_net axi_master_add_value_m_axi_gmem [get_bd_intf_pins axi_master_add_value/m_axi_gmem] [get_bd_intf_pins axi_smc/S01_AXI]
+  connect_bd_intf_net -intf_net axi_smc_M00_AXI [get_bd_intf_pins axi_master_add_value/s_axi_control] [get_bd_intf_pins axi_smc/M00_AXI]
   connect_bd_intf_net -intf_net axi_smc_M01_AXI [get_bd_intf_pins axi_intc_0/s_axi] [get_bd_intf_pins axi_smc/M01_AXI]
   connect_bd_intf_net -intf_net axi_smc_M02_AXI [get_bd_intf_pins axi_smc/M02_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/S_AXI_HP0_FPD]
-  connect_bd_intf_net -intf_net example_0_m_axi_gmem [get_bd_intf_pins axi_smc/S01_AXI] [get_bd_intf_pins example_0/m_axi_gmem]
   connect_bd_intf_net -intf_net zynq_ultra_ps_e_0_M_AXI_HPM0_FPD [get_bd_intf_pins axi_smc/S00_AXI] [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM0_FPD]
 
   # Create port connections
   connect_bd_net -net axi_intc_0_irq [get_bd_pins axi_intc_0/irq] [get_bd_pins xlconcat_0/In0]
-  connect_bd_net -net example_0_interrupt [get_bd_pins example_0/interrupt] [get_bd_pins xlconcat_0/In1]
-  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins axi_intc_0/s_axi_aresetn] [get_bd_pins axi_smc/aresetn] [get_bd_pins example_0/ap_rst_n] [get_bd_pins rst_ps8_0_100M/peripheral_aresetn]
+  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins axi_intc_0/s_axi_aresetn] [get_bd_pins axi_master_add_value/ap_rst_n] [get_bd_pins axi_smc/aresetn] [get_bd_pins rst_ps8_0_100M/peripheral_aresetn]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins xlconcat_0/dout] [get_bd_pins zynq_ultra_ps_e_0/pl_ps_irq0]
   connect_bd_net -net xlconstant_0_dout [get_bd_pins axi_intc_0/intr] [get_bd_pins xlconstant_0/dout]
-  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins axi_intc_0/s_axi_aclk] [get_bd_pins axi_smc/aclk] [get_bd_pins example_0/ap_clk] [get_bd_pins rst_ps8_0_100M/slowest_sync_clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins zynq_ultra_ps_e_0/saxihp0_fpd_aclk]
+  connect_bd_net -net zynq_ultra_ps_e_0_pl_clk0 [get_bd_pins axi_intc_0/s_axi_aclk] [get_bd_pins axi_master_add_value/ap_clk] [get_bd_pins axi_smc/aclk] [get_bd_pins rst_ps8_0_100M/slowest_sync_clk] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins zynq_ultra_ps_e_0/saxihp0_fpd_aclk]
   connect_bd_net -net zynq_ultra_ps_e_0_pl_resetn0 [get_bd_pins rst_ps8_0_100M/ext_reset_in] [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0]
 
   # Create address segments
-  assign_bd_address -offset 0x00000000 -range 0x80000000 -target_address_space [get_bd_addr_spaces example_0/Data_m_axi_gmem] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW] -force
+  assign_bd_address -offset 0x00000000 -range 0x80000000 -target_address_space [get_bd_addr_spaces axi_master_add_value/Data_m_axi_gmem] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW] -force
   assign_bd_address -offset 0xA0010000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_intc_0/S_AXI/Reg] -force
-  assign_bd_address -offset 0xA0000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs example_0/s_axi_control/Reg] -force
+  assign_bd_address -offset 0xA0000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs axi_master_add_value/s_axi_control/Reg] -force
 
   # Exclude Address Segments
-  exclude_bd_addr_seg -offset 0xA0010000 -range 0x00010000 -target_address_space [get_bd_addr_spaces example_0/Data_m_axi_gmem] [get_bd_addr_segs axi_intc_0/S_AXI/Reg]
-  exclude_bd_addr_seg -offset 0xA0000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces example_0/Data_m_axi_gmem] [get_bd_addr_segs example_0/s_axi_control/Reg]
-  exclude_bd_addr_seg -offset 0xFF000000 -range 0x01000000 -target_address_space [get_bd_addr_spaces example_0/Data_m_axi_gmem] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_LPS_OCM]
-  exclude_bd_addr_seg -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW]
-  exclude_bd_addr_seg -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_LPS_OCM]
+  exclude_bd_addr_seg -offset 0xA0010000 -range 0x00010000 -target_address_space [get_bd_addr_spaces axi_master_add_value/Data_m_axi_gmem] [get_bd_addr_segs axi_intc_0/S_AXI/Reg]
+  exclude_bd_addr_seg -offset 0xA0000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces axi_master_add_value/Data_m_axi_gmem] [get_bd_addr_segs axi_master_add_value/s_axi_control/Reg]
+  exclude_bd_addr_seg -offset 0xFF000000 -range 0x01000000 -target_address_space [get_bd_addr_spaces axi_master_add_value/Data_m_axi_gmem] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_LPS_OCM]
+  exclude_bd_addr_seg -offset 0x00000000 -range 0x80000000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_DDR_LOW]
+  exclude_bd_addr_seg -offset 0xFF000000 -range 0x01000000 -target_address_space [get_bd_addr_spaces zynq_ultra_ps_e_0/Data] [get_bd_addr_segs zynq_ultra_ps_e_0/SAXIGP2/HP0_LPS_OCM]
 
 
   # Restore current instance
