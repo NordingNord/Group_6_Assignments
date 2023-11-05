@@ -26,6 +26,9 @@ using namespace sc_dt;
 // wrapc file define:
 #define AUTOTB_TVIN_value "../tv/cdatafile/c.example.autotvin_value_r.dat"
 #define AUTOTB_TVOUT_value "../tv/cdatafile/c.example.autotvout_value_r.dat"
+// wrapc file define:
+#define AUTOTB_TVIN_done "../tv/cdatafile/c.example.autotvin_done.dat"
+#define AUTOTB_TVOUT_done "../tv/cdatafile/c.example.autotvout_done.dat"
 
 #define INTER_TCL "../tv/cdatafile/ref.tcl"
 
@@ -35,6 +38,8 @@ using namespace sc_dt;
 #define AUTOTB_TVOUT_PC_a "../tv/rtldatafile/rtl.example.autotvout_a.dat"
 // tvout file define:
 #define AUTOTB_TVOUT_PC_value "../tv/rtldatafile/rtl.example.autotvout_value_r.dat"
+// tvout file define:
+#define AUTOTB_TVOUT_PC_done "../tv/rtldatafile/rtl.example.autotvout_done.dat"
 
 class INTER_TCL_FILE {
   public:
@@ -43,6 +48,7 @@ INTER_TCL_FILE(const char* name) {
   gmem_depth = 0;
   a_depth = 0;
   value_depth = 0;
+  done_depth = 0;
   trans_num =0;
 }
 ~INTER_TCL_FILE() {
@@ -63,6 +69,7 @@ string get_depth_list () {
   total_list << "{gmem " << gmem_depth << "}\n";
   total_list << "{a " << a_depth << "}\n";
   total_list << "{value_r " << value_depth << "}\n";
+  total_list << "{done " << done_depth << "}\n";
   return total_list.str();
 }
 void set_num (int num , int* class_num) {
@@ -75,6 +82,7 @@ void set_string(std::string list, std::string* class_list) {
     int gmem_depth;
     int a_depth;
     int value_depth;
+    int done_depth;
     int trans_num;
   private:
     ofstream mFile;
@@ -116,9 +124,9 @@ static void RTLOutputCheckAndReplacement(std::string &AESL_token, std::string Po
       no_x = true;
   }
 }
-extern "C" void example_hw_stub_wrapper(volatile void *, int);
+extern "C" void example_hw_stub_wrapper(volatile void *, int, char);
 
-extern "C" void apatb_example_hw(volatile void * __xlx_apatb_param_a, int __xlx_apatb_param_value) {
+extern "C" void apatb_example_hw(volatile void * __xlx_apatb_param_a, int __xlx_apatb_param_value, char __xlx_apatb_param_done) {
   refine_signal_handler();
   fstream wrapc_switch_file_token;
   wrapc_switch_file_token.open(".hls_cosim_wrapc_switch.log");
@@ -192,6 +200,9 @@ aesl_fh.touch(AUTOTB_TVOUT_a);
 //value
 aesl_fh.touch(AUTOTB_TVIN_value);
 aesl_fh.touch(AUTOTB_TVOUT_value);
+//done
+aesl_fh.touch(AUTOTB_TVIN_done);
+aesl_fh.touch(AUTOTB_TVOUT_done);
 CodeState = DUMP_INPUTS;
 unsigned __xlx_offset_byte_param_a = 0;
 // print gmem Transactions
@@ -240,8 +251,22 @@ sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_a)[j];
   sprintf(__xlx_sprintf_buffer.data(), "[[/transaction]] \n");
   aesl_fh.write(AUTOTB_TVIN_value, __xlx_sprintf_buffer.data());
 }
+// print done Transactions
+{
+  sprintf(__xlx_sprintf_buffer.data(), "[[transaction]] %d\n", AESL_transaction);
+  aesl_fh.write(AUTOTB_TVIN_done, __xlx_sprintf_buffer.data());
+  {
+    sc_bv<1> __xlx_tmp_lv = *((char*)&__xlx_apatb_param_done);
+
+    sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
+    aesl_fh.write(AUTOTB_TVIN_done, __xlx_sprintf_buffer.data()); 
+  }
+  tcl_file.set_num(1, &tcl_file.done_depth);
+  sprintf(__xlx_sprintf_buffer.data(), "[[/transaction]] \n");
+  aesl_fh.write(AUTOTB_TVIN_done, __xlx_sprintf_buffer.data());
+}
 CodeState = CALL_C_DUT;
-example_hw_stub_wrapper(__xlx_apatb_param_a, __xlx_apatb_param_value);
+example_hw_stub_wrapper(__xlx_apatb_param_a, __xlx_apatb_param_value, __xlx_apatb_param_done);
 CodeState = DUMP_OUTPUTS;
 // print gmem Transactions
 {

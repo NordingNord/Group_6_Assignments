@@ -16,7 +16,7 @@
 
 #include <stdio.h>
 
-void example(volatile int *a, int value);
+void example(volatile int *a, int value, bool done);
 
 int main()
 {
@@ -25,6 +25,7 @@ int main()
   int A[length];
   int B[length];
   int value = 7;
+  bool donner = false;
 
 
   printf("HLS AXI-Master example\n");
@@ -34,7 +35,7 @@ int main()
   }
 
   //Call the hardware function
-  example(A, value);
+  example(A, value, donner);
 
   //Run a software version of the hardware function to validate results
   for(i=0; i < length; i++){

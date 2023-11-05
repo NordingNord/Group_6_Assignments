@@ -56,13 +56,26 @@
           "usage": "data",
           "direction": "in"
         }]
+    },
+    "done": {
+      "index": "2",
+      "direction": "in",
+      "srcType": "bool",
+      "srcSize": "1",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "done",
+          "usage": "data",
+          "direction": "in"
+        }]
     }
   },
   "HlsSolution": {
     "FlowTarget": "vivado",
     "ConfigTcl": [
-      "config_export -description {AXI-Master IP which adds data to each value in an image area of ram}",
-      "config_export -display_name {AXI-Master add value segments 4}",
+      "config_export -description {AXI-Master IP which adds data to each value in an image area of ram and sets done variable}",
+      "config_export -display_name {AXI-Master add value segments 4 with done}",
       "config_export -format=ip_catalog",
       "config_export -output=\/home\/frank\/Documents\/Git\/Group_6_Assignments\/hls\/AXI-Master_IP\/example.zip",
       "config_export -rtl=vhdl"
@@ -78,7 +91,7 @@
     "Uncertainty": "2.7",
     "IsCombinational": "0",
     "II": "x",
-    "Latency": "1440081"
+    "Latency": "undef"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
   "Ipx": {
@@ -86,9 +99,9 @@
     "Library": "hls",
     "Name": "example",
     "Version": "1.0",
-    "DisplayName": "AXI-Master add value segments 4",
+    "DisplayName": "AXI-Master add value segments 4 with done",
     "Revision": "",
-    "Description": "AXI-Master IP which adds data to each value in an image area of ram",
+    "Description": "AXI-Master IP which adds data to each value in an image area of ram and sets done variable",
     "Taxonomy": "\/VITIS_HLS_IP",
     "AutoFamilySupport": "",
     "ZipFile": "xilinx_com_hls_example_1_0.zip"
@@ -482,6 +495,32 @@
               "resetValue": "0",
               "description": "Bit 31 to 0 of value_r"
             }]
+        },
+        {
+          "offset": "0x24",
+          "name": "done",
+          "access": "W",
+          "resetValue": "0x0",
+          "description": "Data signal of done",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "done",
+              "access": "W",
+              "resetValue": "0",
+              "description": "Bit 0 to 0 of done"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "resetValue": "0",
+              "description": "Reserved.  0s on read."
+            }
+          ]
         }
       ],
       "constraints": [{
@@ -776,10 +815,10 @@
       }},
     "Metrics": {"example": {
         "Latency": {
-          "LatencyBest": "1440081",
-          "LatencyAvg": "1440081",
-          "LatencyWorst": "1440081",
-          "PipelineII": "1440082",
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -788,44 +827,53 @@
           "Uncertainty": "2.70",
           "Estimate": "7.300"
         },
-        "Loops": [{
-            "Name": "VITIS_LOOP_35_1",
+        "Loops": [
+          {
+            "Name": "VITIS_LOOP_33_1",
+            "TripCount": "inf",
+            "Latency": "",
+            "PipelineII": "1",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "VITIS_LOOP_40_2",
             "TripCount": "4",
             "Latency": "1440080",
             "PipelineII": "",
             "PipelineDepth": "360020",
             "Loops": [
               {
-                "Name": "VITIS_LOOP_35_1.1",
+                "Name": "VITIS_LOOP_40_2.1",
                 "TripCount": "120000",
                 "Latency": "120001",
                 "PipelineII": "1",
                 "PipelineDepth": "3"
               },
               {
-                "Name": "VITIS_LOOP_41_2",
+                "Name": "VITIS_LOOP_46_3",
                 "TripCount": "120000",
                 "Latency": "120000",
                 "PipelineII": "1",
                 "PipelineDepth": "2"
               },
               {
-                "Name": "VITIS_LOOP_35_1.3",
+                "Name": "VITIS_LOOP_40_2.3",
                 "TripCount": "120000",
                 "Latency": "120001",
                 "PipelineII": "1",
                 "PipelineDepth": "3"
               }
             ]
-          }],
+          }
+        ],
         "Area": {
           "BRAM_18K": "217",
           "AVAIL_BRAM": "432",
           "UTIL_BRAM": "50",
-          "FF": "1062",
+          "FF": "1070",
           "AVAIL_FF": "141120",
           "UTIL_FF": "~0",
-          "LUT": "1391",
+          "LUT": "1399",
           "AVAIL_LUT": "70560",
           "UTIL_LUT": "1",
           "DSP": "0",
@@ -840,7 +888,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2023-11-04 23:57:22 CET",
+    "Time": "2023-11-05 12:23:42 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.2"
   }

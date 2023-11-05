@@ -32,3 +32,49 @@ timestamp=[2023-11-05 02:07:50], mode=BUILD, duration=0:00:01.933, duration_ms=1
 timestamp=[2023-11-05 02:08:57], mode=BUILD, duration=0:00:01.975, duration_ms=1975, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
 timestamp=[2023-11-05 02:10:20], mode=BUILD, duration=0:00:02.917, duration_ms=2917, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
 timestamp=[2023-11-05 02:12:23], mode=BUILD, duration=0:00:01.689, duration_ms=1689, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 09:51:56], mode=WORKBENCH_START, duration=0:00:14.618, duration_ms=14618, data={}
+timestamp=[2023-11-05 09:51:57], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.073, duration_ms=73, data={}
+timestamp=[2023-11-05 09:51:59], mode=WORKBENCH_UI_INIT, duration=0:00:02.736, duration_ms=2736, data={editors_count=7, platform_editors_count=4, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=AXI_Master_ReadImage_AddValue,AXI_Master_ReadImage_AddValue_system,RemoteSystemsTempFiles,u96v2_sbc_mp4d}
+timestamp=[2023-11-05 09:53:44], mode=BUILD, duration=0:00:01.742, duration_ms=1742, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 09:59:46], mode=BUILD, duration=0:00:01.646, duration_ms=1646, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 10:01:10], mode=BUILD, duration=0:00:01.582, duration_ms=1582, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 10:03:42], mode=BUILD, duration=0:00:01.551, duration_ms=1551, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 10:06:59], mode=BUILD, duration=0:00:01.565, duration_ms=1565, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 10:09:37], mode=BUILD, duration=0:00:01.538, duration_ms=1538, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 10:13:00], mode=BUILD, duration=0:00:01.532, duration_ms=1532, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 10:15:07], mode=BUILD, duration=0:00:01.608, duration_ms=1608, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 10:17:05], mode=BUILD, duration=0:00:01.595, duration_ms=1595, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 12:18:26], mode=WORKBENCH_START, duration=0:00:14.044, duration_ms=14044, data={}
+timestamp=[2023-11-05 12:18:27], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.105, duration_ms=105, data={}
+timestamp=[2023-11-05 12:18:29], mode=WORKBENCH_UI_INIT, duration=0:00:02.561, duration_ms=2561, data={editors_count=7, platform_editors_count=4, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=AXI_Master_ReadImage_AddValue,AXI_Master_ReadImage_AddValue_system,RemoteSystemsTempFiles,u96v2_sbc_mp4d}
+timestamp=[2023-11-05 12:19:09], mode=BUILD, duration=0:00:01.355, duration_ms=1355, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 12:19:22], mode=BUILD, duration=0:00:01.761, duration_ms=1761, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 12:21:38], mode=BUILD, duration=0:00:01.457, duration_ms=1457, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:23:35], mode=PLATFORM_GENERATION, duration=0:00:07.768, duration_ms=7768, data={name=u96v2_sbc_mp4d}
+timestamp=[2023-11-05 13:23:44], mode=BUILD, duration=0:00:01.605, duration_ms=1605, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:33:58], mode=BUILD, duration=0:00:01.694, duration_ms=1694, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:38:40], mode=PLATFORM_GENERATION, duration=0:00:08.391, duration_ms=8391, data={name=u96v2_sbc_mp4d}
+timestamp=[2023-11-05 13:38:53], mode=BUILD, duration=0:00:01.583, duration_ms=1583, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:41:25], mode=BUILD, duration=0:00:01.644, duration_ms=1644, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:42:19], mode=BUILD, duration=0:00:01.456, duration_ms=1456, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:45:02], mode=BUILD, duration=0:00:01.505, duration_ms=1505, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:49:39], mode=BUILD, duration=0:00:01.538, duration_ms=1538, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:50:30], mode=WORKBENCH_START, duration=0:00:14.515, duration_ms=14515, data={}
+timestamp=[2023-11-05 13:50:31], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.082, duration_ms=82, data={}
+timestamp=[2023-11-05 13:50:33], mode=WORKBENCH_UI_INIT, duration=0:00:02.657, duration_ms=2657, data={editors_count=10, platform_editors_count=7, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=AXI_Master_ReadImage_AddValue,AXI_Master_ReadImage_AddValue_system,RemoteSystemsTempFiles,u96v2_sbc_mp4d}
+timestamp=[2023-11-05 13:50:55], mode=BUILD, duration=0:00:01.453, duration_ms=1453, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:54:11], mode=PLATFORM_GENERATION, duration=0:00:21.161, duration_ms=21161, data={name=u96v2_sbc_mp4d}
+timestamp=[2023-11-05 13:54:13], mode=BUILD, duration=0:00:01.460, duration_ms=1460, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=true}
+timestamp=[2023-11-05 13:54:30], mode=PLATFORM_GENERATION, duration=0:00:07.954, duration_ms=7954, data={name=u96v2_sbc_mp4d}
+timestamp=[2023-11-05 13:54:59], mode=BUILD, duration=0:00:01.299, duration_ms=1299, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=true}
+timestamp=[2023-11-05 13:55:59], mode=PLATFORM_GENERATION, duration=0:00:55.488, duration_ms=55488, data={name=u96v2_sbc_mp4d}
+timestamp=[2023-11-05 13:56:10], mode=BUILD, duration=0:00:01.571, duration_ms=1571, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:57:42], mode=BUILD, duration=0:00:01.444, duration_ms=1444, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:57:58], mode=BUILD, duration=0:00:01.420, duration_ms=1420, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 13:58:57], mode=BUILD, duration=0:00:01.507, duration_ms=1507, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 14:00:11], mode=BUILD, duration=0:00:01.552, duration_ms=1552, data={name=AXI_Master_ReadImage_AddValue, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 14:03:32], mode=APP_CREATION, duration=0:00:30.254, duration_ms=30254, data={name=AXI_Master_AddValue_done, project_type=sdk, os=standalone, processor=psu_cortexa53, runtime=cpp, platform=u96v2_sbc_mp4d_1, application_type=application}
+timestamp=[2023-11-05 14:06:55], mode=PLATFORM_GENERATION, duration=0:00:55.869, duration_ms=55869, data={name=u96v2_sbc_mp4d_1}
+timestamp=[2023-11-05 14:07:06], mode=BUILD, duration=0:00:01.646, duration_ms=1646, data={name=AXI_Master_AddValue_done, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 14:13:26], mode=PLATFORM_GENERATION, duration=0:00:18.856, duration_ms=18856, data={name=u96v2_sbc_mp4d_1}
+timestamp=[2023-11-05 14:13:40], mode=BUILD, duration=0:00:01.674, duration_ms=1674, data={name=AXI_Master_AddValue_done, configuration=Debug, clean_build=false}

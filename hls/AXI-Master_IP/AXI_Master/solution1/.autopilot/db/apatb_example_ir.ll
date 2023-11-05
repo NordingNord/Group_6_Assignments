@@ -7,14 +7,14 @@ target triple = "fpga64-xilinx-none"
 declare void @llvm.memcpy.p0i8.p0i8.i64(i8* nocapture writeonly, i8* nocapture readonly, i64, i1) #0
 
 ; Function Attrs: noinline
-define void @apatb_example_ir(i32* %a, i32 %value) local_unnamed_addr #1 {
+define void @apatb_example_ir(i32* %a, i32 %value, i1 %done) local_unnamed_addr #1 {
 entry:
   %malloccall = tail call i8* @malloc(i64 480000)
   %a_copy = bitcast i8* %malloccall to [120000 x i32]*
   %0 = bitcast i32* %a to [120000 x i32]*
   call fastcc void @copy_in([120000 x i32]* %0, [120000 x i32]* %a_copy)
   %1 = getelementptr inbounds [120000 x i32], [120000 x i32]* %a_copy, i32 0, i32 0
-  call void @apatb_example_hw(i32* %1, i32 %value)
+  call void @apatb_example_hw(i32* %1, i32 %value, i1 %done)
   call fastcc void @copy_out([120000 x i32]* %0, [120000 x i32]* %a_copy)
   tail call void @free(i8* %malloccall)
   ret void
@@ -64,19 +64,19 @@ entry:
 
 declare void @free(i8*) local_unnamed_addr
 
-declare void @apatb_example_hw(i32*, i32)
+declare void @apatb_example_hw(i32*, i32, i1)
 
-define void @example_hw_stub_wrapper(i32*, i32) #5 {
+define void @example_hw_stub_wrapper(i32*, i32, i1) #5 {
 entry:
-  %2 = bitcast i32* %0 to [120000 x i32]*
-  call void @copy_out([120000 x i32]* null, [120000 x i32]* %2)
-  %3 = bitcast [120000 x i32]* %2 to i32*
-  call void @example_hw_stub(i32* %3, i32 %1)
-  call void @copy_in([120000 x i32]* null, [120000 x i32]* %2)
+  %3 = bitcast i32* %0 to [120000 x i32]*
+  call void @copy_out([120000 x i32]* null, [120000 x i32]* %3)
+  %4 = bitcast [120000 x i32]* %3 to i32*
+  call void @example_hw_stub(i32* %4, i32 %1, i1 %2)
+  call void @copy_in([120000 x i32]* null, [120000 x i32]* %3)
   ret void
 }
 
-declare void @example_hw_stub(i32*, i32)
+declare void @example_hw_stub(i32*, i32, i1)
 
 attributes #0 = { argmemonly nounwind }
 attributes #1 = { noinline "fpga.wrapper.func"="wrapper" }

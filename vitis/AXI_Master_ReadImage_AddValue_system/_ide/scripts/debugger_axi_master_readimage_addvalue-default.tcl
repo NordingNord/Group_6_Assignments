@@ -24,9 +24,9 @@ set mode [expr [mrd -value 0xFF5E0200] & 0xf]
 targets -set -nocase -filter {name =~ "*A53*#0"}
 rst -processor
 dow /home/frank/Documents/Git/Group_6_Assignments/vitis/u96v2_sbc_mp4d/export/u96v2_sbc_mp4d/sw/u96v2_sbc_mp4d/boot/fsbl.elf
-set bp_12_55_fsbl_bp [bpadd -addr &XFsbl_Exit]
+set bp_17_47_fsbl_bp [bpadd -addr &XFsbl_Exit]
 con -block -timeout 60
-bpremove $bp_12_55_fsbl_bp
+bpremove $bp_17_47_fsbl_bp
 targets -set -nocase -filter {name =~ "*A53*#0"}
 rst -processor
 dow /home/frank/Documents/Git/Group_6_Assignments/vitis/AXI_Master_ReadImage_AddValue/Debug/AXI_Master_ReadImage_AddValue.elf

@@ -23,11 +23,16 @@
 static const int length = 600*800;
 static const int segments = 4;
 static const int segmentSize = length/segments;
-void example(volatile int *a, int value){
+void example(volatile int *a, int value, bool done){
 #pragma HLS INTERFACE m_axi port=a depth=segmentSize offset=slave max_widen_bitwidth=1024
 	// Above line based on https://docs.xilinx.com/r/2020.2-English/ug1399-vitis-hls/Automatic-Port-Width-Resizing
 #pragma HLS INTERFACE s_axilite port=value
+#pragma HLS INTERFACE s_axilite port=done
 #pragma HLS INTERFACE s_axilite port=return
+
+	while(done == true) {
+
+	}
 
 	int i,seg;
 	int buff[segmentSize];
@@ -47,6 +52,7 @@ void example(volatile int *a, int value){
 		memcpy((int *)a+seg*segmentSize,buff,segmentSize*sizeof(int));
 
 	}
+	done = true;
 }
 
 

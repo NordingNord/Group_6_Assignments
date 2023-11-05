@@ -32,8 +32,8 @@ class AESL_RUNTIME_BC {
     fstream file_token;
     string mName;
 };
-extern "C" void example(int*, int, int);
-extern "C" void apatb_example_hw(volatile void * __xlx_apatb_param_a, int __xlx_apatb_param_value) {
+extern "C" void example(int*, int, int, char);
+extern "C" void apatb_example_hw(volatile void * __xlx_apatb_param_a, int __xlx_apatb_param_value, char __xlx_apatb_param_done) {
   // Collect __xlx_a__tmp_vec
   vector<sc_bv<32> >__xlx_a__tmp_vec;
   for (int j = 0, e = 120000; j != e; ++j) {
@@ -47,7 +47,7 @@ extern "C" void apatb_example_hw(volatile void * __xlx_apatb_param_a, int __xlx_
     __xlx_a__input_buffer[i] = __xlx_a__tmp_vec[i].range(31, 0).to_uint64();
   }
   // DUT call
-  example(__xlx_a__input_buffer, __xlx_offset_byte_param_a, __xlx_apatb_param_value);
+  example(__xlx_a__input_buffer, __xlx_offset_byte_param_a, __xlx_apatb_param_value, __xlx_apatb_param_done);
 // print __xlx_apatb_param_a
   sc_bv<32>*__xlx_a_output_buffer = new sc_bv<32>[__xlx_size_param_a];
   for (int i = 0; i < __xlx_size_param_a; ++i) {

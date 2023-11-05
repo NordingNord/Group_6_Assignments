@@ -29,6 +29,10 @@
 // 0x1c : Data signal of value_r
 //        bit 31~0 - value_r[31:0] (Read/Write)
 // 0x20 : reserved
+// 0x24 : Data signal of done
+//        bit 0  - done[0] (Read/Write)
+//        others - reserved
+// 0x28 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 #define XEXAMPLE_CONTROL_ADDR_AP_CTRL      0x00
@@ -39,4 +43,6 @@
 #define XEXAMPLE_CONTROL_BITS_A_DATA       64
 #define XEXAMPLE_CONTROL_ADDR_VALUE_R_DATA 0x1c
 #define XEXAMPLE_CONTROL_BITS_VALUE_R_DATA 32
+#define XEXAMPLE_CONTROL_ADDR_DONE_DATA    0x24
+#define XEXAMPLE_CONTROL_BITS_DONE_DATA    1
 

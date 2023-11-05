@@ -91,6 +91,8 @@ void XExample_Set_a(XExample *InstancePtr, u64 Data);
 u64 XExample_Get_a(XExample *InstancePtr);
 void XExample_Set_value_r(XExample *InstancePtr, u32 Data);
 u32 XExample_Get_value_r(XExample *InstancePtr);
+void XExample_Set_done(XExample *InstancePtr, u32 Data);
+u32 XExample_Get_done(XExample *InstancePtr);
 
 void XExample_InterruptGlobalEnable(XExample *InstancePtr);
 void XExample_InterruptGlobalDisable(XExample *InstancePtr);

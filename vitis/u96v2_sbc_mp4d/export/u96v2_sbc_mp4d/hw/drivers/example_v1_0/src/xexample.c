@@ -109,6 +109,23 @@ u32 XExample_Get_value_r(XExample *InstancePtr) {
     return Data;
 }
 
+void XExample_Set_done(XExample *InstancePtr, u32 Data) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XExample_WriteReg(InstancePtr->Control_BaseAddress, XEXAMPLE_CONTROL_ADDR_DONE_DATA, Data);
+}
+
+u32 XExample_Get_done(XExample *InstancePtr) {
+    u32 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XExample_ReadReg(InstancePtr->Control_BaseAddress, XEXAMPLE_CONTROL_ADDR_DONE_DATA);
+    return Data;
+}
+
 void XExample_InterruptGlobalEnable(XExample *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);

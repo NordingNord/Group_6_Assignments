@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="AXI_Master_ReadImage_AddValue" location="/home/frank/Documents/Git/Group_6_Assignments/vitis/AXI_Master_ReadImage_AddValue" platform="/home/frank/Documents/Git/Group_6_Assignments/vitis/u96v2_sbc_mp4d/export/u96v2_sbc_mp4d/u96v2_sbc_mp4d.xpfm" platformUID="sdu.dk/diii:u96v2_sbc_mp4d:u96v2_sbc_mp4d:1.0(custom)" systemProject="AXI_Master_ReadImage_AddValue_system" sysConfig="u96v2_sbc_mp4d" runtime="cpp" cpu="standalone_psu_cortexa53_0" cpuInstance="psu_cortexa53_0" os="standalone" mssSignature="75e6a72e4ba0ceef33f82ddd5ae6abdc">
+  <configuration name="Debug" id="xilinx.gnu.arm.a53.exe.debug.1292818539">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.arm.a53.exe.release.614784743" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>

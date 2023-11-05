@@ -1,7 +1,9 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:Debugger_AXI_Master_ReadImage_AddValue-Default
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Debugger_AXI_Master_ReadImage_AddValue-Emulation,org.eclipse.launchbar.core.descriptorType.default\:Debugger_AXI_Master_ReadImage_AddValue-Default,org.eclipse.launchbar.core.descriptorType.default\:Debugger_AXI_Master_AddValue_done-Default
 eclipse.preferences.version=1
 org.eclipse.launchbar.core.descriptorType.default\:Debugger_AXI_Master_ReadImage_AddValue-Default/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:Debugger_AXI_Master_ReadImage_AddValue-Default/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Debugger_AXI_Master_ReadImage_AddValue-Emulation/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Debugger_AXI_Master_ReadImage_AddValue-Emulation/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

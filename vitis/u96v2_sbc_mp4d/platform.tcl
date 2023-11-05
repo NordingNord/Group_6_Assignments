@@ -29,3 +29,11 @@ bsp write
 bsp reload
 catch {bsp regenerate}
 platform generate -domains standalone_psu_cortexa53_0 
+platform active {u96v2_sbc_mp4d}
+platform config -updatehw {/home/frank/Documents/Git/Group_6_Assignments/hdl/projects/u96v2_sbc_mp4d_2020_2/u96v2_sbc_mp4d.xsa}
+platform generate -domains 
+platform config -updatehw {/home/frank/Documents/Git/Group_6_Assignments/hdl/projects/u96v2_sbc_mp4d_2020_2/u96v2_sbc_mp4d.xsa}
+platform generate -domains 
+platform clean
+platform clean
+platform generate

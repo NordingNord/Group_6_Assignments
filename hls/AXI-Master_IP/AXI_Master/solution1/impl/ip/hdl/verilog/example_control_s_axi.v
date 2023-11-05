@@ -31,6 +31,7 @@ module example_control_s_axi
     output wire                          interrupt,
     output wire [63:0]                   a,
     output wire [31:0]                   value_r,
+    output wire [0:0]                    done,
     output wire                          ap_start,
     input  wire                          ap_done,
     input  wire                          ap_ready,
@@ -63,6 +64,10 @@ module example_control_s_axi
 // 0x1c : Data signal of value_r
 //        bit 31~0 - value_r[31:0] (Read/Write)
 // 0x20 : reserved
+// 0x24 : Data signal of done
+//        bit 0  - done[0] (Read/Write)
+//        others - reserved
+// 0x28 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
@@ -76,6 +81,8 @@ localparam
     ADDR_A_CTRL         = 6'h18,
     ADDR_VALUE_R_DATA_0 = 6'h1c,
     ADDR_VALUE_R_CTRL   = 6'h20,
+    ADDR_DONE_DATA_0    = 6'h24,
+    ADDR_DONE_CTRL      = 6'h28,
     WRIDLE              = 2'd0,
     WRDATA              = 2'd1,
     WRRESP              = 2'd2,
@@ -108,6 +115,7 @@ localparam
     reg  [1:0]                    int_isr = 2'b0;
     reg  [63:0]                   int_a = 'b0;
     reg  [31:0]                   int_value_r = 'b0;
+    reg  [0:0]                    int_done = 'b0;
 
 //------------------------Instantiation------------------
 
@@ -225,6 +233,9 @@ always @(posedge ACLK) begin
                 ADDR_VALUE_R_DATA_0: begin
                     rdata <= int_value_r[31:0];
                 end
+                ADDR_DONE_DATA_0: begin
+                    rdata <= int_done[0:0];
+                end
             endcase
         end
     end
@@ -236,6 +247,7 @@ assign interrupt = int_gie & (|int_isr);
 assign ap_start  = int_ap_start;
 assign a         = int_a;
 assign value_r   = int_value_r;
+assign done      = int_done;
 // int_ap_start
 always @(posedge ACLK) begin
     if (ARESET)
@@ -359,6 +371,16 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_VALUE_R_DATA_0)
             int_value_r[31:0] <= (WDATA[31:0] & wmask) | (int_value_r[31:0] & ~wmask);
+    end
+end
+
+// int_done[0:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_done[0:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_DONE_DATA_0)
+            int_done[0:0] <= (WDATA[31:0] & wmask) | (int_done[0:0] & ~wmask);
     end
 end
 
