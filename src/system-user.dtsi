@@ -27,3 +27,7 @@
 &axi_dma_0 {
 	compatible = "generic-uio";
 };
+
+&Invert_0 {
+	compatible = "generic-uio";
+};
