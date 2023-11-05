@@ -1,6 +1,7 @@
 {"sourceFile": [{
       "name": "",
-      "directive": [{
+      "directive": [
+        {
           "functionName": "Invert",
           "label": "",
           "functionLabel": "",
@@ -11,5 +12,18 @@
                 "value": "Invert"
               }]
           }
-        }]
+        },
+        {
+          "functionName": "Invert",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "Invert"
+              }]
+          }
+        }
+      ]
     }]}

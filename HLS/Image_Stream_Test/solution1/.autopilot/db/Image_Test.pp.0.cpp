@@ -6424,49 +6424,91 @@ __attribute__((sdx_kernel("Invert", 0))) void Invert(hls::stream< ap_axiu<32,2,5
 #pragma hls interface s_axilite port=return
 
 
- ap_axiu<32,2,5,6> tmp;
+ ap_axiu<32,2,5,6> tmp, tmpout;
 
 
  volatile int R = 0;
  volatile int G = 0;
  volatile int B = 0;
- volatile int Mask = 0x00000000000000ff;
- volatile int indx = 0;
 
- volatile int Image[50*100];
 
- VITIS_LOOP_30_1: while(1){
+
+
+
+
+ volatile int Count = 0;
+ volatile int Old_R = 0;
+ volatile int Old_G = 0;
+ volatile int Current_Write = 0;
+ volatile int Write_Count = 0;
+ volatile int Inversed_Value = 0;
+ volatile int Inversed_Value_Old = 0;
+ volatile int Old_Data = 0;
+
+
+ VITIS_LOOP_41_1: while(1){
 
   tmp = Data_In.read();
-  Mask = 0x00000000000000ff;
-  VITIS_LOOP_34_2: for(int i = 0; i < 4; i++){
-   Image[indx] = (tmp.data.to_int() & Mask) >> (i*8);
-   Mask = Mask << 8;
-   indx++;
+
+
+  if(Count == 0){
+
+   R = (tmp.data.to_int() & 0x000000ff);
+   G = (tmp.data.to_int() & 0x0000ff00) >> 8;
+   B = (tmp.data.to_int() & 0x00ff0000) >> 16;
+   Old_R = (tmp.data.to_int() & 0xff000000) >> 24;
+   Count++;
+
+   Inversed_Value = 255-(0.299 * R + 0.587 * G + 0.114 * B);
   }
-# 54 "Image_Test.cpp"
+  else if(Count == 1){
+   R = Old_R;
+   G = (tmp.data.to_int() & 0x000000ff);
+   B = (tmp.data.to_int() & 0x0000ff00) >> 8;
+   Old_R = (tmp.data.to_int() & 0x00ff0000) >> 16;
+   Old_G = (tmp.data.to_int() & 0xff000000) >> 24;
+   Count ++;
+
+   Inversed_Value = 255-(0.299 * R + 0.587 * G + 0.114 * B);
+  }
+  else if(Count == 2){
+   R = Old_R;
+   G = Old_G;
+   B = (tmp.data.to_int() & 0x000000ff);
+
+   Inversed_Value = 255-(0.299 * R + 0.587 * G + 0.114 * B);
+
+   R = (tmp.data.to_int() & 0x0000ff00) >> 8;
+   G = (tmp.data.to_int() & 0x00ff0000) >> 16;
+   B = (tmp.data.to_int() & 0xff000000) >> 24;
+   Inversed_Value_Old = 255-(0.299 * R + 0.587 * G + 0.114 * B);
+   Old_Data = 1;
+
+  }
+
+  if(Write_Count == 0){
+   Current_Write = (Inversed_Value & 0xff) ;
+   Write_Count++;
+  }
+  else if(Write_Count == 1){
+   Current_Write = Current_Write | (Inversed_Value & 0xff) << 8;
+   Write_Count++;
+  }
+  else if(Write_Count == 2){
+   Current_Write = Current_Write | (Inversed_Value & 0xff) << 16;
+   Current_Write = Current_Write | (Inversed_Value_Old & 0xff) << 24;
+   tmpout.data = Current_Write;
+
+   Data_Out.write(tmpout);
+   Write_Count =0;
+  }
+
   if(tmp.last){
+   if(Write_Count != 0){
+    tmpout.data = Current_Write;
+    Data_Out.write(tmpout);
+   }
    break;
-  }
- }
-
-
- indx = 0;
- VITIS_LOOP_61_3: for(int j = 0; j < 50; j++){
-  VITIS_LOOP_62_4: for(int i = 0; i < 100; i++){
-   R = Image[indx];
-   indx++;
-   G = Image[indx];
-   indx++;
-   B = Image[indx];
-   indx++;
-
-   tmp.data = 0.299 * R + 0.587 * G + 0.114 * B;
-
-   tmp.data = 255-tmp.data;
-
-
-   Data_Out.write(tmp);
   }
  }
 }

@@ -7,7 +7,7 @@
 
 module Invert_dmul_64ns_64ns_64_6_max_dsp_1
 #(parameter
-    ID         = 2,
+    ID         = 7,
     NUM_STAGE  = 6,
     din0_WIDTH = 64,
     din1_WIDTH = 64,

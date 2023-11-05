@@ -10,8 +10,8 @@ add_files -tb Image_Test_tb.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-
 open_solution "solution1" -flow_target vivado
 set_part {xczu3eg-sbva484-1-e}
 create_clock -period 10 -name default
-#source "./Image_Stream_Test/solution1/directives.tcl"
+source "./Image_Stream_Test/solution1/directives.tcl"
 csim_design
 csynth_design
 cosim_design
-export_design -format ip_catalog
+export_design -rtl vhdl -format ip_catalog -output /home/benjamin/Invert.zip

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'Invert'" level="0">
-<item name = "Date">Sat Nov  4 18:26:56 2023
+<item name = "Date">Sun Nov  5 13:33:49 2023
 </item>
 <item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
 <item name = "Project">Image_Stream_Test</item>
@@ -35,8 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_30_1">?, ?, 4, 4, 1, ?, yes</column>
-<column name="- VITIS_LOOP_61_3_VITIS_LOOP_62_4">10022, 10022, 25, 2, 1, 5000, yes</column>
+<column name="- VITIS_LOOP_41_1">?, ?, 29, 1, 1, ?, yes</column>
 </table>
 </item>
 </section>

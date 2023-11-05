@@ -44,7 +44,10 @@
   },
   "HlsSolution": {
     "FlowTarget": "vivado",
-    "DirectiveTcl": ["set_directive_top Invert -name Invert"],
+    "DirectiveTcl": [
+      "set_directive_top Invert -name Invert",
+      "set_directive_top Invert -name Invert"
+    ],
     "ProfileOption": "0",
     "ProfileType": "none",
     "KernelName": "Invert"
@@ -76,7 +79,7 @@
       "impl\/vhdl\/Invert_control_s_axi.vhd",
       "impl\/vhdl\/Invert_dadd_64ns_64ns_64_5_full_dsp_1.vhd",
       "impl\/vhdl\/Invert_dmul_64ns_64ns_64_6_max_dsp_1.vhd",
-      "impl\/vhdl\/Invert_Image.vhd",
+      "impl\/vhdl\/Invert_dsub_64ns_64ns_64_5_full_dsp_1.vhd",
       "impl\/vhdl\/Invert_regslice_both.vhd",
       "impl\/vhdl\/Invert_sitodp_32ns_64_4_no_dsp_1.vhd",
       "impl\/vhdl\/Invert.vhd"
@@ -85,7 +88,7 @@
       "impl\/verilog\/Invert_control_s_axi.v",
       "impl\/verilog\/Invert_dadd_64ns_64ns_64_5_full_dsp_1.v",
       "impl\/verilog\/Invert_dmul_64ns_64ns_64_6_max_dsp_1.v",
-      "impl\/verilog\/Invert_Image.v",
+      "impl\/verilog\/Invert_dsub_64ns_64ns_64_5_full_dsp_1.v",
       "impl\/verilog\/Invert_regslice_both.v",
       "impl\/verilog\/Invert_sitodp_32ns_64_4_no_dsp_1.v",
       "impl\/verilog\/Invert.v"
@@ -104,6 +107,7 @@
     "Subcore": [
       "impl\/misc\/Invert_ap_dadd_3_full_dsp_64_ip.tcl",
       "impl\/misc\/Invert_ap_dmul_4_max_dsp_64_ip.tcl",
+      "impl\/misc\/Invert_ap_dsub_3_full_dsp_64_ip.tcl",
       "impl\/misc\/Invert_ap_sitodp_2_no_dsp_32_ip.tcl"
     ],
     "DesignXml": ".autopilot\/db\/Invert.design.xml",
@@ -123,6 +127,11 @@
         "Name": "Invert_ap_dmul_4_max_dsp_64",
         "Vlnv": "xilinx.com:ip:floating_point:7.1",
         "Params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 4 CONFIG.c_mult_usage Max_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name Invert_ap_dmul_4_max_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "Invert_ap_dsub_3_full_dsp_64",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Double CONFIG.a_tuser_width 1 CONFIG.add_sub_value Subtract CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 11 CONFIG.c_a_fraction_width 53 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 3 CONFIG.c_mult_usage Full_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name Invert_ap_dsub_3_full_dsp_64 CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Add_Subtract CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
       },
       {
         "Name": "Invert_ap_sitodp_2_no_dsp_32",
@@ -580,35 +589,26 @@
           "Uncertainty": "2.70",
           "Estimate": "7.098"
         },
-        "Loops": [
-          {
-            "Name": "VITIS_LOOP_30_1",
+        "Loops": [{
+            "Name": "VITIS_LOOP_41_1",
             "TripCount": "",
             "Latency": "",
-            "PipelineII": "4",
-            "PipelineDepth": "4"
-          },
-          {
-            "Name": "VITIS_LOOP_61_3_VITIS_LOOP_62_4",
-            "TripCount": "5000",
-            "Latency": "10022",
-            "PipelineII": "2",
-            "PipelineDepth": "25"
-          }
-        ],
+            "PipelineII": "1",
+            "PipelineDepth": "29"
+          }],
         "Area": {
-          "BRAM_18K": "11",
+          "BRAM_18K": "0",
           "AVAIL_BRAM": "432",
-          "UTIL_BRAM": "2",
-          "DSP": "25",
+          "UTIL_BRAM": "0",
+          "DSP": "84",
           "AVAIL_DSP": "360",
-          "UTIL_DSP": "6",
-          "FF": "2138",
+          "UTIL_DSP": "23",
+          "FF": "6489",
           "AVAIL_FF": "141120",
-          "UTIL_FF": "1",
-          "LUT": "2602",
+          "UTIL_FF": "4",
+          "LUT": "10962",
           "AVAIL_LUT": "70560",
-          "UTIL_LUT": "3",
+          "UTIL_LUT": "15",
           "URAM": "0",
           "AVAIL_URAM": "0",
           "UTIL_URAM": "0"
@@ -618,7 +618,7 @@
   "GenerateBdFiles": "1",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2023-11-04 18:27:00 CET",
+    "Time": "2023-11-05 13:33:55 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.2"
   }

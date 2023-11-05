@@ -7,7 +7,7 @@ use ieee.std_logic_1164.all;
 
 entity Invert_sitodp_32ns_64_4_no_dsp_1 is
     generic (
-        ID         : integer := 4;
+        ID         : integer := 13;
         NUM_STAGE  : integer := 4;
         din0_WIDTH : integer := 32;
         dout_WIDTH : integer := 64
