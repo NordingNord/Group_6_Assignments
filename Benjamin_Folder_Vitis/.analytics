@@ -34,3 +34,37 @@ timestamp=[2023-11-05 18:16:14], mode=WORKBENCH_UI_INIT, duration=0:00:02.011, d
 timestamp=[2023-11-05 18:18:17], mode=APP_CREATION, duration=0:00:46.619, duration_ms=46619, data={name=Inverse_Grayscale_Baremetal, project_type=sdk, os=standalone, processor=psu_cortexa53, runtime=cpp, platform=u96v2_sbc_mp4d_2, application_type=application}
 timestamp=[2023-11-05 18:22:20], mode=PLATFORM_GENERATION, duration=0:00:58.726, duration_ms=58726, data={name=u96v2_sbc_mp4d_2}
 timestamp=[2023-11-05 18:22:35], mode=BUILD, duration=0:00:00.710, duration_ms=710, data={name=Inverse_Grayscale_Baremetal, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 20:54:51], mode=WORKBENCH_START, duration=0:00:20.137, duration_ms=20137, data={}
+timestamp=[2023-11-05 20:54:52], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.245, duration_ms=245, data={}
+timestamp=[2023-11-05 20:54:54], mode=WORKBENCH_UI_INIT, duration=0:00:02.363, duration_ms=2363, data={editors_count=3, platform_editors_count=1, projects_count=10, platform_projects_count=3, active_platform_editor=false, projects=Inverse_Fixed,Inverse_Fixed_system,Inverse_Grayscale_Baremetal,Inverse_Grayscale_Baremetal_system,Inverse_Stream_BareMetal,Inverse_Stream_BareMetal_system,RemoteSystemsTempFiles,u96v2_sbc_mp4d,u96v2_sbc_mp4d_1,u96v2_sbc_mp4d_2}
+timestamp=[2023-11-05 20:58:39], mode=APP_CREATION, duration=0:00:46.367, duration_ms=46367, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, project_type=sdk, os=standalone, processor=psu_cortexa53, runtime=cpp, platform=u96v2_sbc_mp4d_3, application_type=application}
+timestamp=[2023-11-05 21:07:41], mode=PLATFORM_GENERATION, duration=0:00:58.220, duration_ms=58220, data={name=u96v2_sbc_mp4d_3}
+timestamp=[2023-11-05 21:07:59], mode=BUILD, duration=0:00:00.417, duration_ms=417, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 21:08:40], mode=BUILD, duration=0:00:00.349, duration_ms=349, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=true}
+timestamp=[2023-11-05 21:08:41], mode=BUILD, duration=0:00:00.543, duration_ms=543, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 21:12:40], mode=WORKBENCH_START, duration=0:00:17.354, duration_ms=17354, data={}
+timestamp=[2023-11-05 21:12:41], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.238, duration_ms=238, data={}
+timestamp=[2023-11-05 21:12:42], mode=WORKBENCH_UI_INIT, duration=0:00:02.411, duration_ms=2411, data={editors_count=1, platform_editors_count=0, projects_count=13, platform_projects_count=4, active_platform_editor=false, projects=Inverse_Fixed,Inverse_Fixed_system,Inverse_Grayscale_Baremetal,Inverse_Grayscale_Baremetal_system,Inverse_Grayscale_Final_Bare_Metal_Test,Inverse_Grayscale_Final_Bare_Metal_Test_system,Inverse_Stream_BareMetal,Inverse_Stream_BareMetal_system,RemoteSystemsTempFiles,u96v2_sbc_mp4d,u96v2_sbc_mp4d_1,u96v2_sbc_mp4d_2,u96v2_sbc_mp4d_3}
+timestamp=[2023-11-05 21:18:00], mode=WORKBENCH_START, duration=0:00:16.780, duration_ms=16780, data={}
+timestamp=[2023-11-05 21:18:01], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.262, duration_ms=262, data={}
+timestamp=[2023-11-05 21:18:03], mode=WORKBENCH_UI_INIT, duration=0:00:02.309, duration_ms=2309, data={editors_count=1, platform_editors_count=0, projects_count=13, platform_projects_count=4, active_platform_editor=false, projects=Inverse_Fixed,Inverse_Fixed_system,Inverse_Grayscale_Baremetal,Inverse_Grayscale_Baremetal_system,Inverse_Grayscale_Final_Bare_Metal_Test,Inverse_Grayscale_Final_Bare_Metal_Test_system,Inverse_Stream_BareMetal,Inverse_Stream_BareMetal_system,RemoteSystemsTempFiles,u96v2_sbc_mp4d,u96v2_sbc_mp4d_1,u96v2_sbc_mp4d_2,u96v2_sbc_mp4d_3}
+timestamp=[2023-11-05 21:52:50], mode=PLATFORM_GENERATION, duration=0:00:45.303, duration_ms=45303, data={name=u96v2_sbc_mp4d_3}
+timestamp=[2023-11-05 21:53:06], mode=BUILD, duration=0:00:00.459, duration_ms=459, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 21:53:23], mode=BUILD, duration=0:00:00.718, duration_ms=718, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 21:53:38], mode=BUILD, duration=0:00:00.596, duration_ms=596, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 21:53:49], mode=BUILD, duration=0:00:00.696, duration_ms=696, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 21:54:47], mode=BUILD, duration=0:00:00.700, duration_ms=700, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 21:55:01], mode=BUILD, duration=0:00:00.698, duration_ms=698, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 22:02:01], mode=BUILD, duration=0:00:00.353, duration_ms=353, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 22:14:47], mode=BUILD, duration=0:00:00.444, duration_ms=444, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 22:17:11], mode=BUILD, duration=0:00:00.746, duration_ms=746, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 22:17:58], mode=BUILD, duration=0:00:00.698, duration_ms=698, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 22:22:02], mode=BUILD, duration=0:00:00.644, duration_ms=644, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 22:23:55], mode=BUILD, duration=0:00:00.646, duration_ms=646, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 22:24:26], mode=BUILD, duration=0:00:00.350, duration_ms=350, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 22:28:29], mode=BUILD, duration=0:00:00.742, duration_ms=742, data={name=Inverse_Grayscale_Final_Bare_Metal_Test, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 23:18:56], mode=WORKBENCH_START, duration=0:00:18.463, duration_ms=18463, data={}
+timestamp=[2023-11-05 23:18:57], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.324, duration_ms=324, data={}
+timestamp=[2023-11-05 23:18:59], mode=WORKBENCH_UI_INIT, duration=0:00:02.789, duration_ms=2789, data={editors_count=1, platform_editors_count=0, projects_count=13, platform_projects_count=4, active_platform_editor=false, projects=Inverse_Fixed,Inverse_Fixed_system,Inverse_Grayscale_Baremetal,Inverse_Grayscale_Baremetal_system,Inverse_Grayscale_Final_Bare_Metal_Test,Inverse_Grayscale_Final_Bare_Metal_Test_system,Inverse_Stream_BareMetal,Inverse_Stream_BareMetal_system,RemoteSystemsTempFiles,u96v2_sbc_mp4d,u96v2_sbc_mp4d_1,u96v2_sbc_mp4d_2,u96v2_sbc_mp4d_3}
+timestamp=[2023-11-05 23:21:24], mode=PLATFORM_GENERATION, duration=0:00:41.337, duration_ms=41337, data={name=u96v2_sbc_mp4d_2}
+timestamp=[2023-11-05 23:21:42], mode=BUILD, duration=0:00:00.710, duration_ms=710, data={name=Inverse_Grayscale_Baremetal, configuration=Debug, clean_build=false}
