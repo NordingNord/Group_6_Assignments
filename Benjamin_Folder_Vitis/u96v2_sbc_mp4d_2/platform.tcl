@@ -27,3 +27,6 @@ bsp write
 bsp reload
 catch {bsp regenerate}
 platform generate
+platform active {u96v2_sbc_mp4d_2}
+platform config -updatehw {/home/benjamin/Group_6_Assignments/hdl/projects/u96v2_sbc_mp4d_2020_2/u96v2_sbc_mp4d.xsa}
+platform generate
