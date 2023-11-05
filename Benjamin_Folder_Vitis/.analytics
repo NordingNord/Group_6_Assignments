@@ -1,0 +1,36 @@
+timestamp=[2023-11-05 15:12:00], mode=WORKBENCH_START, duration=0:00:10.517, duration_ms=10517, data={}
+timestamp=[2023-11-05 15:12:00], mode=WORKBENCH_UI_INIT, duration=0:00:00.740, duration_ms=740, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2023-11-05 15:12:06], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:06.292, duration_ms=6292, data={}
+timestamp=[2023-11-05 15:15:45], mode=APP_CREATION, duration=0:00:45.669, duration_ms=45669, data={name=Inverse_Stream_BareMetal, project_type=sdk, os=standalone, processor=psu_cortexa53, runtime=cpp, platform=u96v2_sbc_mp4d, application_type=application}
+timestamp=[2023-11-05 15:23:02], mode=PLATFORM_GENERATION, duration=0:00:57.865, duration_ms=57865, data={name=u96v2_sbc_mp4d}
+timestamp=[2023-11-05 15:23:18], mode=BUILD, duration=0:00:00.727, duration_ms=727, data={name=Inverse_Stream_BareMetal, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 15:25:51], mode=BUILD, duration=0:00:00.595, duration_ms=595, data={name=Inverse_Stream_BareMetal, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 15:34:57], mode=BUILD, duration=0:00:00.592, duration_ms=592, data={name=Inverse_Stream_BareMetal, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 15:39:09], mode=BUILD, duration=0:00:00.590, duration_ms=590, data={name=Inverse_Stream_BareMetal, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 16:26:38], mode=APP_CREATION, duration=0:00:42.836, duration_ms=42836, data={name=Inverse_Fixed, project_type=sdk, os=standalone, processor=psu_cortexa53, runtime=cpp, platform=u96v2_sbc_mp4d_1, application_type=application}
+timestamp=[2023-11-05 16:30:06], mode=PLATFORM_GENERATION, duration=0:00:57.307, duration_ms=57307, data={name=u96v2_sbc_mp4d_1}
+timestamp=[2023-11-05 16:30:20], mode=BUILD, duration=0:00:00.746, duration_ms=746, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 16:44:27], mode=BUILD, duration=0:00:00.599, duration_ms=599, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 16:45:58], mode=BUILD, duration=0:00:00.660, duration_ms=660, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 16:54:03], mode=BUILD, duration=0:00:00.644, duration_ms=644, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 16:56:15], mode=BUILD, duration=0:00:00.593, duration_ms=593, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:06:22], mode=BUILD, duration=0:00:00.593, duration_ms=593, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:08:35], mode=BUILD, duration=0:00:00.401, duration_ms=401, data={name=Inverse_Stream_BareMetal, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:09:52], mode=BUILD, duration=0:00:00.347, duration_ms=347, data={name=Inverse_Stream_BareMetal, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:10:51], mode=BUILD, duration=0:00:00.597, duration_ms=597, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:13:00], mode=BUILD, duration=0:00:00.652, duration_ms=652, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:13:51], mode=BUILD, duration=0:00:00.593, duration_ms=593, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:20:14], mode=BUILD, duration=0:00:00.594, duration_ms=594, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:22:45], mode=BUILD, duration=0:00:00.445, duration_ms=445, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:23:06], mode=BUILD, duration=0:00:00.598, duration_ms=598, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:23:54], mode=BUILD, duration=0:00:00.594, duration_ms=594, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:28:46], mode=BUILD, duration=0:00:00.643, duration_ms=643, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:30:08], mode=BUILD, duration=0:00:00.645, duration_ms=645, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:31:58], mode=BUILD, duration=0:00:00.644, duration_ms=644, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 17:33:08], mode=BUILD, duration=0:00:00.708, duration_ms=708, data={name=Inverse_Fixed, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 18:16:12], mode=WORKBENCH_START, duration=0:00:17.917, duration_ms=17917, data={}
+timestamp=[2023-11-05 18:16:13], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.240, duration_ms=240, data={}
+timestamp=[2023-11-05 18:16:14], mode=WORKBENCH_UI_INIT, duration=0:00:02.011, duration_ms=2011, data={editors_count=2, platform_editors_count=1, projects_count=7, platform_projects_count=2, active_platform_editor=false, projects=Inverse_Fixed,Inverse_Fixed_system,Inverse_Stream_BareMetal,Inverse_Stream_BareMetal_system,RemoteSystemsTempFiles,u96v2_sbc_mp4d,u96v2_sbc_mp4d_1}
+timestamp=[2023-11-05 18:18:17], mode=APP_CREATION, duration=0:00:46.619, duration_ms=46619, data={name=Inverse_Grayscale_Baremetal, project_type=sdk, os=standalone, processor=psu_cortexa53, runtime=cpp, platform=u96v2_sbc_mp4d_2, application_type=application}
+timestamp=[2023-11-05 18:22:20], mode=PLATFORM_GENERATION, duration=0:00:58.726, duration_ms=58726, data={name=u96v2_sbc_mp4d_2}
+timestamp=[2023-11-05 18:22:35], mode=BUILD, duration=0:00:00.710, duration_ms=710, data={name=Inverse_Grayscale_Baremetal, configuration=Debug, clean_build=false}
