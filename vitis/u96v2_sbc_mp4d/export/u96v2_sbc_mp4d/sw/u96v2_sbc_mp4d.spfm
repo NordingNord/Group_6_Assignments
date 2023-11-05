@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdx:platform sdx:vendor="xilinx.com"
+              sdx:library="sdx"
+              sdx:name="u96v2_sbc_mp4d"
+              sdx:version="1.0"
+              sdx:schemaVersion="1.0"
+              xmlns:sdx="http://www.xilinx.com/sdx">
+    <sdx:description>
+u96v2_sbc_mp4d
+    </sdx:description>
+    <sdx:systemConfigurations sdx:defaultConfiguration="u96v2_sbc_mp4d">
+        <sdx:configuration sdx:name="u96v2_sbc_mp4d"
+                           sdx:displayName="u96v2_sbc_mp4d"
+                           sdx:defaultProcessorGroup="standalone_psu_cortexa53_0"
+                           sdx:runtimes="cpp">
+            <sdx:description>u96v2_sbc_mp4d</sdx:description>
+            <sdx:bootImages sdx:default="standard">
+                <sdx:image sdx:name="standard"
+                            sdx:bif="u96v2_sbc_mp4d/boot/u96v2_sbc_mp4d.bif"
+                            sdx:readme="u96v2_sbc_mp4d/boot/generic.readme"
+                            sdx:qemuArguments="u96v2_sbc_mp4d/qemu/pmu_args.txt:u96v2_sbc_mp4d/qemu/qemu_args.txt"
+                            />
+                <sdx:image sdx:name="standalone_psu_cortexa53_0"
+                            sdx:bif="u96v2_sbc_mp4d/boot/u96v2_sbc_mp4d.bif"
+                            sdx:readme="u96v2_sbc_mp4d/boot/generic.readme"
+                            sdx:qemuArguments="u96v2_sbc_mp4d/standalone_psu_cortexa53_0/qemu/pmu_args.txt:u96v2_sbc_mp4d/standalone_psu_cortexa53_0/qemu/qemu_args.txt"
+                            />
+            </sdx:bootImages>
+            <sdx:processorGroup sdx:name="standalone_psu_cortexa53_0"
+                                sdx:displayName="standalone_psu_cortexa53_0"
+                                sdx:cpuType="cortex-a53"
+                                sdx:cpuInstance="psu_cortexa53_0">
+                <sdx:os sdx:name="standalone"
+                        sdx:displayName="standalone"
+                        sdx:bspLibraryPaths="u96v2_sbc_mp4d/standalone_psu_cortexa53_0/bsplib/lib"
+                        sdx:bspIncludePaths="u96v2_sbc_mp4d/standalone_psu_cortexa53_0/bspinclude/include"
+                        sdx:bspConfig="u96v2_sbc_mp4d/standalone_psu_cortexa53_0/system.mss"
+                />
+            </sdx:processorGroup>
+        </sdx:configuration>
+    </sdx:systemConfigurations>
+</sdx:platform>
