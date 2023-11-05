@@ -78,3 +78,6 @@ timestamp=[2023-11-05 14:06:55], mode=PLATFORM_GENERATION, duration=0:00:55.869,
 timestamp=[2023-11-05 14:07:06], mode=BUILD, duration=0:00:01.646, duration_ms=1646, data={name=AXI_Master_AddValue_done, configuration=Debug, clean_build=false}
 timestamp=[2023-11-05 14:13:26], mode=PLATFORM_GENERATION, duration=0:00:18.856, duration_ms=18856, data={name=u96v2_sbc_mp4d_1}
 timestamp=[2023-11-05 14:13:40], mode=BUILD, duration=0:00:01.674, duration_ms=1674, data={name=AXI_Master_AddValue_done, configuration=Debug, clean_build=false}
+timestamp=[2023-11-05 14:47:42], mode=WORKBENCH_START, duration=0:00:14.674, duration_ms=14674, data={}
+timestamp=[2023-11-05 14:47:42], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:00.149, duration_ms=149, data={}
+timestamp=[2023-11-05 14:47:44], mode=WORKBENCH_UI_INIT, duration=0:00:02.830, duration_ms=2830, data={editors_count=15, platform_editors_count=8, projects_count=7, platform_projects_count=2, active_platform_editor=false, projects=AXI_Master_AddValue_done,AXI_Master_AddValue_done_system,AXI_Master_ReadImage_AddValue,AXI_Master_ReadImage_AddValue_system,RemoteSystemsTempFiles,u96v2_sbc_mp4d,u96v2_sbc_mp4d_1}

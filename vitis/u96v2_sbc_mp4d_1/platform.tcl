@@ -29,3 +29,5 @@ bsp reload
 catch {bsp regenerate}
 bsp write
 platform generate -domains standalone_psu_cortexa53_0 
+platform active {u96v2_sbc_mp4d_1}
+bsp reload
