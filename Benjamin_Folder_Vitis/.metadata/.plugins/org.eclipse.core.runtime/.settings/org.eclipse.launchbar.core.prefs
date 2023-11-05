@@ -1,0 +1,7 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Debugger_Inverse_Stream_BareMetal-Default,org.eclipse.launchbar.core.descriptorType.default\:Debugger_Inverse_Fixed-Default,org.eclipse.launchbar.core.descriptorType.default\:Debugger_Inverse_Grayscale_Baremetal-Default,org.eclipse.launchbar.core.descriptorType.default\:Debugger_Inverse_Grayscale_Final_Bare_Metal_Test-Default
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:Debugger_Inverse_Stream_BareMetal-Default/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Debugger_Inverse_Stream_BareMetal-Default/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

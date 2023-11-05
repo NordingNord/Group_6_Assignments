@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item key="sdx.custom.platform.repository.locations" value="/home/frank/Documents/Git/Group_6_Assignments/vitis/u96v2_sbc_mp4d/export/u96v2_sbc_mp4d"/>
-	<item key="sdx.custom.platform.repository.last.directory.dialog.location" value="/home/frank/Documents/Git/Group_6_Assignments/vitis/u96v2_sbc_mp4d/export/u96v2_sbc_mp4d"/>
+	<item key="sdx.custom.platform.repository.locations" value="/home/frank/Documents/Git/Group_6_Assignments/vitis/u96v2_sbc_mp4d/export/u96v2_sbc_mp4d;/home/benjamin/Group_6_Assignments/vitis/u96v2_sbc_mp4d_1/export/u96v2_sbc_mp4d_1"/>
+	<item key="sdx.custom.platform.repository.last.directory.dialog.location" value="/home/benjamin/Group_6_Assignments/vitis/u96v2_sbc_mp4d_1/export/u96v2_sbc_mp4d_1"/>
 </section>
